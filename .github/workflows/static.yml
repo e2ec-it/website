@@ -34,10 +34,12 @@ jobs:
       - name: Inject Commit SHA into index.html
         run: |
           echo "---- before ----"
+          ls -a
           grep -n "COMMIT_SHA" index.html || true
           SHA=$(git rev-parse --short=7 HEAD)
           sed -i "s/___COMMIT_SHA___/$SHA/g" index.html
           echo "---- after ----"
+          ls -a
           grep -n "COMMIT_SHA" index.html || true
       - name: Setup Pages
         uses: actions/configure-pages@v5
