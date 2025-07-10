@@ -14,719 +14,540 @@
 <style>
 :where([class^="ri-"])::before { content: "\f3c2"; }
 body {
-font-family: 'Roboto', sans-serif;
-background-color: #0A0A1F;
-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  background-color: #0A0A1F;
+  color: #ffffff;
 }
 .language-selector {
-position: relative;
+  position: relative;
 }
 .language-options {
-display: none;
-position: absolute;
-top: 100%;
-right: 0;
-background-color: #1A1A3F;
-border-radius: 8px;
-overflow: hidden;
-width: 160px;
-z-index: 50;
-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #1A1A3F;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 160px;
+  z-index: 50;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 .language-selector:hover .language-options {
-display: block;
+  display: block;
 }
 .nav-link {
-position: relative;
+  position: relative;
 }
 .nav-link::after {
-content: '';
-position: absolute;
-bottom: -5px;
-left: 0;
-width: 0;
-height: 2px;
-background-color: #00F0FF;
-transition: width 0.3s ease;
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #00F0FF;
+  transition: width 0.3s ease;
 }
 .nav-link:hover::after {
-width: 100%;
+  width: 100%;
 }
 .tos-section {
-border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 .tos-section:last-child {
-border-bottom: none;
+  border-bottom: none;
 }
 .tos-link {
-color: #00F0FF;
-transition: all 0.3s ease;
+  color: #00F0FF;
+  transition: all 0.3s ease;
 }
 .tos-link:hover {
-text-decoration: underline;
-color: #B026FF;
+  text-decoration: underline;
+  color: #B026FF;
 }
 .back-to-top {
-opacity: 0;
-visibility: hidden;
-transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
 }
 .back-to-top.visible {
-opacity: 1;
-visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
 </style>
 </head>
 <body>
 <!-- Header Section -->
 <header class="fixed top-0 left-0 w-full bg-opacity-90 bg-[#0A0A1F] backdrop-blur-md z-50">
-<div class="container mx-auto px-6 py-4">
-<div class="flex justify-between items-center">
-<div class="flex items-center">
-<a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca" data-readdy="true" class="text-3xl font-['-apple-system,BlinkMacSystemFont,SF_Pro_Display,Helvetica_Neue,Arial'] font-medium text-white">
-<div class="flex items-center">
-<img src="https://static.readdy.ai/image/53a4d54aa374b01413a309defbaefd8a/890389b5e509c8efbf5dd3ca6b3b0c06.png" alt="Logo" class="h-10 w-10 mr-3">
-<span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tracking-tight">E2E Consulting</span>
-</div>
-</a>
-</div>
-<div class="hidden md:flex items-center space-x-8">
-<a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca" data-readdy="true" class="nav-link text-white hover:text-primary transition-colors duration-300">
-<span class="lang-en">Home</span>
-<span class="lang-zh hidden">首页</span>
-<span class="lang-ja hidden">ホーム</span>
-</a>
-<a href="#" class="nav-link text-white hover:text-primary transition-colors duration-300">
-<span class="lang-en">Services</span>
-<span class="lang-zh hidden">服务</span>
-<span class="lang-ja hidden">サービス</span>
-</a>
-<a href="#" class="nav-link text-white hover:text-primary transition-colors duration-300">
-<span class="lang-en">Products</span>
-<span class="lang-zh hidden">产品</span>
-<span class="lang-ja hidden">製品</span>
-</a>
-<a href="#" class="nav-link text-white hover:text-primary transition-colors duration-300">
-<span class="lang-en">About</span>
-<span class="lang-zh hidden">关于我们</span>
-<span class="lang-ja hidden">会社概要</span>
-</a>
-<a href="#" class="nav-link text-white hover:text-primary transition-colors duration-300">
-<span class="lang-en">Contact</span>
-<span class="lang-zh hidden">联系我们</span>
-<span class="lang-ja hidden">お問い合わせ</span>
-</a>
-<div class="language-selector">
-<button class="flex items-center space-x-1 text-white hover:text-primary transition-colors duration-300 whitespace-nowrap !rounded-button">
-<div class="w-6 h-6 flex items-center justify-center">
-<i class="ri-global-line ri-lg"></i>
-</div>
-<span class="current-language">English</span>
-<div class="w-4 h-4 flex items-center justify-center">
-<i class="ri-arrow-down-s-line"></i>
-</div>
-</button>
-<div class="language-options">
-<button class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="en">English</button>
-<button class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="zh">简体中文</button>
-<button class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="ja">日本語</button>
-</div>
-</div>
-</div>
-<div class="md:hidden">
-<button id="mobile-menu-button" class="text-white focus:outline-none whitespace-nowrap !rounded-button">
-<div class="w-8 h-8 flex items-center justify-center">
-<i class="ri-menu-line ri-2x"></i>
-</div>
-</button>
-</div>
-</div>
-<!-- Mobile Menu -->
-<div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
-<div class="flex flex-col space-y-4">
-<a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca" data-readdy="true" class="text-white hover:text-primary transition-colors duration-300">
-<span class="lang-en">Home</span>
-<span class="lang-zh hidden">首页</span>
-<span class="lang-ja hidden">ホーム</span>
-</a>
-<a href="#" class="text-white hover:text-primary transition-colors duration-300">
-<span class="lang-en">Services</span>
-<span class="lang-zh hidden">服务</span>
-<span class="lang-ja hidden">サービス</span>
-</a>
-<a href="#" class="text-white hover:text-primary transition-colors duration-300">
-<span class="lang-en">Products</span>
-<span class="lang-zh hidden">产品</span>
-<span class="lang-ja hidden">製品</span>
-</a>
-<a href="#" class="text-white hover:text-primary transition-colors duration-300">
-<span class="lang-en">About</span>
-<span class="lang-zh hidden">关于我们</span>
-<span class="lang-ja hidden">会社概要</span>
-</a>
-<a href="#" class="text-white hover:text-primary transition-colors duration-300">
-<span class="lang-en">Contact</span>
-<span class="lang-zh hidden">联系我们</span>
-<span class="lang-ja hidden">お問い合わせ</span>
-</a>
-<div class="pt-2 border-t border-gray-700">
-<div class="flex flex-col space-y-2">
-<button class="text-left px-2 py-1 hover:bg-[#2A2A5F] rounded transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="en">English</button>
-<button class="text-left px-2 py-1 hover:bg-[#2A2A5F] rounded transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="zh">简体中文</button>
-<button class="text-left px-2 py-1 hover:bg-[#2A2A5F] rounded transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="ja">日本語</button>
-</div>
-</div>
-</div>
-</div>
-</div>
+  <div class="container mx-auto px-6 py-4">
+    <div class="flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="/index.html" data-readdy="true" class="text-3xl font-['-apple-system,BlinkMacSystemFont,SF_Pro_Display,Helvetica_Neue,Arial'] font-medium text-white">
+          <div class="flex items-center">
+            <img src="/images/890389b5e509c8efbf5dd3ca6b3b0c06.png" alt="Logo" class="h-10 w-10 mr-3">
+            <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tracking-tight">E2E Consulting</span>
+          </div>
+        </a>
+      </div>
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="/index.html" data-readdy="true" class="nav-link text-white hover:text-primary transition-colors duration-300">
+          <span class="lang-en">Home</span>
+          <span class="lang-zh hidden">首页</span>
+          <span class="lang-ja hidden">ホーム</span>
+        </a>
+        <a href="/index.html#services" class="nav-link text-white hover:text-primary transition-colors duration-300">
+          <span class="lang-en">Services</span>
+          <span class="lang-zh hidden">服务</span>
+          <span class="lang-ja hidden">サービス</span>
+        </a>
+        <a href="/index.html#products" class="nav-link text-white hover:text-primary transition-colors duration-300">
+          <span class="lang-en">Products</span>
+          <span class="lang-zh hidden">产品</span>
+          <span class="lang-ja hidden">製品</span>
+        </a>
+        <a href="/index.html#about" class="nav-link text-white hover:text-primary transition-colors duration-300">
+          <span class="lang-en">About</span>
+          <span class="lang-zh hidden">关于我们</span>
+          <span class="lang-ja hidden">会社概要</span>
+        </a>
+        <a href="/index.html#contact" class="nav-link text-white hover:text-primary transition-colors duration-300">
+          <span class="lang-en">Contact</span>
+          <span class="lang-zh hidden">联系我们</span>
+          <span class="lang-ja hidden">お問い合わせ</span>
+        </a>
+        <div class="language-selector">
+          <button class="flex items-center space-x-1 text-white hover:text-primary transition-colors duration-300 whitespace-nowrap !rounded-button">
+            <div class="w-6 h-6 flex items-center justify-center">
+              <i class="ri-global-line ri-lg"></i>
+            </div>
+            <span class="current-language">English</span>
+            <div class="w-4 h-4 flex items-center justify-center">
+              <i class="ri-arrow-down-s-line"></i>
+            </div>
+          </button>
+          <div class="language-options">
+            <button class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="en">English</button>
+            <button class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="zh">简体中文</button>
+            <button class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="ja">日本語</button>
+          </div>
+        </div>
+      </div>
+      <div class="md:hidden">
+        <button id="mobile-menu-button" class="text-white focus:outline-none whitespace-nowrap !rounded-button">
+          <div class="w-8 h-8 flex items-center justify-center">
+            <i class="ri-menu-line ri-2x"></i>
+          </div>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+      <div class="flex flex-col space-y-4">
+        <a href="/index.html" data-readdy="true" class="text-white hover:text-primary transition-colors duration-300">
+          <span class="lang-en">Home</span>
+          <span class="lang-zh hidden">首页</span>
+          <span class="lang-ja hidden">ホーム</span>
+        </a>
+        <a href="/index.html#services" class="text-white hover:text-primary transition-colors duration-300">
+          <span class="lang-en">Services</span>
+          <span class="lang-zh hidden">服务</span>
+          <span class="lang-ja hidden">サービス</span>
+        </a>
+        <a href="/index.html#products" class="text-white hover:text-primary transition-colors duration-300">
+          <span class="lang-en">Products</span>
+          <span class="lang-zh hidden">产品</span>
+          <span class="lang-ja hidden">製品</span>
+        </a>
+        <a href="/index.html#about" class="text-white hover:text-primary transition-colors duration-300">
+          <span class="lang-en">About</span>
+          <span class="lang-zh hidden">关于我们</span>
+          <span class="lang-ja hidden">会社概要</span>
+        </a>
+        <a href="/index.html#contact" class="text-white hover:text-primary transition-colors duration-300">
+          <span class="lang-en">Contact</span>
+          <span class="lang-zh hidden">联系我们</span>
+          <span class="lang-ja hidden">お問い合わせ</span>
+        </a>
+        <div class="pt-2 border-t border-gray-700">
+          <div class="flex flex-col space-y-2">
+            <button class="text-left px-2 py-1 hover:bg-[#2A2A5F] rounded transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="en">English</button>
+            <button class="text-left px-2 py-1 hover:bg-[#2A2A5F] rounded transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="zh">简体中文</button>
+            <button class="text-left px-2 py-1 hover:bg-[#2A2A5F] rounded transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="ja">日本語</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
+
 <!-- Terms of Service Content -->
-<main class="pt-28 pb-20 min-h-screen">
-<div class="container mx-auto px-6 max-w-4xl">
-<div class="flex flex-col items-center justify-center py-20">
-<div class="w-64 h-64 mb-8 relative">
-<img src="https://readdy.ai/api/search-image?query=3D%20render%20of%20a%20futuristic%20robot%20construction%20worker%20with%20glowing%20elements%2C%20working%20on%20digital%20circuits%20and%20holograms%2C%20clean%20minimal%20style%2C%20soft%20lighting%2C%20high-tech%20environment&width=512&height=512&seq=1&orientation=squarish" alt="Under Construction" class="w-full h-full object-cover rounded-2xl">
-</div>
-<h1 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent text-center">Under Construction</h1>
-<p class="text-xl text-gray-300 mb-8 text-center max-w-2xl">We're working hard to bring you something amazing. This page is currently under development and will be available soon.</p>
-<div class="flex flex-col sm:flex-row gap-4 items-center">
-<a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca" data-readdy="true" class="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-black font-semibold rounded-button hover:opacity-90 transition-opacity duration-300 flex items-center whitespace-nowrap">
-<div class="w-5 h-5 mr-2 flex items-center justify-center">
-<i class="ri-home-line"></i>
-</div>
-Return to Homepage
-</a>
-<button onclick="window.history.back()" class="px-8 py-3 border border-primary text-primary hover:bg-primary/10 transition-colors duration-300 font-semibold rounded-button flex items-center whitespace-nowrap">
-<div class="w-5 h-5 mr-2 flex items-center justify-center">
-<i class="ri-arrow-left-line"></i>
-</div>
-Go Back
-</button>
-</div>
-<div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-<div class="bg-[#1A1A3F] p-6 rounded-lg text-center">
-<div class="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center">
-<div class="w-6 h-6 flex items-center justify-center">
-<i class="ri-time-line text-black"></i>
-</div>
-</div>
-<h3 class="text-xl font-bold mb-2">Coming Soon</h3>
-<p class="text-gray-400">We're putting the finishing touches on this page.</p>
-</div>
-<div class="bg-[#1A1A3F] p-6 rounded-lg text-center">
-<div class="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center">
-<div class="w-6 h-6 flex items-center justify-center">
-<i class="ri-notification-line text-black"></i>
-</div>
-</div>
-<h3 class="text-xl font-bold mb-2">Stay Updated</h3>
-<p class="text-gray-400">Check back soon for exciting new content.</p>
-</div>
-<div class="bg-[#1A1A3F] p-6 rounded-lg text-center">
-<div class="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center">
-<div class="w-6 h-6 flex items-center justify-center">
-<i class="ri-customer-service-line text-black"></i>
-</div>
-</div>
-<h3 class="text-xl font-bold mb-2">Need Help?</h3>
-<p class="text-gray-400">Our support team is here to assist you.</p>
-</div>
-</div>
-</div>
-</div>
+<main class="pt-28 pb-20">
+  <div class="container mx-auto px-6 max-w-4xl">
+    <div class="mb-12 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Terms of Service</h1>
+      <p class="text-xl text-gray-300">Last updated: June 30, 2025</p>
+    </div>
+    
+    <!-- Table of Contents -->
+    <div class="mb-12 bg-[#1A1A3F] rounded-lg p-6">
+      <h2 class="text-2xl font-bold mb-4">Table of Contents</h2>
+      <ul class="space-y-2">
+        <li><a href="#introduction" class="tos-link flex items-center">
+          <div class="w-5 h-5 mr-2 flex items-center justify-center">
+            <i class="ri-arrow-right-s-line"></i>
+          </div>
+          Introduction
+        </a></li>
+        <li><a href="#service-usage" class="tos-link flex items-center">
+          <div class="w-5 h-5 mr-2 flex items-center justify-center">
+            <i class="ri-arrow-right-s-line"></i>
+          </div>
+          Service Usage
+        </a></li>
+        <li><a href="#user-responsibilities" class="tos-link flex items-center">
+          <div class="w-5 h-5 mr-2 flex items-center justify-center">
+            <i class="ri-arrow-right-s-line"></i>
+          </div>
+          User Responsibilities
+        </a></li>
+        <li><a href="#intellectual-property" class="tos-link flex items-center">
+          <div class="w-5 h-5 mr-2 flex items-center justify-center">
+            <i class="ri-arrow-right-s-line"></i>
+          </div>
+          Intellectual Property Rights
+        </a></li>
+        <li><a href="#limitation-liability" class="tos-link flex items-center">
+          <div class="w-5 h-5 mr-2 flex items-center justify-center">
+            <i class="ri-arrow-right-s-line"></i>
+          </div>
+          Limitation of Liability
+        </a></li>
+        <li><a href="#privacy-policy" class="tos-link flex items-center">
+          <div class="w-5 h-5 mr-2 flex items-center justify-center">
+            <i class="ri-arrow-right-s-line"></i>
+          </div>
+          Privacy Policy References
+        </a></li>
+        <li><a href="#termination" class="tos-link flex items-center">
+          <div class="w-5 h-5 mr-2 flex items-center justify-center">
+            <i class="ri-arrow-right-s-line"></i>
+          </div>
+          Termination Conditions
+        </a></li>
+        <li><a href="#governing-law" class="tos-link flex items-center">
+          <div class="w-5 h-5 mr-2 flex items-center justify-center">
+            <i class="ri-arrow-right-s-line"></i>
+          </div>
+          Governing Law
+        </a></li>
+        <li><a href="#contact-us" class="tos-link flex items-center">
+          <div class="w-5 h-5 mr-2 flex items-center justify-center">
+            <i class="ri-arrow-right-s-line"></i>
+          </div>
+          Contact Us
+        </a></li>
+      </ul>
+    </div>
+    
+    <!-- Introduction Section -->
+    <section id="introduction" class="tos-section py-10">
+      <h2 class="text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">1. Introduction</h2>
+      <p class="mb-4 text-gray-300">Welcome to E2E Consulting ("Company", "we", "our", "us"). These Terms of Service ("Terms", "Terms of Service") govern your use of our website, products, and services (collectively, "Services") operated by E2E Consulting.</p>
+      <p class="mb-4 text-gray-300">By accessing or using our Services, you agree to be bound by these Terms. If you disagree with any part of the terms, then you do not have permission to access or use our Services.</p>
+      <p class="mb-4 text-gray-300">We may modify these Terms at any time, and such modifications shall be effective immediately upon posting the modified Terms on this website. You agree to review these Terms periodically to be aware of such modifications, and your continued access or use of our Services shall be deemed your conclusive acceptance of the modified Terms.</p>
+    </section>
+    
+    <!-- Service Usage Section -->
+    <section id="service-usage" class="tos-section py-10">
+      <h2 class="text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">2. Service Usage</h2>
+      <p class="mb-4 text-gray-300">Our Services are designed to provide cutting-edge technological solutions in IT software development, artificial intelligence, and robotics. The following terms govern your use of these Services:</p>
+      
+      <h3 class="text-xl font-bold mb-4 text-white">2.1 Service Availability</h3>
+      <p class="mb-4 text-gray-300">We strive to ensure that our Services are available 24 hours a day, 7 days a week. However, we do not guarantee that our Services will be available at all times. We may experience hardware, software, or other problems, or need to perform maintenance related to our Services, resulting in interruptions, delays, or errors.</p>
+      <p class="mb-4 text-gray-300">We reserve the right to change, revise, update, suspend, discontinue, or otherwise modify our Services at any time or for any reason without notice to you. You agree that we have no liability whatsoever for any loss, damage, or inconvenience caused by your inability to access or use our Services during any downtime or discontinuance of our Services.</p>
+      
+      <h3 class="text-xl font-bold mb-4 text-white">2.2 Account Registration</h3>
+      <p class="mb-4 text-gray-300">Some parts of our Services may require you to create an account. You agree to provide accurate, current, and complete information during the registration process and to update such information to keep it accurate, current, and complete.</p>
+      <p class="mb-4 text-gray-300">You are responsible for safeguarding the password that you use to access our Services and for any activities or actions under your password. We encourage you to use "strong" passwords (passwords that use a combination of upper and lower case letters, numbers, and symbols) with your account.</p>
+      <p class="mb-4 text-gray-300">You agree not to disclose your password to any third party. You must notify us immediately upon becoming aware of any breach of security or unauthorized use of your account.</p>
+      
+      <h3 class="text-xl font-bold mb-4 text-white">2.3 Service Limitations</h3>
+      <p class="mb-4 text-gray-300">We may establish general practices and limits concerning the use of our Services, including without limitation the maximum number of days that content will be retained, the maximum disk space that will be allotted on our servers on your behalf, and the maximum number of times (and the maximum duration for which) you may access our Services in a given period of time.</p>
+      <p class="mb-4 text-gray-300">We have no responsibility or liability for the deletion or failure to store any content maintained or uploaded by our Services. We reserve the right to change these general practices and limits at any time, in our sole discretion, with or without notice.</p>
+    </section>
+    
+    <!-- User Responsibilities Section -->
+    <section id="user-responsibilities" class="tos-section py-10">
+      <h2 class="text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">3. User Responsibilities</h2>
+      <p class="mb-4 text-gray-300">When using our Services, you agree to adhere to the following responsibilities:</p>
+      
+      <h3 class="text-xl font-bold mb-4 text-white">3.1 Prohibited Activities</h3>
+      <p class="mb-4 text-gray-300">You agree not to engage in any of the following prohibited activities:</p>
+      <ul class="list-disc pl-6 mb-4 space-y-2 text-gray-300">
+        <li>Copying, distributing, or disclosing any part of our Services in any medium, including without limitation by any automated or non-automated "scraping"</li>
+        <li>Using any automated system, including without limitation "robots," "spiders," "offline readers," etc., to access our Services</li>
+        <li>Transmitting spam, chain letters, or other unsolicited email</li>
+        <li>Attempting to interfere with, compromise the system integrity or security, or decipher any transmissions to or from the servers running our Services</li>
+        <li>Taking any action that imposes, or may impose at our sole discretion an unreasonable or disproportionately large load on our infrastructure</li>
+        <li>Uploading invalid data, viruses, worms, or other software agents through our Services</li>
+        <li>Collecting or harvesting any personally identifiable information, including account names, from our Services</li>
+        <li>Using our Services for any commercial solicitation purposes</li>
+        <li>Impersonating another person or otherwise misrepresenting your affiliation with a person or entity, conducting fraud, hiding or attempting to hide your identity</li>
+        <li>Interfering with the proper working of our Services</li>
+      </ul>
+      
+      <h3 class="text-xl font-bold mb-4 text-white">3.2 User Content</h3>
+      <p class="mb-4 text-gray-300">Our Services may allow you to post, link, store, share and otherwise make available certain information, text, graphics, videos, or other material ("User Content"). You are responsible for the User Content that you post on or through our Services, including its legality, reliability, and appropriateness.</p>
+      <p class="mb-4 text-gray-300">By posting User Content on or through our Services, you represent and warrant that:</p>
+      <ul class="list-disc pl-6 mb-4 space-y-2 text-gray-300">
+        <li>The User Content is yours (you own it) and/or you have the right to use it and the right to grant us the rights and license as provided in these Terms</li>
+        <li>The posting of your User Content on or through our Services does not violate the privacy rights, publicity rights, copyrights, contract rights or any other rights of any person or entity</li>
+        <li>The User Content does not contain any material that is defamatory, obscene, indecent, abusive, offensive, harassing, violent, hateful, inflammatory or otherwise objectionable</li>
+      </ul>
+      
+      <h3 class="text-xl font-bold mb-4 text-white">3.3 Compliance with Laws</h3>
+      <p class="mb-4 text-gray-300">You agree to comply with all applicable local, state, national, and international laws and regulations regarding your use of our Services. You also agree not to use our Services for any purpose prohibited by such laws and regulations.</p>
+    </section>
+    
+    <!-- Intellectual Property Section -->
+    <section id="intellectual-property" class="tos-section py-10">
+      <h2 class="text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">4. Intellectual Property Rights</h2>
+      <p class="mb-4 text-gray-300">E2E Consulting and its licensors own the intellectual property rights for all material on our Services. All intellectual property rights are reserved.</p>
+      
+      <h3 class="text-xl font-bold mb-4 text-white">4.1 Our Intellectual Property</h3>
+      <p class="mb-4 text-gray-300">Our Services and their original content (excluding User Content), features, and functionality are and will remain the exclusive property of E2E Consulting and its licensors. Our Services are protected by copyright, trademark, and other laws of both Japan and foreign countries.</p>
+      <p class="mb-4 text-gray-300">Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of E2E Consulting.</p>
+      
+      <h3 class="text-xl font-bold mb-4 text-white">4.2 License to Use</h3>
+      <p class="mb-4 text-gray-300">Subject to these Terms, we grant you a limited, non-exclusive, non-transferable, and revocable license to use our Services for your personal or internal business purposes.</p>
+      <p class="mb-4 text-gray-300">This license does not include:</p>
+      <ul class="list-disc pl-6 mb-4 space-y-2 text-gray-300">
+        <li>Any resale or commercial use of our Services or their contents</li>
+        <li>Any collection and use of any product listings, descriptions, or prices</li>
+        <li>Any derivative use of our Services or their contents</li>
+        <li>Any downloading or copying of account information for the benefit of another merchant</li>
+        <li>Any use of data mining, robots, or similar data gathering and extraction tools</li>
+      </ul>
+      
+      <h3 class="text-xl font-bold mb-4 text-white">4.3 User Content License</h3>
+      <p class="mb-4 text-gray-300">By posting User Content on or through our Services, you grant us a worldwide, non-exclusive, royalty-free license (with the right to sublicense) to use, copy, reproduce, process, adapt, modify, publish, transmit, display and distribute such content in any and all media or distribution methods now known or later developed.</p>
+      <p class="mb-4 text-gray-300">This license authorizes us to make your User Content available to the rest of the world and to let others do the same. You agree that this license includes the right for us to provide, promote, and improve our Services and to make User Content submitted to or through our Services available to other companies, organizations or individuals for the syndication, broadcast, distribution, promotion or publication of such User Content.</p>
+      <p class="mb-4 text-gray-300">Such additional uses by us or others may be made with no compensation paid to you with respect to the User Content that you submit, post, transmit or otherwise make available through our Services.</p>
+    </section>
+    
+    <!-- Limitation of Liability Section -->
+    <section id="limitation-liability" class="tos-section py-10">
+      <h2 class="text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">5. Limitation of Liability</h2>
+      <p class="mb-4 text-gray-300">To the maximum extent permitted by applicable law, in no event shall E2E Consulting, its affiliates, agents, directors, employees, suppliers or licensors be liable for any indirect, punitive, incidental, special, consequential or exemplary damages, including without limitation damages for loss of profits, goodwill, use, data or other intangible losses, that result from the use of, or inability to use, our Services.</p>
+      
+      <h3 class="text-xl font-bold mb-4 text-white">5.1 Disclaimer of Warranties</h3>
+      <p class="mb-4 text-gray-300">Our Services are provided on an "AS IS" and "AS AVAILABLE" basis. E2E Consulting expressly disclaims all warranties of any kind, whether express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+      <p class="mb-4 text-gray-300">E2E Consulting makes no warranty that:</p>
+      <ul class="list-disc pl-6 mb-4 space-y-2 text-gray-300">
+        <li>Our Services will meet your requirements</li>
+        <li>Our Services will be uninterrupted, timely, secure, or error-free</li>
+        <li>The results that may be obtained from the use of our Services will be accurate or reliable</li>
+        <li>The quality of any products, services, information, or other material purchased or obtained by you through our Services will meet your expectations</li>
+        <li>Any errors in our Services will be corrected</li>
+      </ul>
+      
+      <h3 class="text-xl font-bold mb-4 text-white">5.2 Limitation of Damages</h3>
+      <p class="mb-4 text-gray-300">In no event shall E2E Consulting be liable to you for any loss or damages of any kind (including, without limitation, for any direct, indirect, economic, exemplary, special, punitive, incidental or consequential losses or damages) that are directly or indirectly related to:</p>
+      <ul class="list-disc pl-6 mb-4 space-y-2 text-gray-300">
+        <li>Our Services</li>
+        <li>Your use of, inability to use, or the performance of our Services</li>
+        <li>Any action taken in connection with an investigation by E2E Consulting or law enforcement authorities regarding your use of our Services</li>
+        <li>Any action taken in connection with copyright or other intellectual property owners</li>
+        <li>Any errors or omissions in our Services' operation</li>
+        <li>Any damage to any user's computer, mobile device, or other equipment or technology including, without limitation, damage from any security breach or from any virus, bugs, tampering, fraud, error, omission, interruption, defect, delay in operation or transmission, computer line or network failure or any other technical or other malfunction</li>
+      </ul>
+      
+      <h3 class="text-xl font-bold mb-4 text-white">5.3 Indemnification</h3>
+      <p class="mb-4 text-gray-300">You agree to defend, indemnify and hold harmless E2E Consulting, its affiliates, licensors and service providers, and its and their respective officers, directors, employees, contractors, agents, licensors, suppliers, successors and assigns from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses or fees (including reasonable attorneys' fees) arising out of or relating to your violation of these Terms or your use of our Services, including, but not limited to, your User Content, any use of our Services' content, services and products other than as expressly authorized in these Terms.</p>
+    </section>
+    
+    <!-- Privacy Policy Section -->
+    <section id="privacy-policy" class="tos-section py-10">
+      <h2 class="text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">6. Privacy Policy References</h2>
+      <p class="mb-4 text-gray-300">Your privacy is important to us. Our Privacy Policy, which is incorporated into these Terms by reference, explains how we collect, use, and disclose information about you, including personal information, in connection with our Services.</p>
+      <p class="mb-4 text-gray-300">By using our Services, you consent to our collection, use, and disclosure of information as described in our Privacy Policy. You can access our Privacy Policy at any time through our website.</p>
+      
+      <h3 class="text-xl font-bold mb-4 text-white">6.1 Data Processing</h3>
+      <p class="mb-4 text-gray-300">We process personal data in accordance with applicable data protection laws, including but not limited to the Act on the Protection of Personal Information (APPI) in Japan, the General Data Protection Regulation (GDPR) in the European Union, and the California Consumer Privacy Act (CCPA) in the United States, as applicable.</p>
+      <p class="mb-4 text-gray-300">For more information about how we process your personal data, please refer to our Privacy Policy.</p>
+      
+      <h3 class="text-xl font-bold mb-4 text-white">6.2 Cookies and Tracking Technologies</h3>
+      <p class="mb-4 text-gray-300">We use cookies and similar tracking technologies to track the activity on our Services and hold certain information. Cookies are files with a small amount of data which may include an anonymous unique identifier.</p>
+      <p class="mb-4 text-gray-300">You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Services.</p>
+      <p class="mb-4 text-gray-300">For more information about the cookies we use and your choices regarding cookies, please refer to our Cookie Policy.</p>
+    </section>
+    
+    <!-- Termination Section -->
+    <section id="termination" class="tos-section py-10">
+      <h2 class="text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">7. Termination Conditions</h2>
+      <p class="mb-4 text-gray-300">We may terminate or suspend your account and bar access to our Services immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of the Terms.</p>
+      
+      <h3 class="text-xl font-bold mb-4 text-white">7.1 Termination by Us</h3>
+      <p class="mb-4 text-gray-300">We may terminate or suspend your access to all or part of our Services, without notice, for any conduct that we, in our sole discretion, believe is in violation of any applicable law, is in breach of these Terms, or is harmful to the interests of other users, third parties, or the business of E2E Consulting.</p>
+      <p class="mb-4 text-gray-300">Specific grounds for termination may include, but are not limited to:</p>
+      <ul class="list-disc pl-6 mb-4 space-y-2 text-gray-300">
+        <li>Violation of these Terms</li>
+        <li>Abuse of our Services or staff</li>
+        <li>Engaging in fraudulent or illegal activities</li>
+        <li>Non-payment of any fees or charges due</li>
+        <li>Excessive use of system resources</li>
+        <li>Security concerns or potential threats</li>
+      </ul>
+      
+      <h3 class="text-xl font-bold mb-4 text-white">7.2 Termination by You</h3>
+      <p class="mb-4 text-gray-300">You may terminate these Terms at any time by discontinuing use of our Services and closing your account. You can close your account by contacting us at the email address provided in the Contact Us section.</p>
+      
+      <h3 class="text-xl font-bold mb-4 text-white">7.3 Effect of Termination</h3>
+      <p class="mb-4 text-gray-300">Upon termination of your account:</p>
+      <ul class="list-disc pl-6 mb-4 space-y-2 text-gray-300">
+        <li>Your right to use our Services will immediately cease</li>
+        <li>We may delete or archive your User Content and account information</li>
+        <li>You will remain liable for all amounts due up to and including the date of termination</li>
+        <li>All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability</li>
+      </ul>
+    </section>
+    
+    <!-- Governing Law Section -->
+    <section id="governing-law" class="tos-section py-10">
+      <h2 class="text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">8. Governing Law</h2>
+      <p class="mb-4 text-gray-300">These Terms shall be governed and construed in accordance with the laws of Japan, without regard to its conflict of law provisions.</p>
+      <p class="mb-4 text-gray-300">Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect.</p>
+      <p class="mb-4 text-gray-300">These Terms constitute the entire agreement between us regarding our Services, and supersede and replace any prior agreements we might have had between us regarding the Services.</p>
+      
+      <h3 class="text-xl font-bold mb-4 text-white">8.1 Dispute Resolution</h3>
+      <p class="mb-4 text-gray-300">Any dispute arising out of or in connection with these Terms, including any question regarding its existence, validity or termination, shall be referred to and finally resolved by arbitration in Tokyo, Japan in accordance with the Arbitration Rules of the Japan Commercial Arbitration Association.</p>
+      <p class="mb-4 text-gray-300">The number of arbitrators shall be one. The language of the arbitration shall be English. The governing law of these Terms shall be the substantive law of Japan.</p>
+      
+      <h3 class="text-xl font-bold mb-4 text-white">8.2 Class Action Waiver</h3>
+      <p class="mb-4 text-gray-300">Any proceedings to resolve or litigate any dispute in any forum will be conducted solely on an individual basis. Neither you nor we will seek to have any dispute heard as a class action or in any other proceeding in which either party acts or proposes to act in a representative capacity.</p>
+      <p class="mb-4 text-gray-300">No arbitration or proceeding will be combined with another without the prior written consent of all parties to all affected arbitrations or proceedings.</p>
+    </section>
+    
+    <!-- Contact Us Section -->
+    <section id="contact-us" class="py-10">
+      <h2 class="text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">9. Contact Us</h2>
+      <p class="mb-4 text-gray-300">If you have any questions about these Terms, please contact us at:</p>
+      <div class="bg-[#1A1A3F] rounded-lg p-6">
+        <p class="text-gray-300 mb-2">E2E Consulting</p>
+        <p class="text-gray-300 mb-2">Ginza TH Building F9, 7-13-20, Ginza, Chuo-ku, Tokyo, Japan (104-0061)</p>
+        <p class="text-gray-300 mb-2">Email: <a href="mailto:contact@e2ec.biz" class="tos-link">contact@e2ec.biz</a></p>
+      </div>
+    </section>
+  </div>
 </main>
-<!-- Table of Contents -->
-<div class="mb-12 bg-[#1A1A3F] rounded-lg p-6">
-<h2 class="text-2xl font-bold mb-4">Table of Contents</h2>
-<ul class="space-y-2">
-<li><a href="#introduction" class="tos-link flex items-center">
-<div class="w-5 h-5 mr-2 flex items-center justify-center">
-<i class="ri-arrow-right-s-line"></i>
-</div>
-Introduction
-</a></li>
-<li><a href="#service-usage" class="tos-link flex items-center">
-<div class="w-5 h-5 mr-2 flex items-center justify-center">
-<i class="ri-arrow-right-s-line"></i>
-</div>
-Service Usage
-</a></li>
-<li><a href="#user-responsibilities" class="tos-link flex items-center">
-<div class="w-5 h-5 mr-2 flex items-center justify-center">
-<i class="ri-arrow-right-s-line"></i>
-</div>
-User Responsibilities
-</a></li>
-<li><a href="#intellectual-property" class="tos-link flex items-center">
-<div class="w-5 h-5 mr-2 flex items-center justify-center">
-<i class="ri-arrow-right-s-line"></i>
-</div>
-Intellectual Property Rights
-</a></li>
-<li><a href="#limitation-liability" class="tos-link flex items-center">
-<div class="w-5 h-5 mr-2 flex items-center justify-center">
-<i class="ri-arrow-right-s-line"></i>
-</div>
-Limitation of Liability
-</a></li>
-<li><a href="#privacy-policy" class="tos-link flex items-center">
-<div class="w-5 h-5 mr-2 flex items-center justify-center">
-<i class="ri-arrow-right-s-line"></i>
-</div>
-Privacy Policy References
-</a></li>
-<li><a href="#termination" class="tos-link flex items-center">
-<div class="w-5 h-5 mr-2 flex items-center justify-center">
-<i class="ri-arrow-right-s-line"></i>
-</div>
-Termination Conditions
-</a></li>
-<li><a href="#governing-law" class="tos-link flex items-center">
-<div class="w-5 h-5 mr-2 flex items-center justify-center">
-<i class="ri-arrow-right-s-line"></i>
-</div>
-Governing Law
-</a></li>
-<li><a href="#contact-us" class="tos-link flex items-center">
-<div class="w-5 h-5 mr-2 flex items-center justify-center">
-<i class="ri-arrow-right-s-line"></i>
-</div>
-Contact Us
-</a></li>
-</ul>
-</div>
-<!-- Introduction Section -->
-<section id="introduction" class="tos-section py-10">
-<h2 class="text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">1. Introduction</h2>
-<p class="mb-4 text-gray-300">Welcome to E2E Consulting ("Company", "we", "our", "us"). These Terms of Service ("Terms", "Terms of Service") govern your use of our website, products, and services (collectively, "Services") operated by E2E Consulting.</p>
-<p class="mb-4 text-gray-300">By accessing or using our Services, you agree to be bound by these Terms. If you disagree with any part of the terms, then you do not have permission to access or use our Services.</p>
-<p class="mb-4 text-gray-300">We may modify these Terms at any time, and such modifications shall be effective immediately upon posting the modified Terms on this website. You agree to review these Terms periodically to be aware of such modifications, and your continued access or use of our Services shall be deemed your conclusive acceptance of the modified Terms.</p>
-</section>
-<!-- Service Usage Section -->
-<section id="service-usage" class="tos-section py-10">
-<h2 class="text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">2. Service Usage</h2>
-<p class="mb-4 text-gray-300">Our Services are designed to provide cutting-edge technological solutions in IT software development, artificial intelligence, and robotics. The following terms govern your use of these Services:</p>
-<h3 class="text-xl font-bold mb-4 text-white">2.1 Service Availability</h3>
-<p class="mb-4 text-gray-300">We strive to ensure that our Services are available 24 hours a day, 7 days a week. However, we do not guarantee that our Services will be available at all times. We may experience hardware, software, or other problems, or need to perform maintenance related to our Services, resulting in interruptions, delays, or errors.</p>
-<p class="mb-4 text-gray-300">We reserve the right to change, revise, update, suspend, discontinue, or otherwise modify our Services at any time or for any reason without notice to you. You agree that we have no liability whatsoever for any loss, damage, or inconvenience caused by your inability to access or use our Services during any downtime or discontinuance of our Services.</p>
-<h3 class="text-xl font-bold mb-4 text-white">2.2 Account Registration</h3>
-<p class="mb-4 text-gray-300">Some parts of our Services may require you to create an account. You agree to provide accurate, current, and complete information during the registration process and to update such information to keep it accurate, current, and complete.</p>
-<p class="mb-4 text-gray-300">You are responsible for safeguarding the password that you use to access our Services and for any activities or actions under your password. We encourage you to use "strong" passwords (passwords that use a combination of upper and lower case letters, numbers, and symbols) with your account.</p>
-<p class="mb-4 text-gray-300">You agree not to disclose your password to any third party. You must notify us immediately upon becoming aware of any breach of security or unauthorized use of your account.</p>
-<h3 class="text-xl font-bold mb-4 text-white">2.3 Service Limitations</h3>
-<p class="mb-4 text-gray-300">We may establish general practices and limits concerning the use of our Services, including without limitation the maximum number of days that content will be retained, the maximum disk space that will be allotted on our servers on your behalf, and the maximum number of times (and the maximum duration for which) you may access our Services in a given period of time.</p>
-<p class="mb-4 text-gray-300">We have no responsibility or liability for the deletion or failure to store any content maintained or uploaded by our Services. We reserve the right to change these general practices and limits at any time, in our sole discretion, with or without notice.</p>
-</section>
-<!-- User Responsibilities Section -->
-<section id="user-responsibilities" class="tos-section py-10">
-<h2 class="text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">3. User Responsibilities</h2>
-<p class="mb-4 text-gray-300">When using our Services, you agree to adhere to the following responsibilities:</p>
-<h3 class="text-xl font-bold mb-4 text-white">3.1 Prohibited Activities</h3>
-<p class="mb-4 text-gray-300">You agree not to engage in any of the following prohibited activities:</p>
-<ul class="list-disc pl-6 mb-4 space-y-2 text-gray-300">
-<li>Copying, distributing, or disclosing any part of our Services in any medium, including without limitation by any automated or non-automated "scraping"</li>
-<li>Using any automated system, including without limitation "robots," "spiders," "offline readers," etc., to access our Services</li>
-<li>Transmitting spam, chain letters, or other unsolicited email</li>
-<li>Attempting to interfere with, compromise the system integrity or security, or decipher any transmissions to or from the servers running our Services</li>
-<li>Taking any action that imposes, or may impose at our sole discretion an unreasonable or disproportionately large load on our infrastructure</li>
-<li>Uploading invalid data, viruses, worms, or other software agents through our Services</li>
-<li>Collecting or harvesting any personally identifiable information, including account names, from our Services</li>
-<li>Using our Services for any commercial solicitation purposes</li>
-<li>Impersonating another person or otherwise misrepresenting your affiliation with a person or entity, conducting fraud, hiding or attempting to hide your identity</li>
-<li>Interfering with the proper working of our Services</li>
-</ul>
-<h3 class="text-xl font-bold mb-4 text-white">3.2 User Content</h3>
-<p class="mb-4 text-gray-300">Our Services may allow you to post, link, store, share and otherwise make available certain information, text, graphics, videos, or other material ("User Content"). You are responsible for the User Content that you post on or through our Services, including its legality, reliability, and appropriateness.</p>
-<p class="mb-4 text-gray-300">By posting User Content on or through our Services, you represent and warrant that:</p>
-<ul class="list-disc pl-6 mb-4 space-y-2 text-gray-300">
-<li>The User Content is yours (you own it) and/or you have the right to use it and the right to grant us the rights and license as provided in these Terms</li>
-<li>The posting of your User Content on or through our Services does not violate the privacy rights, publicity rights, copyrights, contract rights or any other rights of any person or entity</li>
-<li>The User Content does not contain any material that is defamatory, obscene, indecent, abusive, offensive, harassing, violent, hateful, inflammatory or otherwise objectionable</li>
-</ul>
-<h3 class="text-xl font-bold mb-4 text-white">3.3 Compliance with Laws</h3>
-<p class="mb-4 text-gray-300">You agree to comply with all applicable local, state, national, and international laws and regulations regarding your use of our Services. You also agree not to use our Services for any purpose prohibited by such laws and regulations.</p>
-</section>
-<!-- Intellectual Property Section -->
-<section id="intellectual-property" class="tos-section py-10">
-<h2 class="text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">4. Intellectual Property Rights</h2>
-<p class="mb-4 text-gray-300">E2E Consulting and its licensors own the intellectual property rights for all material on our Services. All intellectual property rights are reserved.</p>
-<h3 class="text-xl font-bold mb-4 text-white">4.1 Our Intellectual Property</h3>
-<p class="mb-4 text-gray-300">Our Services and their original content (excluding User Content), features, and functionality are and will remain the exclusive property of E2E Consulting and its licensors. Our Services are protected by copyright, trademark, and other laws of both Japan and foreign countries.</p>
-<p class="mb-4 text-gray-300">Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of E2E Consulting.</p>
-<h3 class="text-xl font-bold mb-4 text-white">4.2 License to Use</h3>
-<p class="mb-4 text-gray-300">Subject to these Terms, we grant you a limited, non-exclusive, non-transferable, and revocable license to use our Services for your personal or internal business purposes.</p>
-<p class="mb-4 text-gray-300">This license does not include:</p>
-<ul class="list-disc pl-6 mb-4 space-y-2 text-gray-300">
-<li>Any resale or commercial use of our Services or their contents</li>
-<li>Any collection and use of any product listings, descriptions, or prices</li>
-<li>Any derivative use of our Services or their contents</li>
-<li>Any downloading or copying of account information for the benefit of another merchant</li>
-<li>Any use of data mining, robots, or similar data gathering and extraction tools</li>
-</ul>
-<h3 class="text-xl font-bold mb-4 text-white">4.3 User Content License</h3>
-<p class="mb-4 text-gray-300">By posting User Content on or through our Services, you grant us a worldwide, non-exclusive, royalty-free license (with the right to sublicense) to use, copy, reproduce, process, adapt, modify, publish, transmit, display and distribute such content in any and all media or distribution methods now known or later developed.</p>
-<p class="mb-4 text-gray-300">This license authorizes us to make your User Content available to the rest of the world and to let others do the same. You agree that this license includes the right for us to provide, promote, and improve our Services and to make User Content submitted to or through our Services available to other companies, organizations or individuals for the syndication, broadcast, distribution, promotion or publication of such User Content.</p>
-<p class="mb-4 text-gray-300">Such additional uses by us or others may be made with no compensation paid to you with respect to the User Content that you submit, post, transmit or otherwise make available through our Services.</p>
-</section>
-<!-- Limitation of Liability Section -->
-<section id="limitation-liability" class="tos-section py-10">
-<h2 class="text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">5. Limitation of Liability</h2>
-<p class="mb-4 text-gray-300">To the maximum extent permitted by applicable law, in no event shall E2E Consulting, its affiliates, agents, directors, employees, suppliers or licensors be liable for any indirect, punitive, incidental, special, consequential or exemplary damages, including without limitation damages for loss of profits, goodwill, use, data or other intangible losses, that result from the use of, or inability to use, our Services.</p>
-<h3 class="text-xl font-bold mb-4 text-white">5.1 Disclaimer of Warranties</h3>
-<p class="mb-4 text-gray-300">Our Services are provided on an "AS IS" and "AS AVAILABLE" basis. E2E Consulting expressly disclaims all warranties of any kind, whether express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
-<p class="mb-4 text-gray-300">E2E Consulting makes no warranty that:</p>
-<ul class="list-disc pl-6 mb-4 space-y-2 text-gray-300">
-<li>Our Services will meet your requirements</li>
-<li>Our Services will be uninterrupted, timely, secure, or error-free</li>
-<li>The results that may be obtained from the use of our Services will be accurate or reliable</li>
-<li>The quality of any products, services, information, or other material purchased or obtained by you through our Services will meet your expectations</li>
-<li>Any errors in our Services will be corrected</li>
-</ul>
-<h3 class="text-xl font-bold mb-4 text-white">5.2 Limitation of Damages</h3>
-<p class="mb-4 text-gray-300">In no event shall E2E Consulting be liable to you for any loss or damages of any kind (including, without limitation, for any direct, indirect, economic, exemplary, special, punitive, incidental or consequential losses or damages) that are directly or indirectly related to:</p>
-<ul class="list-disc pl-6 mb-4 space-y-2 text-gray-300">
-<li>Our Services</li>
-<li>Your use of, inability to use, or the performance of our Services</li>
-<li>Any action taken in connection with an investigation by E2E Consulting or law enforcement authorities regarding your use of our Services</li>
-<li>Any action taken in connection with copyright or other intellectual property owners</li>
-<li>Any errors or omissions in our Services' operation</li>
-<li>Any damage to any user's computer, mobile device, or other equipment or technology including, without limitation, damage from any security breach or from any virus, bugs, tampering, fraud, error, omission, interruption, defect, delay in operation or transmission, computer line or network failure or any other technical or other malfunction</li>
-</ul>
-<h3 class="text-xl font-bold mb-4 text-white">5.3 Indemnification</h3>
-<p class="mb-4 text-gray-300">You agree to defend, indemnify and hold harmless E2E Consulting, its affiliates, licensors and service providers, and its and their respective officers, directors, employees, contractors, agents, licensors, suppliers, successors and assigns from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses or fees (including reasonable attorneys' fees) arising out of or relating to your violation of these Terms or your use of our Services, including, but not limited to, your User Content, any use of our Services' content, services and products other than as expressly authorized in these Terms.</p>
-</section>
-<!-- Privacy Policy Section -->
-<section id="privacy-policy" class="tos-section py-10">
-<h2 class="text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">6. Privacy Policy References</h2>
-<p class="mb-4 text-gray-300">Your privacy is important to us. Our Privacy Policy, which is incorporated into these Terms by reference, explains how we collect, use, and disclose information about you, including personal information, in connection with our Services.</p>
-<p class="mb-4 text-gray-300">By using our Services, you consent to our collection, use, and disclosure of information as described in our Privacy Policy. You can access our Privacy Policy at any time through our website.</p>
-<h3 class="text-xl font-bold mb-4 text-white">6.1 Data Processing</h3>
-<p class="mb-4 text-gray-300">We process personal data in accordance with applicable data protection laws, including but not limited to the Act on the Protection of Personal Information (APPI) in Japan, the General Data Protection Regulation (GDPR) in the European Union, and the California Consumer Privacy Act (CCPA) in the United States, as applicable.</p>
-<p class="mb-4 text-gray-300">For more information about how we process your personal data, please refer to our Privacy Policy.</p>
-<h3 class="text-xl font-bold mb-4 text-white">6.2 Cookies and Tracking Technologies</h3>
-<p class="mb-4 text-gray-300">We use cookies and similar tracking technologies to track the activity on our Services and hold certain information. Cookies are files with a small amount of data which may include an anonymous unique identifier.</p>
-<p class="mb-4 text-gray-300">You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Services.</p>
-<p class="mb-4 text-gray-300">For more information about the cookies we use and your choices regarding cookies, please refer to our Cookie Policy.</p>
-</section>
-<!-- Termination Section -->
-<section id="termination" class="tos-section py-10">
-<h2 class="text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">7. Termination Conditions</h2>
-<p class="mb-4 text-gray-300">We may terminate or suspend your account and bar access to our Services immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of the Terms.</p>
-<h3 class="text-xl font-bold mb-4 text-white">7.1 Termination by Us</h3>
-<p class="mb-4 text-gray-300">We may terminate or suspend your access to all or part of our Services, without notice, for any conduct that we, in our sole discretion, believe is in violation of any applicable law, is in breach of these Terms, or is harmful to the interests of other users, third parties, or the business of E2E Consulting.</p>
-<p class="mb-4 text-gray-300">Specific grounds for termination may include, but are not limited to:</p>
-<ul class="list-disc pl-6 mb-4 space-y-2 text-gray-300">
-<li>Violation of these Terms</li>
-<li>Abuse of our Services or staff</li>
-<li>Engaging in fraudulent or illegal activities</li>
-<li>Non-payment of any fees or charges due</li>
-<li>Excessive use of system resources</li>
-<li>Security concerns or potential threats</li>
-</ul>
-<h3 class="text-xl font-bold mb-4 text-white">7.2 Termination by You</h3>
-<p class="mb-4 text-gray-300">You may terminate these Terms at any time by discontinuing use of our Services and closing your account. You can close your account by contacting us at the email address provided in the Contact Us section.</p>
-<h3 class="text-xl font-bold mb-4 text-white">7.3 Effect of Termination</h3>
-<p class="mb-4 text-gray-300">Upon termination of your account:</p>
-<ul class="list-disc pl-6 mb-4 space-y-2 text-gray-300">
-<li>Your right to use our Services will immediately cease</li>
-<li>We may delete or archive your User Content and account information</li>
-<li>You will remain liable for all amounts due up to and including the date of termination</li>
-<li>All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability</li>
-</ul>
-</section>
-<!-- Governing Law Section -->
-<section id="governing-law" class="tos-section py-10">
-<h2 class="text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">8. Governing Law</h2>
-<p class="mb-4 text-gray-300">These Terms shall be governed and construed in accordance with the laws of Japan, without regard to its conflict of law provisions.</p>
-<p class="mb-4 text-gray-300">Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect.</p>
-<p class="mb-4 text-gray-300">These Terms constitute the entire agreement between us regarding our Services, and supersede and replace any prior agreements we might have had between us regarding the Services.</p>
-<h3 class="text-xl font-bold mb-4 text-white">8.1 Dispute Resolution</h3>
-<p class="mb-4 text-gray-300">Any dispute arising out of or in connection with these Terms, including any question regarding its existence, validity or termination, shall be referred to and finally resolved by arbitration in Tokyo, Japan in accordance with the Arbitration Rules of the Japan Commercial Arbitration Association.</p>
-<p class="mb-4 text-gray-300">The number of arbitrators shall be one. The language of the arbitration shall be English. The governing law of these Terms shall be the substantive law of Japan.</p>
-<h3 class="text-xl font-bold mb-4 text-white">8.2 Class Action Waiver</h3>
-<p class="mb-4 text-gray-300">Any proceedings to resolve or litigate any dispute in any forum will be conducted solely on an individual basis. Neither you nor we will seek to have any dispute heard as a class action or in any other proceeding in which either party acts or proposes to act in a representative capacity.</p>
-<p class="mb-4 text-gray-300">No arbitration or proceeding will be combined with another without the prior written consent of all parties to all affected arbitrations or proceedings.</p>
-</section>
-<!-- Contact Us Section -->
-<section id="contact-us" class="py-10">
-<h2 class="text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">9. Contact Us</h2>
-<p class="mb-4 text-gray-300">If you have any questions about these Terms, please contact us at:</p>
-<div class="bg-[#1A1A3F] rounded-lg p-6">
-<p class="text-gray-300 mb-2">E2E Consulting</p>
-<p class="text-gray-300 mb-2">Ginza TH Building F9, 7-13-20, Ginza, Chuo-ku, Tokyo, Japan (104-0061)</p>
-<p class="text-gray-300 mb-2">Email: <a href="mailto:contact@e2ec.biz" class="tos-link">contact@e2ec.biz</a></p>
-</div>
-</section>
-</div>
-</main>
+
 <!-- Back to Top Button -->
 <button id="back-to-top" class="back-to-top fixed bottom-8 right-8 w-12 h-12 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center shadow-lg z-50 transition-all duration-300">
-<div class="w-6 h-6 flex items-center justify-center">
-<i class="ri-arrow-up-line text-black"></i>
-</div>
+  <div class="w-6 h-6 flex items-center justify-center">
+    <i class="ri-arrow-up-line text-black"></i>
+  </div>
 </button>
-<!-- Footer -->
-<footer class="bg-[#0A0A1F] pt-16 pb-8">
-<div class="container mx-auto px-6">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-<div class="md:col-span-1">
-<a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca" data-readdy="true" id="footer-logo" class="inline-block mb-6">
-<div class="flex items-center">
-<img src="/images/890389b5e509c8efbf5dd3ca6b3b0c06.png" alt="Logo" class="h-10 w-10 mr-2">
-<span class="text-2xl font-['-apple-system,BlinkMacSystemFont,SF_Pro_Display,Helvetica_Neue,Arial'] font-medium bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tracking-tight">E2E</span>
-</div>
-</a>
-<p class="text-gray-400 mb-6">
-<span class="lang-en">From Earth To Europa - Accelerating humanity's journey to become an interplanetary species.</span>
-<span class="lang-zh hidden">从地球到木卫二 - 加速人类成为跨星际物种的进程。</span>
-<span class="lang-ja hidden">地球から木星の衛星エウロパへ - 人類が惑星間種になるための旅を加速させます。</span>
-</p>
-<div class="flex space-x-4">
-<a href="#" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
-<div class="w-5 h-5 flex items-center justify-center">
-<i class="ri-twitter-x-line text-white"></i>
-</div>
-</a>
-<a href="#" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
-<div class="w-5 h-5 flex items-center justify-center">
-<i class="ri-linkedin-line text-white"></i>
-</div>
-</a>
-<a href="#" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
-<div class="w-5 h-5 flex items-center justify-center">
-<i class="ri-github-line text-white"></i>
-</div>
-</a>
-<a href="#" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
-<div class="w-5 h-5 flex items-center justify-center">
-<i class="ri-youtube-line text-white"></i>
-</div>
-</a>
-</div>
-</div>
-<div>
-<h3 class="text-lg font-bold mb-6">
-<span class="lang-en">Services</span>
-<span class="lang-zh hidden">服务</span>
-<span class="lang-ja hidden">サービス</span>
-</h3>
-<ul class="space-y-4">
-<li>
-<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
-<span class="lang-en">IT Software Development</span>
-<span class="lang-zh hidden">信息技术软件研发</span>
-<span class="lang-ja hidden">ITソフトウェア開発</span>
-</a>
-</li>
-<li>
-<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
-<span class="lang-en">AI Technology R&D</span>
-<span class="lang-zh hidden">人工智能技术研发</span>
-<span class="lang-ja hidden">AI技術研究開発</span>
-</a>
-</li>
-<li>
-<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
-<span class="lang-en">Robotics Development</span>
-<span class="lang-zh hidden">机器人研发</span>
-<span class="lang-ja hidden">ロボット開発</span>
-</a>
-</li>
-<li>
-<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
-<span class="lang-en">Consulting Services</span>
-<span class="lang-zh hidden">咨询服务</span>
-<span class="lang-ja hidden">コンサルティングサービス</span>
-</a>
-</li>
-</ul>
-</div>
-<div>
-<h3 class="text-lg font-bold mb-6">
-<span class="lang-en">Company</span>
-<span class="lang-zh hidden">公司</span>
-<span class="lang-ja hidden">会社情報</span>
-</h3>
-<ul class="space-y-4">
-<li>
-<a href="/index.html#about" class="text-gray-400 hover:text-primary transition-colors duration-300">
-<span class="lang-en">About Us</span>
-<span class="lang-zh hidden">关于我们</span>
-<span class="lang-ja hidden">会社概要</span>
-</a>
-</li>
-<li>
-<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
-<span class="lang-en">Careers</span>
-<span class="lang-zh hidden">招聘</span>
-<span class="lang-ja hidden">採用情報</span>
-</a>
-</li>
-<li>
-<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
-<span class="lang-en">Press</span>
-<span class="lang-zh hidden">新闻</span>
-<span class="lang-ja hidden">プレスリリース</span>
-</a>
-</li>
-<li>
-<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
-<span class="lang-en">Contact</span>
-<span class="lang-zh hidden">联系我们</span>
-<span class="lang-ja hidden">お問い合わせ</span>
-</a>
-</li>
-</ul>
-</div>
-<div>
-<h3 class="text-lg font-bold mb-6">
-<span class="lang-en">Legal</span>
-<span class="lang-zh hidden">法律</span>
-<span class="lang-ja hidden">法的情報</span>
-</h3>
-<ul class="space-y-4">
-<li>
-<a href="#" class="text-primary hover:text-primary transition-colors duration-300">
-<span class="lang-en">Terms of Service</span>
-<span class="lang-zh hidden">服务条款</span>
-<span class="lang-ja hidden">利用規約</span>
-</a>
-</li>
-<li>
-<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
-<span class="lang-en">Privacy Policy</span>
-<span class="lang-zh hidden">隐私政策</span>
-<span class="lang-ja hidden">プライバシーポリシー</span>
-</a>
-</li>
-<li>
-<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
-<span class="lang-en">Cookie Policy</span>
-<span class="lang-zh hidden">Cookie 政策</span>
-<span class="lang-ja hidden">Cookie ポリシー</span>
-</a>
-</li>
-<li>
-<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
-<span class="lang-en">Security</span>
-<span class="lang-zh hidden">安全</span>
-<span class="lang-ja hidden">セキュリティ</span>
-</a>
-</li>
-</ul>
-</div>
-</div>
-<div class="border-t border-gray-800 pt-8">
-<div class="flex flex-col md:flex-row justify-between items-center">
-<p class="text-gray-500 text-sm mb-4 md:mb-0">
-<span class="lang-en">&copy; 2025 E2E Consulting LLC. All rights reserved.</span>
-<span class="lang-zh hidden">&copy; 2025 合同会社E2E咨询。保留所有权利。</span>
-<span class="lang-ja hidden">&copy; 2025 合同会社E2E Consulting。全ての権利を保有します。</span>
-</p>
-<div class="flex items-center space-x-4">
-<div class="flex items-center">
-<div class="w-6 h-6 flex items-center justify-center mr-2">
-<i class="ri-visa-line text-gray-400 ri-lg"></i>
-</div>
-<div class="w-6 h-6 flex items-center justify-center mr-2">
-<i class="ri-mastercard-line text-gray-400 ri-lg"></i>
-</div>
-<div class="w-6 h-6 flex items-center justify-center mr-2">
-<i class="ri-paypal-line text-gray-400 ri-lg"></i>
-</div>
-<div class="w-6 h-6 flex items-center justify-center">
-<i class="ri-alipay-line text-gray-400 ri-lg"></i>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</footer>
+
 <script id="scroll-to-top">
 document.addEventListener('DOMContentLoaded', function() {
-const backToTopButton = document.getElementById('back-to-top');
-const footerLogo = document.getElementById('footer-logo');
-// Show/hide back to top button based on scroll position
-window.addEventListener('scroll', function() {
-if (window.scrollY > 300) {
-backToTopButton.classList.add('visible');
-} else {
-backToTopButton.classList.remove('visible');
-}
-});
-// Scroll to top when button is clicked
-backToTopButton.addEventListener('click', function() {
-window.scrollTo({
-top: 0,
-behavior: 'smooth'
-});
-});
-// Scroll to top when footer logo is clicked
-if (footerLogo) {
-footerLogo.addEventListener('click', function(e) {
-e.preventDefault();
-window.scrollTo({
-top: 0,
-behavior: 'smooth'
-});
-});
-}
-// Smooth scroll for table of contents links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener('click', function(e) {
-e.preventDefault();
-const targetId = this.getAttribute('href');
-if (targetId === '#') return;
-const targetElement = document.querySelector(targetId);
-if (targetElement) {
-const headerOffset = 100;
-const elementPosition = targetElement.getBoundingClientRect().top;
-const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-window.scrollTo({
-top: offsetPosition,
-behavior: 'smooth'
-});
-}
-});
-});
+  const backToTopButton = document.getElementById('back-to-top');
+  const footerLogo = document.getElementById('footer-logo');
+  
+  // Show/hide back to top button based on scroll position
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 300) {
+      backToTopButton.classList.add('visible');
+    } else {
+      backToTopButton.classList.remove('visible');
+    }
+  });
+  
+  // Scroll to top when button is clicked
+  backToTopButton.addEventListener('click', function() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+  
+  // Scroll to top when footer logo is clicked
+  if (footerLogo) {
+    footerLogo.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+  
+  // Smooth scroll for table of contents links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        const headerOffset = 100;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
 });
 </script>
+
 <script id="language-switcher">
 document.addEventListener('DOMContentLoaded', function() {
-// Set default language
-let currentLang = 'en';
-// Function to switch language
-function switchLanguage(lang) {
-// Hide all language elements
-document.querySelectorAll('.lang-en, .lang-zh, .lang-ja').forEach(el => {
-el.classList.add('hidden');
-});
-// Show elements for selected language
-document.querySelectorAll(`.lang-${lang}`).forEach(el => {
-el.classList.remove('hidden');
-});
-// Update current language display
-document.querySelectorAll('.current-language').forEach(el => {
-if (lang === 'en') el.textContent = 'English';
-if (lang === 'zh') el.textContent = '简体中文';
-if (lang === 'ja') el.textContent = '日本語';
-});
-currentLang = lang;
-}
-// Add event listeners to language options
-document.querySelectorAll('.language-option').forEach(option => {
-option.addEventListener('click', function() {
-const lang = this.getAttribute('data-lang');
-switchLanguage(lang);
-});
-});
-// Mobile menu toggle
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-const mobileMenu = document.getElementById('mobile-menu');
-mobileMenuButton.addEventListener('click', function() {
-mobileMenu.classList.toggle('hidden');
-});
+  // Set default language
+  let currentLang = 'en';
+  
+  // Function to switch language
+  function switchLanguage(lang) {
+    // Hide all language elements
+    document.querySelectorAll('.lang-en, .lang-zh, .lang-ja').forEach(el => {
+      el.classList.add('hidden');
+    });
+    
+    // Show elements for selected language
+    document.querySelectorAll(`.lang-${lang}`).forEach(el => {
+      el.classList.remove('hidden');
+    });
+    
+    // Update current language display
+    document.querySelectorAll('.current-language').forEach(el => {
+      if (lang === 'en') el.textContent = 'English';
+      if (lang === 'zh') el.textContent = '简体中文';
+      if (lang === 'ja') el.textContent = '日本語';
+    });
+    
+    currentLang = lang;
+  }
+  
+  // Add event listeners to language options
+  document.querySelectorAll('.language-option').forEach(option => {
+    option.addEventListener('click', function() {
+      const lang = this.getAttribute('data-lang');
+      switchLanguage(lang);
+    });
+  });
+  
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  mobileMenuButton.addEventListener('click', function() {
+    mobileMenu.classList.toggle('hidden');
+  });
 });
 </script>
 </body>
