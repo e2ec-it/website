@@ -31,6 +31,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Inject Git SHA to index.html
+        run: |
+          SHA=$(git rev-parse --short=7 HEAD)
+          sed -i "s/__COMMIT_SHA__/$SHA/g" ./index.html
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
