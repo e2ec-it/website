@@ -31,19 +31,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Inject Commit SHA into index.html
+      - name: Inject Commit SHA into footer.html
         run: |
           echo "---- ls all files ----"
           ls -a
           echo "---- before ----"
-          grep -n "COMMIT_SHA" index.html 
           grep -n "COMMIT_SHA" index.html || true
           SHA=$(git rev-parse --short=7 HEAD)
           echo $SHA
-          sed -i "s/___COMMIT_SHA___/$SHA/g" index.html
+          sed -i "s/___COMMIT_SHA___/$SHA/g" footer.html
           echo "---- after ----"
-          grep -n "COMMIT_SHA" index.html 
-          grep -n "COMMIT_SHA" index.html || true
+          grep -n "COMMIT_SHA" footer.html || true
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
