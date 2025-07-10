@@ -1796,5 +1796,35 @@ card.style.display = 'none';
 });
 });
 </script>
+
+<!-- for header action -->
+  <script id="global-event-delegation">
+    document.body.addEventListener('click', e => {
+      // 移动菜单切换
+      if (e.target.closest('#mobile-menu-button')) {
+        document.querySelector('#mobile-menu').classList.toggle('hidden');
+      }
+      // 语言下拉切换
+      if (e.target.closest('.language-selector > button')) {
+        document.querySelector('.language-options').classList.toggle('hidden');
+      }
+      // 选择语言
+      const opt = e.target.closest('.language-option');
+      if (opt) {
+        const lang = opt.dataset.lang;
+        ['en','zh','ja'].forEach(l => {
+          document.querySelectorAll('.lang-' + l)
+                  .forEach(el => el.classList.toggle('hidden', l !== lang));
+        });
+        document.querySelectorAll('.current-language')
+                .forEach(el => {
+                  el.textContent = opt.textContent;
+                });
+        // 收起下拉
+        const opts = document.querySelector('.language-options');
+        if (opts) opts.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
