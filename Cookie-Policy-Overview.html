@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie Policy - E2E Consulting</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#00F0FF',secondary:'#B026FF'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Roboto', sans-serif;
+background-color: #0A0A1F;
+color: #ffffff;
+}
+.language-selector {
+position: relative;
+}
+.language-options {
+display: none;
+position: absolute;
+top: 100%;
+right: 0;
+background-color: #1A1A3F;
+border-radius: 8px;
+overflow: hidden;
+width: 160px;
+z-index: 50;
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+.language-selector:hover .language-options {
+display: block;
+}
+.nav-link {
+position: relative;
+}
+.nav-link::after {
+content: '';
+position: absolute;
+bottom: -5px;
+left: 0;
+width: 0;
+height: 2px;
+background-color: #00F0FF;
+transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+width: 100%;
+}
+.cookie-section {
+transition: all 0.3s ease;
+border: 1px solid rgba(0, 240, 255, 0.1);
+background: rgba(10, 10, 31, 0.7);
+backdrop-filter: blur(10px);
+}
+.cookie-section:hover {
+border-color: #00F0FF;
+box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+.cookie-toggle {
+position: relative;
+width: 48px;
+height: 24px;
+border-radius: 12px;
+background-color: #1A1A3F;
+transition: all 0.3s ease;
+cursor: pointer;
+}
+.cookie-toggle.active {
+background-color: #00F0FF;
+}
+.cookie-toggle::after {
+content: '';
+position: absolute;
+top: 2px;
+left: 2px;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background-color: #ffffff;
+transition: all 0.3s ease;
+}
+.cookie-toggle.active::after {
+transform: translateX(24px);
+}
+.contact-input {
+background-color: rgba(255, 255, 255, 0.05);
+border: 1px solid rgba(255, 255, 255, 0.1);
+transition: all 0.3s ease;
+}
+.contact-input:focus {
+border-color: #00F0FF;
+box-shadow: 0 0 0 2px rgba(0, 240, 255, 0.2);
+}
+</style>
+</head>
+<body>
+<!-- Header Section -->
+<header class="fixed top-0 left-0 w-full bg-opacity-90 bg-[#0A0A1F] backdrop-blur-md z-50">
+<div class="container mx-auto px-6 py-4">
+<div class="flex justify-between items-center">
+<div class="flex items-center">
+<a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca" data-readdy="true" class="text-3xl font-['-apple-system,BlinkMacSystemFont,SF_Pro_Display,Helvetica_Neue,Arial'] font-medium text-white">
+<div class="flex items-center">
+<img src="https://static.readdy.ai/image/53a4d54aa374b01413a309defbaefd8a/890389b5e509c8efbf5dd3ca6b3b0c06.png" alt="Logo" class="h-10 w-10 mr-3">
+<span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tracking-tight">E2E Consulting</span>
+</div>
+</a>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca" data-readdy="true" class="nav-link text-white hover:text-primary transition-colors duration-300">
+<span class="lang-en">Home</span>
+<span class="lang-zh hidden">首页</span>
+<span class="lang-ja hidden">ホーム</span>
+</a>
+<a href="/services" class="nav-link text-white hover:text-primary transition-colors duration-300">
+<span class="lang-en">Services</span>
+<span class="lang-zh hidden">服务</span>
+<span class="lang-ja hidden">サービス</span>
+</a>
+<a href="/products" class="nav-link text-white hover:text-primary transition-colors duration-300">
+<span class="lang-en">Products</span>
+<span class="lang-zh hidden">产品</span>
+<span class="lang-ja hidden">製品</span>
+</a>
+<a href="/about" class="nav-link text-white hover:text-primary transition-colors duration-300">
+<span class="lang-en">About</span>
+<span class="lang-zh hidden">关于我们</span>
+<span class="lang-ja hidden">会社概要</span>
+</a>
+<div class="language-selector">
+<button class="flex items-center space-x-1 text-white hover:text-primary transition-colors duration-300 whitespace-nowrap !rounded-button">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-global-line ri-lg"></i>
+</div>
+<span class="current-language">English</span>
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</button>
+<div class="language-options">
+<button class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="en">English</button>
+<button class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="zh">简体中文</button>
+<button class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="ja">日本語</button>
+</div>
+</div>
+</div>
+<div class="md:hidden">
+<button id="mobile-menu-button" class="text-white focus:outline-none whitespace-nowrap !rounded-button">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-menu-line ri-2x"></i>
+</div>
+</button>
+</div>
+</div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+<div class="flex flex-col space-y-4">
+<a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca" data-readdy="true" class="text-white hover:text-primary transition-colors duration-300">
+<span class="lang-en">Home</span>
+<span class="lang-zh hidden">首页</span>
+<span class="lang-ja hidden">ホーム</span>
+</a>
+<a href="/services" class="text-white hover:text-primary transition-colors duration-300">
+<span class="lang-en">Services</span>
+<span class="lang-zh hidden">服务</span>
+<span class="lang-ja hidden">サービス</span>
+</a>
+<a href="/products" class="text-white hover:text-primary transition-colors duration-300">
+<span class="lang-en">Products</span>
+<span class="lang-zh hidden">产品</span>
+<span class="lang-ja hidden">製品</span>
+</a>
+<a href="/about" class="text-white hover:text-primary transition-colors duration-300">
+<span class="lang-en">About</span>
+<span class="lang-zh hidden">关于我们</span>
+<span class="lang-ja hidden">会社概要</span>
+</a>
+<div class="pt-2 border-t border-gray-700">
+<div class="flex flex-col space-y-2">
+<button class="text-left px-2 py-1 hover:bg-[#2A2A5F] rounded transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="en">English</button>
+<button class="text-left px-2 py-1 hover:bg-[#2A2A5F] rounded transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="zh">简体中文</button>
+<button class="text-left px-2 py-1 hover:bg-[#2A2A5F] rounded transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="ja">日本語</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<!-- Cookie Policy Hero Section -->
+<section class="relative pt-32 pb-16 bg-[#0A0A1F]">
+<div class="container mx-auto px-6">
+<div class="flex flex-col items-center text-center">
+<a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca" data-readdy="true" class="flex items-center mb-8 text-primary hover:text-white transition-colors duration-300">
+<div class="w-5 h-5 mr-2 flex items-center justify-center">
+<i class="ri-arrow-left-line"></i>
+</div>
+<span>Back to Home</span>
+</a>
+<h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Cookie Policy</h1>
+<p class="text-xl text-gray-300 max-w-3xl">Understanding how we use cookies and similar technologies to enhance your browsing experience</p>
+</div>
+</div>
+</section>
+
+<!-- Main Content Section -->
+<section class="py-12 bg-[#0F0F2F]">
+<div class="container mx-auto px-6 max-w-4xl">
+<div class="mb-12">
+<h2 class="text-2xl font-bold mb-4">Introduction</h2>
+<p class="text-gray-300 mb-6">
+E2E Consulting ("we", "our", or "us") uses cookies and similar technologies on our website. This Cookie Policy explains what cookies are, how we use them, your choices regarding cookies, and further information about cookies.
+</p>
+<p class="text-gray-300">
+This policy should be read alongside our Privacy Policy, which explains how we use your personal information. By continuing to browse our site, you are agreeing to our use of cookies as described in this Cookie Policy.
+</p>
+</div>
+
+<div class="cookie-section rounded-lg p-8 mb-8">
+<div class="flex items-start">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-information-line text-primary"></i>
+</div>
+</div>
+<div>
+<h2 class="text-2xl font-bold mb-4">What Are Cookies?</h2>
+<p class="text-gray-300 mb-4">
+Cookies are small text files that are placed on your device when you visit a website. They are widely used to make websites work more efficiently, provide a better browsing experience, and give information to the website owners.
+</p>
+<p class="text-gray-300">
+Cookies can be "persistent" or "session" cookies. Persistent cookies remain on your device when you go offline, while session cookies are deleted as soon as you close your web browser.
+</p>
+</div>
+</div>
+
+<div class="cookie-section rounded-lg p-8 mb-8">
+<div class="flex items-start">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-file-list-3-line text-primary"></i>
+</div>
+</div>
+<div>
+<h2 class="text-2xl font-bold mb-4">Types of Cookies We Use</h2>
+<p class="text-gray-300 mb-6">
+We use different types of cookies for various purposes. These include:</p>
+
+<div class="mb-6">
+<h3 class="text-xl font-bold mb-3">Essential Cookies</h3>
+<p class="text-gray-300 mb-2">
+These cookies are necessary for the website to function properly. They enable core functionality such as security, network management, and account access. You cannot opt out of these cookies.
+</p>
+<div class="bg-[#1A1A3F] rounded-lg p-4 mt-4">
+<div class="flex items-center justify-between">
+<div>
+<p class="font-medium">Essential Cookies</p>
+<p class="text-sm text-gray-400">Required for basic website functionality</p>
+</div>
+<div class="cookie-toggle active" data-cookie-type="essential"></div>
+</div>
+</div>
+</div>
+
+<div class="mb-6">
+<h3 class="text-xl font-bold mb-3">Performance Cookies</h3>
+<p class="text-gray-300 mb-2">
+These cookies collect information about how visitors use our website, such as which pages they visit most often and if they receive error messages. They help us improve website performance and user experience.
+</p>
+<div class="bg-[#1A1A3F] rounded-lg p-4 mt-4">
+<div class="flex items-center justify-between">
+<div>
+<p class="font-medium">Performance Cookies</p>
+<p class="text-sm text-gray-400">Help us improve our website</p>
+</div>
+<div class="cookie-toggle" data-cookie-type="performance"></div>
+</div>
+</div>
+</div>
+
+<div class="mb-6">
+<h3 class="text-xl font-bold mb-3">Functionality Cookies</h3>
+<p class="text-gray-300 mb-2">
+These cookies allow the website to remember choices you make (such as your language preference) and provide enhanced, more personal features.
+</p>
+<div class="bg-[#1A1A3F] rounded-lg p-4 mt-4">
+<div class="flex items-center justify-between">
+<div>
+<p class="font-medium">Functionality Cookies</p>
+<p class="text-sm text-gray-400">Remember your preferences</p>
+</div>
+<div class="cookie-toggle" data-cookie-type="functionality"></div>
+</div>
+</div>
+</div>
+
+<div>
+<h3 class="text-xl font-bold mb-3">Targeting/Advertising Cookies</h3>
+<p class="text-gray-300 mb-2">
+These cookies are used to deliver advertisements more relevant to you and your interests. They are also used to limit the number of times you see an advertisement and help measure the effectiveness of advertising campaigns.
+</p>
+<div class="bg-[#1A1A3F] rounded-lg p-4 mt-4">
+<div class="flex items-center justify-between">
+<div>
+<p class="font-medium">Targeting/Advertising Cookies</p>
+<p class="text-sm text-gray-400">Provide relevant advertisements</p>
+</div>
+<div class="cookie-toggle" data-cookie-type="advertising"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="cookie-section rounded-lg p-8 mb-8">
+<div class="flex items-start">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-share-line text-primary"></i>
+</div>
+</div>
+<div>
+<h2 class="text-2xl font-bold mb-4">Third-Party Cookies</h2>
+<p class="text-gray-300 mb-4">
+In addition to our own cookies, we may also use various third-party cookies to report usage statistics, deliver advertisements, and so on. These cookies may include:</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-[#1A1A3F] rounded-lg p-4">
+<div class="flex items-start">
+<div class="w-8 h-8 flex items-center justify-center mr-3 text-primary">
+<i class="ri-google-line ri-lg"></i>
+</div>
+<div>
+<p class="font-medium">Google Analytics</p>
+<p class="text-sm text-gray-400">Tracks website usage and performance</p>
+</div>
+</div>
+</div>
+
+<div class="bg-[#1A1A3F] rounded-lg p-4">
+<div class="flex items-start">
+<div class="w-8 h-8 flex items-center justify-center mr-3 text-primary">
+<i class="ri-facebook-circle-line ri-lg"></i>
+</div>
+<div>
+<p class="font-medium">Facebook Pixel</p>
+<p class="text-sm text-gray-400">Helps with advertising and conversion tracking</p>
+</div>
+</div>
+</div>
+
+<div class="bg-[#1A1A3F] rounded-lg p-4">
+<div class="flex items-start">
+<div class="w-8 h-8 flex items-center justify-center mr-3 text-primary">
+<i class="ri-linkedin-box-line ri-lg"></i>
+</div>
+<div>
+<p class="font-medium">LinkedIn Insight</p>
+<p class="text-sm text-gray-400">Tracks conversions from LinkedIn ads</p>
+</div>
+</div>
+</div>
+
+<div class="bg-[#1A1A3F] rounded-lg p-4">
+<div class="flex items-start">
+<div class="w-8 h-8 flex items-center justify-center mr-3 text-primary">
+<i class="ri-twitter-x-line ri-lg"></i>
+</div>
+<div>
+<p class="font-medium">Twitter Pixel</p>
+<p class="text-sm text-gray-400">Tracks interactions with Twitter ads</p>
+</div>
+</div>
+</div>
+</div>
+
+<p class="text-gray-300">
+Each third-party cookie is subject to the privacy policy of the company providing it. We recommend reviewing their privacy policies for more information about their data practices.
+</p>
+</div>
+</div>
+</div>
+
+<div class="cookie-section rounded-lg p-8 mb-8">
+<div class="flex items-start">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-settings-line text-primary"></i>
+</div>
+</div>
+<div>
+<h2 class="text-2xl font-bold mb-4">Managing Your Cookie Preferences</h2>
+<p class="text-gray-300 mb-6">
+You can control and manage cookies in various ways. Please keep in mind that removing or blocking cookies can impact your user experience and parts of our website may no longer be fully accessible.</p>
+
+<h3 class="text-xl font-bold mb-3">Browser Controls</h3>
+<p class="text-gray-300 mb-4">
+Most browsers allow you to manage cookie settings. These settings are usually found in the 'Options' or 'Preferences' menu of your browser. The following links may be helpful:</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+<a href="https://support.google.com/chrome/answer/95647" target="_blank" class="bg-[#1A1A3F] rounded-lg p-4 hover:bg-[#2A2A5F] transition-colors duration-300">
+<div class="flex items-center">
+<div class="w-8 h-8 flex items-center justify-center mr-3 text-primary">
+<i class="ri-chrome-line ri-lg"></i>
+</div>
+<span>Google Chrome</span>
+</div>
+</a>
+
+<a href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop" target="_blank" class="bg-[#1A1A3F] rounded-lg p-4 hover:bg-[#2A2A5F] transition-colors duration-300">
+<div class="flex items-center">
+<div class="w-8 h-8 flex items-center justify-center mr-3 text-primary">
+<i class="ri-firefox-line ri-lg"></i>
+</div>
+<span>Mozilla Firefox</span>
+</div>
+</a>
+
+<a href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac" target="_blank" class="bg-[#1A1A3F] rounded-lg p-4 hover:bg-[#2A2A5F] transition-colors duration-300">
+<div class="flex items-center">
+<div class="w-8 h-8 flex items-center justify-center mr-3 text-primary">
+<i class="ri-safari-line ri-lg"></i>
+</div>
+<span>Safari</span>
+</div>
+</a>
+
+<a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" class="bg-[#1A1A3F] rounded-lg p-4 hover:bg-[#2A2A5F] transition-colors duration-300">
+<div class="flex items-center">
+<div class="w-8 h-8 flex items-center justify-center mr-3 text-primary">
+<i class="ri-edge-line ri-lg"></i>
+</div>
+<span>Microsoft Edge</span>
+</div>
+</a>
+</div>
+
+<h3 class="text-xl font-bold mb-3">Opt-Out of Third-Party Cookies</h3>
+<p class="text-gray-300 mb-4">
+You can opt-out of third-party cookies by visiting the Network Advertising Initiative opt-out page or the Digital Advertising Alliance's opt-out platform.</p>
+
+<div class="bg-[#1A1A3F] rounded-lg p-6 mb-6">
+<h3 class="text-xl font-bold mb-4">Cookie Preference Center</h3>
+<p class="text-gray-300 mb-4">You can manage your cookie preferences at any time using our Cookie Preference Center:</p>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<button id="accept-all-cookies" class="px-6 py-3 bg-gradient-to-r from-primary to-secondary text-black font-bold rounded-lg transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/50 whitespace-nowrap !rounded-button">Accept All Cookies</button>
+<button id="reject-all-cookies" class="px-6 py-3 bg-[#1A1A3F] border border-gray-600 text-white font-bold rounded-lg transition-transform duration-300 hover:scale-105 hover:bg-[#2A2A5F] whitespace-nowrap !rounded-button">Reject All Cookies</button>
+<button id="save-preferences" class="px-6 py-3 bg-[#1A1A3F] border border-primary text-white font-bold rounded-lg transition-transform duration-300 hover:scale-105 hover:bg-primary/10 whitespace-nowrap !rounded-button">Save Preferences</button>
+</div>
+</div>
+</div>
+
+<p class="text-gray-300">
+Please note that essential cookies cannot be disabled as they are necessary for the website to function properly.
+</p>
+</div>
+</div>
+</div>
+
+<div class="cookie-section rounded-lg p-8 mb-8">
+<div class="flex items-start">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-shield-check-line text-primary"></i>
+</div>
+</div>
+<div>
+<h2 class="text-2xl font-bold mb-4">Privacy and Compliance</h2>
+<p class="text-gray-300 mb-4">
+We are committed to protecting your privacy and complying with applicable data protection laws and regulations, including:</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-[#1A1A3F] rounded-lg p-4">
+<div class="flex items-start">
+<div class="w-8 h-8 flex items-center justify-center mr-3 text-primary">
+<i class="ri-government-line ri-lg"></i>
+</div>
+<div>
+<p class="font-medium">GDPR Compliance</p>
+<p class="text-sm text-gray-400">We comply with the EU General Data Protection Regulation</p>
+</div>
+</div>
+</div>
+
+<div class="bg-[#1A1A3F] rounded-lg p-4">
+<div class="flex items-start">
+<div class="w-8 h-8 flex items-center justify-center mr-3 text-primary">
+<i class="ri-government-line ri-lg"></i>
+</div>
+<div>
+<p class="font-medium">CCPA Compliance</p>
+<p class="text-sm text-gray-400">We comply with the California Consumer Privacy Act</p>
+</div>
+</div>
+</div>
+</div>
+
+<p class="text-gray-300 mb-4">
+For users in the European Economic Area (EEA), we only place non-essential cookies after receiving your explicit consent, in accordance with the ePrivacy Directive and GDPR.
+</p>
+
+<p class="text-gray-300">
+For California residents, we provide additional rights under the CCPA regarding your personal information, including the right to opt out of the sale of your personal information.
+</p>
+</div>
+</div>
+</div>
+
+<div class="cookie-section rounded-lg p-8">
+<div class="flex items-start">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-question-line text-primary"></i>
+</div>
+</div>
+<div>
+<h2 class="text-2xl font-bold mb-4">Contact Us</h2>
+<p class="text-gray-300 mb-4">
+If you have any questions about our Cookie Policy or how we handle cookies, please contact us at:</p>
+
+<div class="bg-[#1A1A3F] rounded-lg p-6 mb-6">
+<h3 class="text-xl font-bold mb-2">E2E Consulting</h3>
+<p class="text-gray-300 mb-1">Ginza TH Building F9, 7-13-20, Ginza, Chuo-ku, Tokyo, Japan (104-0061)</p>
+<p class="text-gray-300 mb-4">Email: <a href="mailto:privacy@e2ec.biz" class="text-primary hover:underline">privacy@e2ec.biz</a></p>
+<p class="text-gray-400 text-sm">Please include "Cookie Policy Inquiry" in the subject line for faster processing.</p>
+</div>
+
+<p class="text-gray-300">
+This Cookie Policy was last updated on June 30, 2025, and may be updated periodically to reflect changes in our practices or regulatory requirements.
+</p>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#0A0A1F] pt-16 pb-8">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+<div class="md:col-span-1">
+<a href="#" id="footer-logo" class="inline-block mb-6">
+<div class="flex items-center">
+<img src="https://static.readdy.ai/image/53a4d54aa374b01413a309defbaefd8a/890389b5e509c8efbf5dd3ca6b3b0c06.png" alt="Logo" class="h-10 w-10 mr-2">
+<span class="text-2xl font-['-apple-system,BlinkMacSystemFont,SF_Pro_Display,Helvetica_Neue,Arial'] font-medium bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tracking-tight">E2E</span>
+</div>
+</a>
+<p class="text-gray-400 mb-6">
+<span class="lang-en">From Earth To Europa - Accelerating humanity's journey to become an interplanetary species.</span>
+<span class="lang-zh hidden">从地球到木卫二 - 加速人类成为跨星际物种的进程。</span>
+<span class="lang-ja hidden">地球から木星の衛星エウロパへ - 人類が惑星間種になるための旅を加速させます。</span>
+</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-twitter-x-line text-white"></i>
+</div>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-linkedin-line text-white"></i>
+</div>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-github-line text-white"></i>
+</div>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-youtube-line text-white"></i>
+</div>
+</a>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-6">
+<span class="lang-en">Services</span>
+<span class="lang-zh hidden">服务</span>
+<span class="lang-ja hidden">サービス</span>
+</h3>
+<ul class="space-y-4">
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+<span class="lang-en">IT Software Development</span>
+<span class="lang-zh hidden">信息技术软件研发</span>
+<span class="lang-ja hidden">ITソフトウェア開発</span>
+</a>
+</li>
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+<span class="lang-en">AI Technology R&D</span>
+<span class="lang-zh hidden">人工智能技术研发</span>
+<span class="lang-ja hidden">AI技術研究開発</span>
+</a>
+</li>
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+<span class="lang-en">Robotics Development</span>
+<span class="lang-zh hidden">机器人研发</span>
+<span class="lang-ja hidden">ロボット開発</span>
+</a>
+</li>
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+<span class="lang-en">Consulting Services</span>
+<span class="lang-zh hidden">咨询服务</span>
+<span class="lang-ja hidden">コンサルティングサービス</span>
+</a>
+</li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-6">
+<span class="lang-en">Company</span>
+<span class="lang-zh hidden">公司</span>
+<span class="lang-ja hidden">会社情報</span>
+</h3>
+<ul class="space-y-4">
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+<span class="lang-en">About Us</span>
+<span class="lang-zh hidden">关于我们</span>
+<span class="lang-ja hidden">会社概要</span>
+</a>
+</li>
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+<span class="lang-en">Careers</span>
+<span class="lang-zh hidden">招聘</span>
+<span class="lang-ja hidden">採用情報</span>
+</a>
+</li>
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+<span class="lang-en">Press</span>
+<span class="lang-zh hidden">新闻</span>
+<span class="lang-ja hidden">プレスリリース</span>
+</a>
+</li>
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+<span class="lang-en">Contact</span>
+<span class="lang-zh hidden">联系我们</span>
+<span class="lang-ja hidden">お問い合わせ</span>
+</a>
+</li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-6">
+<span class="lang-en">Legal</span>
+<span class="lang-zh hidden">法律</span>
+<span class="lang-ja hidden">法的情報</span>
+</h3>
+<ul class="space-y-4">
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+<span class="lang-en">Terms of Service</span>
+<span class="lang-zh hidden">服务条款</span>
+<span class="lang-ja hidden">利用規約</span>
+</a>
+</li>
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+<span class="lang-en">Privacy Policy</span>
+<span class="lang-zh hidden">隐私政策</span>
+<span class="lang-ja hidden">プライバシーポリシー</span>
+</a>
+</li>
+<li>
+<a href="#" class="text-primary font-medium">
+<span class="lang-en">Cookie Policy</span>
+<span class="lang-zh hidden">Cookie 政策</span>
+<span class="lang-ja hidden">Cookie ポリシー</span>
+</a>
+</li>
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+<span class="lang-en">Security</span>
+<span class="lang-zh hidden">安全</span>
+<span class="lang-ja hidden">セキュリティ</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-500 text-sm mb-4 md:mb-0">
+<span class="lang-en">&copy; 2025 E2E Consulting LLC. All rights reserved.</span>
+<span class="lang-zh hidden">&copy; 2025 合同会社E2E咨询。保留所有权利。</span>
+<span class="lang-ja hidden">&copy; 2025 合同会社E2E Consulting。全ての権利を保有します。</span>
+</p>
+<div class="flex items-center space-x-4">
+<div class="flex items-center">
+<div class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-visa-line text-gray-400 ri-lg"></i>
+</div>
+<div class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-mastercard-line text-gray-400 ri-lg"></i>
+</div>
+<div class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-paypal-line text-gray-400 ri-lg"></i>
+</div>
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-alipay-line text-gray-400 ri-lg"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+<script id="cookie-consent-banner">
+document.addEventListener('DOMContentLoaded', function() {
+// Create cookie consent banner
+const cookieBanner = document.createElement('div');
+cookieBanner.className = 'fixed bottom-0 left-0 right-0 bg-[#1A1A3F] p-4 md:p-6 z-50 shadow-lg';
+cookieBanner.innerHTML = `
+<div class="container mx-auto">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+<div class="flex-grow">
+<h3 class="text-lg font-bold mb-2">We use cookies</h3>
+<p class="text-gray-300 text-sm md:text-base">We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By clicking "Accept All", you consent to our use of cookies.</p>
+</div>
+<div class="flex flex-wrap gap-3">
+<button id="cookie-settings" class="px-4 py-2 bg-[#2A2A5F] text-white rounded-lg hover:bg-[#3A3A6F] transition-colors duration-300 whitespace-nowrap !rounded-button">Cookie Settings</button>
+<button id="cookie-accept" class="px-4 py-2 bg-gradient-to-r from-primary to-secondary text-black font-bold rounded-lg hover:opacity-90 transition-opacity duration-300 whitespace-nowrap !rounded-button">Accept All</button>
+</div>
+</div>
+</div>
+`;
+
+// Check if cookie consent has been given
+if (!localStorage.getItem('cookieConsent')) {
+document.body.appendChild(cookieBanner);
+}
+
+// Handle cookie banner buttons
+if (document.getElementById('cookie-accept')) {
+document.getElementById('cookie-accept').addEventListener('click', function() {
+localStorage.setItem('cookieConsent', 'accepted');
+localStorage.setItem('cookiePerformance', 'true');
+localStorage.setItem('cookieFunctionality', 'true');
+localStorage.setItem('cookieAdvertising', 'true');
+document.querySelectorAll('.cookie-toggle').forEach(toggle => {
+toggle.classList.add('active');
+});
+cookieBanner.remove();
+});
+}
+
+if (document.getElementById('cookie-settings')) {
+document.getElementById('cookie-settings').addEventListener('click', function() {
+cookieBanner.remove();
+document.documentElement.scrollTo({
+top: document.querySelector('.cookie-section:nth-child(4)').offsetTop - 100,
+behavior: 'smooth'
+});
+});
+}
+
+// Toggle cookie preferences
+document.querySelectorAll('.cookie-toggle').forEach(toggle => {
+const cookieType = toggle.getAttribute('data-cookie-type');
+
+
+// Set initial state based on localStorage
+if (cookieType === 'essential') {
+toggle.classList.add('active');
+} else {
+if (localStorage.getItem('cookie' + cookieType.charAt(0).toUpperCase() + cookieType.slice(1)) === 'true') {
+toggle.classList.add('active');
+}
+}
+
+// Don't allow toggling essential cookies
+if (cookieType !== 'essential') {
+toggle.addEventListener('click', function() {
+this.classList.toggle('active');
+});
+}
+});
+
+// Handle cookie preference buttons
+document.getElementById('accept-all-cookies').addEventListener('click', function() {
+localStorage.setItem('cookieConsent', 'accepted');
+localStorage.setItem('cookiePerformance', 'true');
+localStorage.setItem('cookieFunctionality', 'true');
+localStorage.setItem('cookieAdvertising', 'true');
+document.querySelectorAll('.cookie-toggle').forEach(toggle => {
+toggle.classList.add('active');
+});
+showToast('All cookies accepted');
+});
+
+document.getElementById('reject-all-cookies').addEventListener('click', function() {
+localStorage.setItem('cookieConsent', 'rejected');
+localStorage.setItem('cookiePerformance', 'false');
+localStorage.setItem('cookieFunctionality', 'false');
+localStorage.setItem('cookieAdvertising', 'false');
+document.querySelectorAll('.cookie-toggle').forEach(toggle => {
+const cookieType = toggle.getAttribute('data-cookie-type');
+if (cookieType !== 'essential') {
+toggle.classList.remove('active');
+}
+});
+showToast('Non-essential cookies rejected');
+});
+
+document.getElementById('save-preferences').addEventListener('click', function() {
+localStorage.setItem('cookieConsent', 'customized');
+document.querySelectorAll('.cookie-toggle').forEach(toggle => {
+const cookieType = toggle.getAttribute('data-cookie-type');
+if (cookieType !== 'essential') {
+localStorage.setItem('cookie' + cookieType.charAt(0).toUpperCase() + cookieType.slice(1), toggle.classList.contains('active'));
+}
+});
+showToast('Cookie preferences saved');
+});
+
+// Create toast notification
+function showToast(message) {
+const toast = document.createElement('div');
+toast.className = 'fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-primary text-black px-6 py-3 rounded-lg shadow-lg flex items-center space-x-2 z-50 transition-opacity duration-300';
+toast.innerHTML = `
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>${message}</span>
+`;
+document.body.appendChild(toast);
+setTimeout(() => {
+toast.style.opacity = '0';
+setTimeout(() => {
+toast.remove();
+}, 300);
+}, 3000);
+}
+});
+</script>
+
+<script id="language-switcher">
+document.addEventListener('DOMContentLoaded', function() {
+// Set default language
+let currentLang = 'en';
+// Function to detect user's language from IP (mock implementation)
+function detectUserLanguage() {
+// In a real implementation, this would make an API call to detect the user's location
+// For demo purposes, we'll use the browser's language
+const browserLang = navigator.language || navigator.userLanguage;
+if (browserLang.startsWith('zh')) {
+return 'zh';
+} else if (browserLang.startsWith('ja')) {
+return 'ja';
+} else {
+return 'en';
+}
+}
+// Function to switch language
+function switchLanguage(lang) {
+// Hide all language elements
+document.querySelectorAll('.lang-en, .lang-zh, .lang-ja').forEach(el => {
+el.classList.add('hidden');
+});
+// Show elements for selected language
+document.querySelectorAll(`.lang-${lang}`).forEach(el => {
+el.classList.remove('hidden');
+});
+// Update current language display
+document.querySelectorAll('.current-language').forEach(el => {
+if (lang === 'en') el.textContent = 'English';
+if (lang === 'zh') el.textContent = '简体中文';
+if (lang === 'ja') el.textContent = '日本語';
+});
+currentLang = lang;
+}
+// Detect and set initial language
+const detectedLang = detectUserLanguage();
+switchLanguage(detectedLang);
+// Add event listeners to language options
+document.querySelectorAll('.language-option').forEach(option => {
+option.addEventListener('click', function() {
+const lang = this.getAttribute('data-lang');
+switchLanguage(lang);
+});
+});
+// Mobile menu toggle
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+});
+});
+</script>
+
+<script id="scroll-to-top">
+document.addEventListener('DOMContentLoaded', function() {
+const footerLogo = document.getElementById('footer-logo');
+if (footerLogo) {
+footerLogo.addEventListener('click', function(e) {
+e.preventDefault();
+window.scrollTo({
+top: 0,
+behavior: 'smooth'
+});
+});
+}
+});
+</script>
+</body>
+</html>

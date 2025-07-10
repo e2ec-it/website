@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services - E2E Consulting</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#00F0FF',secondary:'#B026FF'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Roboto', sans-serif;
+background-color: #0A0A1F;
+color: #ffffff;
+}
+.language-selector {
+position: relative;
+}
+.language-options {
+display: none;
+position: absolute;
+top: 100%;
+right: 0;
+background-color: #1A1A3F;
+border-radius: 8px;
+overflow: hidden;
+width: 160px;
+z-index: 50;
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+.language-selector:hover .language-options {
+display: block;
+}
+.hero-particles {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+overflow: hidden;
+z-index: 0;
+}
+.particle {
+position: absolute;
+border-radius: 50%;
+background: rgba(0, 240, 255, 0.3);
+animation: float 15s infinite ease-in-out;
+}
+@keyframes float {
+0%, 100% {
+transform: translateY(0) translateX(0);
+}
+25% {
+transform: translateY(-30px) translateX(30px);
+}
+50% {
+transform: translateY(-15px) translateX(-20px);
+}
+75% {
+transform: translateY(20px) translateX(25px);
+}
+}
+.service-card {
+transition: all 0.3s ease;
+border: 1px solid rgba(0, 240, 255, 0.1);
+background: rgba(10, 10, 31, 0.7);
+backdrop-filter: blur(10px);
+}
+.service-card:hover {
+border-color: #00F0FF;
+box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+transform: translateY(-5px);
+}
+.tech-icon {
+background: linear-gradient(135deg, #0A0A1F 0%, #1A1A3F 100%);
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.tech-icon i {
+background: linear-gradient(135deg, #00F0FF 0%, #B026FF 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.process-step {
+position: relative;
+}
+.process-step:not(:last-child)::after {
+content: '';
+position: absolute;
+top: 1.5rem;
+right: -2rem;
+width: 4rem;
+height: 2px;
+background: linear-gradient(90deg, #00F0FF 0%, transparent 100%);
+}
+.contact-input {
+background-color: rgba(255, 255, 255, 0.05);
+border: 1px solid rgba(255, 255, 255, 0.1);
+transition: all 0.3s ease;
+}
+.contact-input:focus {
+border-color: #00F0FF;
+box-shadow: 0 0 0 2px rgba(0, 240, 255, 0.2);
+}
+</style>
+</head>
+<body>
+<!-- Header Section -->
+<header class="fixed top-0 left-0 w-full bg-opacity-90 bg-[#0A0A1F] backdrop-blur-md z-50">
+<div class="container mx-auto px-6 py-4">
+<div class="flex justify-between items-center">
+<div class="flex items-center">
+<a href="/" class="text-3xl font-['-apple-system,BlinkMacSystemFont,SF_Pro_Display,Helvetica_Neue,Arial'] font-medium text-white">
+<div class="flex items-center">
+<img src="https://static.readdy.ai/image/53a4d54aa374b01413a309defbaefd8a/890389b5e509c8efbf5dd3ca6b3b0c06.png" alt="Logo" class="h-10 w-10 mr-3">
+<span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tracking-tight">E2E Consulting</span>
+</div>
+</a>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca" data-readdy="true" class="text-white hover:text-primary transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-[width] after:duration-300 hover:after:w-full">
+<span class="lang-en">Home</span>
+<span class="lang-zh hidden">首页</span>
+<span class="lang-ja hidden">ホーム</span>
+</a>
+<a href="/services" class="text-white hover:text-primary transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:w-full after:h-[2px] after:bg-primary">
+<span class="lang-en">Services</span>
+<span class="lang-zh hidden">服务</span>
+<span class="lang-ja hidden">サービス</span>
+</a>
+<a href="/products" class="text-white hover:text-primary transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-[width] after:duration-300 hover:after:w-full">
+<span class="lang-en">Products</span>
+<span class="lang-zh hidden">产品</span>
+<span class="lang-ja hidden">製品</span>
+</a>
+<a href="/about" class="text-white hover:text-primary transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-[width] after:duration-300 hover:after:w-full">
+<span class="lang-en">About</span>
+<span class="lang-zh hidden">关于我们</span>
+<span class="lang-ja hidden">会社概要</span>
+</a>
+<a href="#contact" class="text-white hover:text-primary transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-[width] after:duration-300 hover:after:w-full">
+<span class="lang-en">Contact</span>
+<span class="lang-zh hidden">联系我们</span>
+<span class="lang-ja hidden">お問い合わせ</span>
+</a>
+<div class="language-selector">
+<button class="flex items-center space-x-1 text-white hover:text-primary transition-colors duration-300 whitespace-nowrap !rounded-button">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-global-line ri-lg"></i>
+</div>
+<span class="current-language">English</span>
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</button>
+<div class="language-options">
+<button class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="en">English</button>
+<button class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="zh">简体中文</button>
+<button class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="ja">日本語</button>
+</div>
+</div>
+</div>
+<div class="md:hidden">
+<button id="mobile-menu-button" class="text-white focus:outline-none whitespace-nowrap !rounded-button">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-menu-line ri-2x"></i>
+</div>
+</button>
+</div>
+</div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+<div class="flex flex-col space-y-4">
+<a href="/services" class="text-white hover:text-primary transition-colors duration-300">
+<span class="lang-en">Services</span>
+<span class="lang-zh hidden">服务</span>
+<span class="lang-ja hidden">サービス</span>
+</a>
+<a href="/products" class="text-white hover:text-primary transition-colors duration-300">
+<span class="lang-en">Products</span>
+<span class="lang-zh hidden">产品</span>
+<span class="lang-ja hidden">製品</span>
+</a>
+<a href="/about" class="text-white hover:text-primary transition-colors duration-300">
+<span class="lang-en">About</span>
+<span class="lang-zh hidden">关于我们</span>
+<span class="lang-ja hidden">会社概要</span>
+</a>
+<a href="#contact" class="text-white hover:text-primary transition-colors duration-300">
+<span class="lang-en">Contact</span>
+<span class="lang-zh hidden">联系我们</span>
+<span class="lang-ja hidden">お問い合わせ</span>
+</a>
+<div class="pt-2 border-t border-gray-700">
+<div class="flex flex-col space-y-2">
+<button class="text-left px-2 py-1 hover:bg-[#2A2A5F] rounded transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="en">English</button>
+<button class="text-left px-2 py-1 hover:bg-[#2A2A5F] rounded transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="zh">简体中文</button>
+<button class="text-left px-2 py-1 hover:bg-[#2A2A5F] rounded transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="ja">日本語</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative min-h-[70vh] flex items-center pt-24 overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=modern%20software%20development%20workspace%20with%20multiple%20screens%20showing%20code%2C%20development%20team%20collaboration%2C%20futuristic%20office%20environment%20with%20blue%20accent%20lighting%2C%20clean%20and%20minimalist%20design%2C%20high-tech%20feel&width=1920&height=1080&seq=1&orientation=landscape'); background-size: cover; background-position: center;">
+<div class="hero-particles"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-[#0A0A1F] via-[#0A0A1Fdd] to-transparent"></div>
+<div class="container mx-auto px-6 z-10 w-full">
+<div class="max-w-3xl">
+<h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+<span class="lang-en">Our Services</span>
+<span class="lang-zh hidden">我们的服务</span>
+<span class="lang-ja hidden">サービス</span>
+</h1>
+<p class="text-xl text-gray-300 mb-8">
+<span class="lang-en">Cutting-edge solutions in IT, AI, and robotics to transform your business and prepare for the future.</span>
+<span class="lang-zh hidden">在信息技术、人工智能和机器人领域提供尖端解决方案，以改变您的业务并为未来做好准备。</span>
+<span class="lang-ja hidden">ITやAI、ロボット工学における最先端のソリューションで、ビジネスを変革し、未来に備えます。</span>
+</p>
+<a href="#contact" class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-primary to-secondary text-black font-bold rounded-full transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/50 whitespace-nowrap !rounded-button">
+<span class="lang-en">Get Started</span>
+<span class="lang-zh hidden">立即开始</span>
+<span class="lang-ja hidden">今すぐ始める</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section id="services" class="py-20 bg-[#0A0A1F]">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">
+<span class="lang-en">Our Core Services</span>
+<span class="lang-zh hidden">我们的核心服务</span>
+<span class="lang-ja hidden">主要サービス</span>
+</h2>
+<p class="text-xl text-gray-400 max-w-3xl mx-auto">
+<span class="lang-en">Comprehensive solutions to drive innovation and growth</span>
+<span class="lang-zh hidden">推动创新和增长的综合解决方案</span>
+<span class="lang-ja hidden">革新と成長を促進する包括的なソリューション</span>
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- IT Software Development & Consulting -->
+<div class="service-card rounded-lg p-8 h-full flex flex-col">
+<div class="tech-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-code-s-slash-line ri-2x"></i>
+</div>
+</div>
+<h3 class="text-2xl font-bold mb-4">
+<span class="lang-en">IT Software Development & Consulting</span>
+<span class="lang-zh hidden">信息技术软件研发 & 咨询</span>
+<span class="lang-ja hidden">IT ソフトウェア開発 & コンサルティング</span>
+</h3>
+<p class="text-gray-400 mb-6 flex-grow">
+<span class="lang-en">We develop custom software solutions to optimize your business operations and drive digital transformation. Our consultants provide strategic guidance for your IT infrastructure.</span>
+<span class="lang-zh hidden">我们开发定制软件解决方案，以优化您的业务运营并推动数字化转型。我们的顾问团队为您的 IT 基础设施提供战略指导。</span>
+<span class="lang-ja hidden">ビジネス運営を最適化し、デジタルトランスフォーメーションを推進するためのカスタムソフトウェアソリューションを開発します。当社のコンサルタントがITインフラに関する戦略的ガイダンスを提供します。</span>
+</p>
+<a href="#it-details" class="inline-flex items-center text-primary hover:text-white transition-colors duration-300 group">
+<span class="lang-en">Learn more</span>
+<span class="lang-zh hidden">了解更多</span>
+<span class="lang-ja hidden">詳細を見る</span>
+<div class="w-5 h-5 ml-2 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+<!-- AI Technology R&D & Consulting -->
+<div class="service-card rounded-lg p-8 h-full flex flex-col">
+<div class="tech-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-brain-line ri-2x"></i>
+</div>
+</div>
+<h3 class="text-2xl font-bold mb-4">
+<span class="lang-en">AI Technology R&D & Consulting</span>
+<span class="lang-zh hidden">人工智能技术研发 & 咨询</span>
+<span class="lang-ja hidden">AI技術の研究開発 & コンサルティング</span>
+</h3>
+<p class="text-gray-400 mb-6 flex-grow">
+<span class="lang-en">We develop cutting-edge AI solutions leveraging machine learning, deep learning, and natural language processing to solve complex business challenges and create competitive advantages.</span>
+<span class="lang-zh hidden">我们开发尖端人工智能解决方案，将利用机器学习、深度学习和自然语言处理来解决复杂业务挑战并创造竞争优势。</span>
+<span class="lang-ja hidden">機械学習、ディープラーニング、自然言語処理を活用した最先端のAIソリューションを開発し、複雑なビジネス課題を解決し、競争優位性を創出します。</span>
+</p>
+<a href="#ai-details" class="inline-flex items-center text-primary hover:text-white transition-colors duration-300 group">
+<span class="lang-en">Learn more</span>
+<span class="lang-zh hidden">了解更多</span>
+<span class="lang-ja hidden">詳細を見る</span>
+<div class="w-5 h-5 ml-2 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+<!-- Robotics Development & Consulting -->
+<div class="service-card rounded-lg p-8 h-full flex flex-col">
+<div class="tech-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-robot-line ri-2x"></i>
+</div>
+</div>
+<h3 class="text-2xl font-bold mb-4">
+<span class="lang-en">Robotics Development & Consulting</span>
+<span class="lang-zh hidden">机器人研发 & 咨询</span>
+<span class="lang-ja hidden">ロボット開発 & コンサルティング</span>
+</h3>
+<p class="text-gray-400 mb-6 flex-grow">
+<span class="lang-en">We develop advanced robotics solutions for automation, exploration, and human augmentation. Our team designs and implements robotic systems that push the boundaries of what's possible.</span>
+<span class="lang-zh hidden">我们开发用于自动化、探索和人类增强的先进机器人解决方案。我们的团队设计和实施突破可能性边界的机器人系统。</span>
+<span class="lang-ja hidden">自動化、探査、人間拡張のための先進的なロボティクスソリューションを開発します。当社のチームは、可能性の限界を押し広げるロボットシステムの設計・実装を行います。</span>
+</p>
+<a href="#robotics-details" class="inline-flex items-center text-primary hover:text-white transition-colors duration-300 group">
+<span class="lang-en">Learn more</span>
+<span class="lang-zh hidden">了解更多</span>
+<span class="lang-ja hidden">詳細を見る</span>
+<div class="w-5 h-5 ml-2 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- IT Software Development Details -->
+<section id="it-details" class="py-20 bg-[#0F0F2F]">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div>
+<h2 class="text-3xl font-bold mb-6">
+<span class="lang-en">IT Software Development & Consulting</span>
+<span class="lang-zh hidden">信息技术软件研发 & 咨询</span>
+<span class="lang-ja hidden">IT ソフトウェア開発 & コンサルティング</span>
+</h2>
+<p class="text-gray-300 mb-6">
+<span class="lang-en">Our IT software development and consulting services help businesses transform their digital operations through custom solutions and strategic guidance. We combine cutting-edge technologies with industry best practices to deliver scalable, secure, and efficient software solutions.</span>
+<span class="lang-zh hidden">我们的信息技术软件开发和咨询服务通过定制解决方案和战略指导帮助企业转变其数字化运营。我们将尖端技术与行业最佳实践相结合，提供可扩展、安全和高效的软件解决方案。</span>
+<span class="lang-ja hidden">当社のITソフトウェア開発とコンサルティングサービスは、カスタムソリューションと戦略的ガイダンスを通じて、企業のデジタル運営の変革を支援します。最先端技術と業界のベストプラクティスを組み合わせて、スケーラブルで安全、効率的なソフトウェアソリューションを提供します。</span>
+</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+<div class="bg-[#1A1A3F] p-4 rounded-lg">
+<div class="w-10 h-10 flex items-center justify-center text-primary mb-2">
+<i class="ri-code-s-slash-line ri-2x"></i>
+</div>
+<h3 class="font-bold mb-2">
+<span class="lang-en">Custom Software</span>
+<span class="lang-zh hidden">定制软件</span>
+<span class="lang-ja hidden">カスタムソフトウェア</span>
+</h3>
+<p class="text-sm text-gray-400">
+<span class="lang-en">Tailored solutions for your unique business needs</span>
+<span class="lang-zh hidden">为您独特的业务需求定制解决方案</span>
+<span class="lang-ja hidden">ビジネスの独自ニーズに合わせたソリューション</span>
+</p>
+</div>
+<div class="bg-[#1A1A3F] p-4 rounded-lg">
+<div class="w-10 h-10 flex items-center justify-center text-primary mb-2">
+<i class="ri-cloud-line ri-2x"></i>
+</div>
+<h3 class="font-bold mb-2">
+<span class="lang-en">Cloud Solutions</span>
+<span class="lang-zh hidden">云解决方案</span>
+<span class="lang-ja hidden">クラウドソリューション</span>
+</h3>
+<p class="text-sm text-gray-400">
+<span class="lang-en">Scalable infrastructure and migration services</span>
+<span class="lang-zh hidden">可扩展的基础设施和迁移服务</span>
+<span class="lang-ja hidden">スケーラブルなインフラと移行サービス</span>
+</p>
+</div>
+<div class="bg-[#1A1A3F] p-4 rounded-lg">
+<div class="w-10 h-10 flex items-center justify-center text-primary mb-2">
+<i class="ri-database-2-line ri-2x"></i>
+</div>
+<h3 class="font-bold mb-2">
+<span class="lang-en">Enterprise Systems</span>
+<span class="lang-zh hidden">企业系统</span>
+<span class="lang-ja hidden">エンタープライズシステム</span>
+</h3>
+<p class="text-sm text-gray-400">
+<span class="lang-en">Robust solutions for large-scale operations</span>
+<span class="lang-zh hidden">为大规模运营提供稳健的解决方案</span>
+<span class="lang-ja hidden">大規模運用のための堅牢なソリューション</span>
+</p>
+</div>
+<div class="bg-[#1A1A3F] p-4 rounded-lg">
+<div class="w-10 h-10 flex items-center justify-center text-primary mb-2">
+<i class="ri-smartphone-line ri-2x"></i>
+</div>
+<h3 class="font-bold mb-2">
+<span class="lang-en">Mobile Development</span>
+<span class="lang-zh hidden">移动开发</span>
+<span class="lang-ja hidden">モバイル開発</span>
+</h3>
+<p class="text-sm text-gray-400">
+<span class="lang-en">Cross-platform apps with seamless experiences</span>
+<span class="lang-zh hidden">具有无缝体验的跨平台应用</span>
+<span class="lang-ja hidden">シームレスな体験のクロスプラットフォームアプリ</span>
+</p>
+</div>
+</div>
+</div>
+<div>
+<div id="it-tech-chart" class="w-full h-80 rounded-lg overflow-hidden"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Technology Details -->
+<section id="ai-details" class="py-20 bg-[#0A0A1F]">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="order-2 md:order-1">
+<div id="ai-tech-chart" class="w-full h-80 rounded-lg overflow-hidden"></div>
+</div>
+<div class="order-1 md:order-2">
+<h2 class="text-3xl font-bold mb-6">
+<span class="lang-en">AI Technology R&D & Consulting</span>
+<span class="lang-zh hidden">人工智能技术研发 & 咨询</span>
+<span class="lang-ja hidden">AI技術の研究開発 & コンサルティング</span>
+</h2>
+<p class="text-gray-300 mb-6">
+<span class="lang-en">Our AI technology research and development services focus on creating cutting-edge solutions that leverage machine learning, deep learning, and natural language processing to solve complex business challenges.</span>
+<span class="lang-zh hidden">我们的人工智能技术研发服务专注于创建利用机器学习、深度学习和自然语言处理技术的尖端解决方案，以解决复杂的业务挑战。</span>
+<span class="lang-ja hidden">当社のAI技術研究開発サービスは、機械学習、ディープラーニング、自然言語処理を活用した最先端のソリューション創造に焦点を当て、複雑なビジネス課題を解決します。</span>
+</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+<div class="bg-[#1A1A3F] p-4 rounded-lg">
+<div class="w-10 h-10 flex items-center justify-center text-primary mb-2">
+<i class="ri-brain-line ri-2x"></i>
+</div>
+<h3 class="font-bold mb-2">
+<span class="lang-en">Machine Learning</span>
+<span class="lang-zh hidden">机器学习</span>
+<span class="lang-ja hidden">機械学習</span>
+</h3>
+<p class="text-sm text-gray-400">
+<span class="lang-en">Predictive analytics and pattern recognition</span>
+<span class="lang-zh hidden">预测分析和模式识别</span>
+<span class="lang-ja hidden">予測分析とパターン認識</span>
+</p>
+</div>
+<div class="bg-[#1A1A3F] p-4 rounded-lg">
+<div class="w-10 h-10 flex items-center justify-center text-primary mb-2">
+<i class="ri-chat-3-line ri-2x"></i>
+</div>
+<h3 class="font-bold mb-2">
+<span class="lang-en">Natural Language Processing</span>
+<span class="lang-zh hidden">自然语言处理</span>
+<span class="lang-ja hidden">自然言語処理</span>
+</h3>
+<p class="text-sm text-gray-400">
+<span class="lang-en">Text analysis and conversational AI</span>
+<span class="lang-zh hidden">文本分析和对话式人工智能</span>
+<span class="lang-ja hidden">テキスト分析と会話型AI</span>
+</p>
+</div>
+<div class="bg-[#1A1A3F] p-4 rounded-lg">
+<div class="w-10 h-10 flex items-center justify-center text-primary mb-2">
+<i class="ri-eye-line ri-2x"></i>
+</div>
+<h3 class="font-bold mb-2">
+<span class="lang-en">Computer Vision</span>
+<span class="lang-zh hidden">计算机视觉</span>
+<span class="lang-ja hidden">コンピュータビジョン</span>
+</h3>
+<p class="text-sm text-gray-400">
+<span class="lang-en">Image recognition and visual analysis</span>
+<span class="lang-zh hidden">图像识别和视觉分析</span>
+<span class="lang-ja hidden">画像認識と視覚分析</span>
+</p>
+</div>
+<div class="bg-[#1A1A3F] p-4 rounded-lg">
+<div class="w-10 h-10 flex items-center justify-center text-primary mb-2">
+<i class="ri-robot-line ri-2x"></i>
+</div>
+<h3 class="font-bold mb-2">
+<span class="lang-en">Reinforcement Learning</span>
+<span class="lang-zh hidden">强化学习</span>
+<span class="lang-ja hidden">強化学習</span>
+</h3>
+<p class="text-sm text-gray-400">
+<span class="lang-en">Autonomous decision-making systems</span>
+<span class="lang-zh hidden">自主决策系统</span>
+<span class="lang-ja hidden">自律的意思決定システム</span>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Robotics Development Details -->
+<section id="robotics-details" class="py-20 bg-[#0F0F2F]">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div>
+<h2 class="text-3xl font-bold mb-6">
+<span class="lang-en">Robotics Development & Consulting</span>
+<span class="lang-zh hidden">机器人研发 & 咨询</span>
+<span class="lang-ja hidden">ロボット開発 & コンサルティング</span>
+</h2>
+<p class="text-gray-300 mb-6">
+<span class="lang-en">Our robotics development services combine advanced hardware and software solutions to create intelligent autonomous systems for various applications, from industrial automation to space exploration.</span>
+<span class="lang-zh hidden">我们的机器人开发服务结合先进的硬件和软件解决方案，为各种应用创建智能自主系统，从工业自动化到太空探索。</span>
+<span class="lang-ja hidden">当社のロボット開発サービスは、高度なハードウェアとソフトウェアのソリューションを組み合わせて、産業用オートメーションから宇宙探査まで、様々な用途向けのインテリジェントな自律システムを創造します。</span>
+</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+<div class="bg-[#1A1A3F] p-4 rounded-lg">
+<div class="w-10 h-10 flex items-center justify-center text-primary mb-2">
+<i class="ri-robot-line ri-2x"></i>
+</div>
+<h3 class="font-bold mb-2">
+<span class="lang-en">Autonomous Robots</span>
+<span class="lang-zh hidden">自主机器人</span>
+<span class="lang-ja hidden">自律ロボット</span>
+</h3>
+<p class="text-sm text-gray-400">
+<span class="lang-en">Self-navigating systems with advanced AI</span>
+<span class="lang-zh hidden">具有先进人工智能的自主导航系统</span>
+<span class="lang-ja hidden">高度なAIを備えた自己誘導システム</span>
+</p>
+</div>
+<div class="bg-[#1A1A3F] p-4 rounded-lg">
+<div class="w-10 h-10 flex items-center justify-center text-primary mb-2">
+<i class="ri-settings-line ri-2x"></i>
+</div>
+<h3 class="font-bold mb-2">
+<span class="lang-en">Industrial Automation</span>
+<span class="lang-zh hidden">工业自动化</span>
+<span class="lang-ja hidden">産業用オートメーション</span>
+</h3>
+<p class="text-sm text-gray-400">
+<span class="lang-en">Smart manufacturing and process automation</span>
+<span class="lang-zh hidden">智能制造和流程自动化</span>
+<span class="lang-ja hidden">スマート製造とプロセス自動化</span>
+</p>
+</div>
+<div class="bg-[#1A1A3F] p-4 rounded-lg">
+<div class="w-10 h-10 flex items-center justify-center text-primary mb-2">
+<i class="ri-user-follow-line ri-2x"></i>
+</div>
+<h3 class="font-bold mb-2">
+<span class="lang-en">Human Augmentation</span>
+<span class="lang-zh hidden">人类增强</span>
+<span class="lang-ja hidden">人間拡張</span>
+</h3>
+<p class="text-sm text-gray-400">
+<span class="lang-en">Exoskeletons and assistive technologies</span>
+<span class="lang-zh hidden">外骨骼和辅助技术</span>
+<span class="lang-ja hidden">外骨格と支援技術</span>
+</p>
+</div>
+<div class="bg-[#1A1A3F] p-4 rounded-lg">
+<div class="w-10 h-10 flex items-center justify-center text-primary mb-2">
+<i class="ri-rocket-line ri-2x"></i>
+</div>
+<h3 class="font-bold mb-2">
+<span class="lang-en">Space Robotics</span>
+<span class="lang-zh hidden">太空机器人</span>
+<span class="lang-ja hidden">宇宙ロボティクス</span>
+</h3>
+<p class="text-sm text-gray-400">
+<span class="lang-en">Exploration and research systems</span>
+<span class="lang-zh hidden">探索和研究系统</span>
+<span class="lang-ja hidden">探査と研究システム</span>
+</p>
+</div>
+</div>
+</div>
+<div>
+<div id="robotics-tech-chart" class="w-full h-80 rounded-lg overflow-hidden"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Development Process -->
+<section class="py-20 bg-[#0A0A1F]">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">
+<span class="lang-en">Our Development Process</span>
+<span class="lang-zh hidden">我们的开发流程</span>
+<span class="lang-ja hidden">開発プロセス</span>
+</h2>
+<p class="text-xl text-gray-400 max-w-3xl mx-auto">
+<span class="lang-en">A systematic approach to deliver high-quality solutions</span>
+<span class="lang-zh hidden">提供高质量解决方案的系统方法</span>
+<span class="lang-ja hidden">高品質なソリューションを提供するための体系的なアプローチ</span>
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<!-- Discovery -->
+<div class="relative process-step">
+<div class="bg-[#1A1A3F] rounded-lg p-6 h-full">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
+<span class="text-primary font-bold">1</span>
+</div>
+<h3 class="text-xl font-bold mb-4">
+<span class="lang-en">Discovery</span>
+<span class="lang-zh hidden">需求探索</span>
+<span class="lang-ja hidden">要件定義</span>
+</h3>
+<p class="text-gray-400">
+<span class="lang-en">We begin by thoroughly understanding your business needs, objectives, and challenges to establish a clear vision for the project.</span>
+<span class="lang-zh hidden">我们首先全面了解您的业务需求、目标和挑战，为项目建立清晰的愿景。</span>
+<span class="lang-ja hidden">プロジェクトの明確なビジョンを確立するために、お客様のビジネスニーズ、目標、課題を徹底的に理解することから始めます。</span>
+</p>
+</div>
+</div>
+<!-- Planning -->
+<div class="relative process-step">
+<div class="bg-[#1A1A3F] rounded-lg p-6 h-full">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
+<span class="text-primary font-bold">2</span>
+</div>
+<h3 class="text-xl font-bold mb-4">
+<span class="lang-en">Planning</span>
+<span class="lang-zh hidden">规划设计</span>
+<span class="lang-ja hidden">計画設計</span>
+</h3>
+<p class="text-gray-400">
+<span class="lang-en">We create a detailed project roadmap, architecture design, and technical specifications to guide the development process.</span>
+<span class="lang-zh hidden">我们创建详细的项目路线图、架构设计和技术规范，以指导开发过程。</span>
+<span class="lang-ja hidden">開発プロセスを導くために、詳細なプロジェクトロードマップ、アーキテクチャ設計、技術仕様を作成します。</span>
+</p>
+</div>
+</div>
+<!-- Development -->
+<div class="relative process-step">
+<div class="bg-[#1A1A3F] rounded-lg p-6 h-full">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
+<span class="text-primary font-bold">3</span>
+</div>
+<h3 class="text-xl font-bold mb-4">
+<span class="lang-en">Development</span>
+<span class="lang-zh hidden">开发实现</span>
+<span class="lang-ja hidden">開発実装</span>
+</h3>
+<p class="text-gray-400">
+<span class="lang-en">Our expert team implements the solution using agile methodologies, with regular updates and iterative improvements.</span>
+<span class="lang-zh hidden">我们的专家团队使用敏捷方法实施解决方案，定期更新并进行迭代改进。</span>
+<span class="lang-ja hidden">専門家チームがアジャイル手法を用いてソリューションを実装し、定期的な更新と反復的な改善を行います。</span>
+</p>
+</div>
+</div>
+<!-- Launch & Support -->
+<div class="relative process-step">
+<div class="bg-[#1A1A3F] rounded-lg p-6 h-full">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
+<span class="text-primary font-bold">4</span>
+</div>
+<h3 class="text-xl font-bold mb-4">
+<span class="lang-en">Launch & Support</span>
+<span class="lang-zh hidden">上线与支持</span>
+<span class="lang-ja hidden">リリースとサポート</span>
+</h3>
+<p class="text-gray-400">
+<span class="lang-en">We ensure smooth deployment and provide ongoing maintenance, support, and optimization to maximize the value of your solution.</span>
+<span class="lang-zh hidden">我们确保顺利部署，并提供持续的维护、支持和优化，以最大化您的解决方案价值。</span>
+<span class="lang-ja hidden">スムーズな展開を確保し、ソリューションの価値を最大化するために、継続的なメンテナンス、サポート、最適化を提供します。</span>
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technologies Section -->
+<section class="py-20 bg-[#0F0F2F]">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">
+<span class="lang-en">Technologies We Use</span>
+<span class="lang-zh hidden">我们使用的技术</span>
+<span class="lang-ja hidden">使用技術</span>
+</h2>
+<p class="text-xl text-gray-400 max-w-3xl mx-auto">
+<span class="lang-en">Cutting-edge tools and frameworks for optimal results</span>
+<span class="lang-zh hidden">尖端工具和框架，实现最佳结果</span>
+<span class="lang-ja hidden">最適な結果を得るための最先端ツールとフレームワーク</span>
+</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<!-- Frontend -->
+<div class="bg-[#1A1A3F] rounded-lg p-6 text-center">
+<div class="w-16 h-16 mx-auto bg-primary/20 rounded-full flex items-center justify-center mb-4">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-layout-line text-primary ri-2x"></i>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-4">Frontend</h3>
+<p class="text-gray-400">React, Vue.js, Angular, Next.js, TypeScript</p>
+</div>
+<!-- Backend -->
+<div class="bg-[#1A1A3F] rounded-lg p-6 text-center">
+<div class="w-16 h-16 mx-auto bg-primary/20 rounded-full flex items-center justify-center mb-4">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-server-line text-primary ri-2x"></i>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-4">Backend</h3>
+<p class="text-gray-400">Node.js, Python, Java, Go, .NET Core</p>
+</div>
+<!-- Database -->
+<div class="bg-[#1A1A3F] rounded-lg p-6 text-center">
+<div class="w-16 h-16 mx-auto bg-primary/20 rounded-full flex items-center justify-center mb-4">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-database-2-line text-primary ri-2x"></i>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-4">Database</h3>
+<p class="text-gray-400">PostgreSQL, MongoDB, Redis, Elasticsearch, Neo4j</p>
+</div>
+<!-- Cloud -->
+<div class="bg-[#1A1A3F] rounded-lg p-6 text-center">
+<div class="w-16 h-16 mx-auto bg-primary/20 rounded-full flex items-center justify-center mb-4">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-cloud-line text-primary ri-2x"></i>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-4">Cloud</h3>
+<p class="text-gray-400">AWS, Azure, Google Cloud, Kubernetes, Docker</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Case Studies Section -->
+<section class="py-20 bg-[#0A0A1F]">
+<div class="container mx-auto px-6">
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#0A0A1F] pt-16 pb-8">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+<div class="md:col-span-1">
+<a href="#" id="footer-logo" class="inline-block mb-6">
+<div class="flex items-center">
+<img src="https://static.readdy.ai/image/53a4d54aa374b01413a309defbaefd8a/890389b5e509c8efbf5dd3ca6b3b0c06.png" alt="Logo" class="h-10 w-10 mr-2">
+<span class="text-2xl font-['-apple-system,BlinkMacSystemFont,SF_Pro_Display,Helvetica_Neue,Arial'] font-medium bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tracking-tight">E2E</span>
+</div>
+</a>
+<p class="text-gray-400 mb-6">
+<span class="lang-en">From Earth To Europa - Accelerating humanity's journey to become an interplanetary species.</span>
+<span class="lang-zh hidden">从地球到木卫二 - 加速人类成为跨星际物种的进程。</span>
+<span class="lang-ja hidden">地球から木星の衛星エウロパへ - 人類が惑星間種になるための旅を加速させます。</span>
+</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-twitter-x-line text-white"></i>
+</div>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-linkedin-line text-white"></i>
+</div>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-github-line text-white"></i>
+</div>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-youtube-line text-white"></i>
+</div>
+</a>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-6">
+<span class="lang-en">Services</span>
+<span class="lang-zh hidden">服务</span>
+<span class="lang-ja hidden">サービス</span>
+</h3>
+<ul class="space-y-4">
+<li>
+<a href="https://" data-readdy="true" class="text-gray-400 hover:text-primary transition-colors duration-300">
+<span class="lang-en">IT Software Development</span>
+<span class="lang-zh hidden">信息技术软件研发</span>
+<span class="lang-ja hidden">ITソフトウェア開発</span>
+</a>
+</li>
+<li>
+<a href="#ai-details" class="text-gray-400 hover:text-primary transition-colors duration-300">
+<span class="lang-en">AI Technology R&D</span>
+<span class="lang-zh hidden">人工智能技术研发</span>
+<span class="lang-ja hidden">AI技術研究開発</span>
+</a>
+</li>
+<li>
+<a href="#robotics-details" class="text-gray-400 hover:text-primary transition-colors duration-300">
+<span class="lang-en">Robotics Development</span>
+<span class="lang-zh hidden">机器人研发</span>
+<span class="lang-ja hidden">ロボット開発</span>
+</a>
+</li>
+<li>
+<a href="#contact" class="text-gray-400 hover:text-primary transition-colors duration-300">
+<span class="lang-en">Consulting Services</span>
+<span class="lang-zh hidden">咨询服务</span>
+<span class="lang-ja hidden">コンサルティングサービス</span>
+</a>
+</li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-6">
+<span class="lang-en">Company</span>
+<span class="lang-zh hidden">公司</span>
+<span class="lang-ja hidden">会社情報</span>
+</h3>
+<ul class="space-y-4">
+<li>
+<a href="/about" class="text-gray-400 hover:text-primary transition-colors duration-300">
+<span class="lang-en">About Us</span>
+<span class="lang-zh hidden">关于我们</span>
+<span class="lang-ja hidden">会社概要</span>
+</a>
+</li>
+<li>
+<a href="/careers" class="text-gray-400 hover:text-primary transition-colors duration-300">
+<span class="lang-en">Careers</span>
+<span class="lang-zh hidden">招聘</span>
+<span class="lang-ja hidden">採用情報</span>
+</a>
+</li>
+<li>
+<a href="/press" class="text-gray-400 hover:text-primary transition-colors duration-300">
+<span class="lang-en">Press</span>
+<span class="lang-zh hidden">新闻</span>
+<span class="lang-ja hidden">プレスリリース</span>
+</a>
+</li>
+<li>
+<a href="#contact" class="text-gray-400 hover:text-primary transition-colors duration-300">
+<span class="lang-en">Contact</span>
+<span class="lang-zh hidden">联系我们</span>
+<span class="lang-ja hidden">お問い合わせ</span>
+</a>
+</li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-6">
+<span class="lang-en">Legal</span>
+<span class="lang-zh hidden">法律</span>
+<span class="lang-ja hidden">法的情報</span>
+</h3>
+<ul class="space-y-4">
+<li>
+<a href="/terms" class="text-gray-400 hover:text-primary transition-colors duration-300">
+<span class="lang-en">Terms of Service</span>
+<span class="lang-zh hidden">服务条款</span>
+<span class="lang-ja hidden">利用規約</span>
+</a>
+</li>
+<li>
+<a href="/privacy" class="text-gray-400 hover:text-primary transition-colors duration-300">
+<span class="lang-en">Privacy Policy</span>
+<span class="lang-zh hidden">隐私政策</span>
+<span class="lang-ja hidden">プライバシーポリシー</span>
+</a>
+</li>
+<li>
+<a href="/cookies" class="text-gray-400 hover:text-primary transition-colors duration-300">
+<span class="lang-en">Cookie Policy</span>
+<span class="lang-zh hidden">Cookie 政策</span>
+<span class="lang-ja hidden">Cookie ポリシー</span>
+</a>
+</li>
+<li>
+<a href="/security" class="text-gray-400 hover:text-primary transition-colors duration-300">
+<span class="lang-en">Security</span>
+<span class="lang-zh hidden">安全</span>
+<span class="lang-ja hidden">セキュリティ</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-500 text-sm mb-4 md:mb-0">
+<span class="lang-en">&copy; 2025 E2E Consulting LLC. All rights reserved.</span>
+<span class="lang-zh hidden">&copy; 2025 合同会社E2E咨询。保留所有权利。</span>
+<span class="lang-ja hidden">&copy; 2025 合同会社E2E Consulting。全ての権利を保有します。</span>
+</p>
+<div class="flex items-center space-x-4">
+<div class="flex items-center">
+<div class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-visa-line text-gray-400 ri-lg"></i>
+</div>
+<div class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-mastercard-line text-gray-400 ri-lg"></i>
+</div>
+<div class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-paypal-line text-gray-400 ri-lg"></i>
+</div>
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-alipay-line text-gray-400 ri-lg"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script id="particles-animation">
+document.addEventListener('DOMContentLoaded', function() {
+// Create hero particles
+const heroParticles = document.querySelector('.hero-particles');
+for (let i = 0; i < 20; i++) {
+const particle = document.createElement('div');
+particle.classList.add('particle');
+// Random size
+const size = Math.random() * 10 + 5;
+particle.style.width = `${size}px`;
+particle.style.height = `${size}px`;
+// Random position
+particle.style.left = `${Math.random() * 100}%`;
+particle.style.top = `${Math.random() * 100}%`;
+// Random delay
+particle.style.animationDelay = `${Math.random() * 5}s`;
+// Random opacity
+particle.style.opacity = Math.random() * 0.5 + 0.1;
+// Random color
+const colors = ['rgba(0, 240, 255, 0.3)', 'rgba(176, 38, 255, 0.3)'];
+particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+heroParticles.appendChild(particle);
+}
+});
+</script>
+<script id="chart-initialization">
+document.addEventListener('DOMContentLoaded', function() {
+// Initialize IT Tech Chart
+const itTechChart = echarts.init(document.getElementById('it-tech-chart'));
+const itTechOption = {
+animation: false,
+grid: {
+top: 10,
+right: 10,
+bottom: 30,
+left: 40
+},
+xAxis: {
+type: 'category',
+data: ['Web Apps', 'Mobile Apps', 'Cloud', 'DevOps', 'Enterprise'],
+axisLine: {
+lineStyle: {
+color: '#444'
+}
+},
+axisLabel: {
+color: '#999'
+}
+},
+yAxis: {
+type: 'value',
+axisLine: {
+lineStyle: {
+color: '#444'
+}
+},
+splitLine: {
+lineStyle: {
+color: '#333'
+}
+},
+axisLabel: {
+color: '#999'
+}
+},
+tooltip: {
+trigger: 'axis',
+backgroundColor: 'rgba(255, 255, 255, 0.8)',
+textStyle: {
+color: '#1f2937'
+}
+},
+series: [
+{
+name: 'Projects',
+type: 'bar',
+data: [42, 38, 65, 30, 48],
+itemStyle: {
+borderRadius: 6,
+color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+{ offset: 0, color: 'rgba(87, 181, 231, 1)' },
+{ offset: 1, color: 'rgba(87, 181, 231, 0.5)' }
+])
+}
+}
+]
+};
+itTechChart.setOption(itTechOption);
+// Initialize AI Tech Chart
+const aiTechChart = echarts.init(document.getElementById('ai-tech-chart'));
+const aiTechOption = {
+animation: false,
+tooltip: {
+trigger: 'item',
+backgroundColor: 'rgba(255, 255, 255, 0.8)',
+textStyle: {
+color: '#1f2937'
+}
+},
+legend: {
+orient: 'vertical',
+right: 10,
+top: 'center',
+textStyle: {
+color: '#ccc'
+}
+},
+series: [
+{
+name: 'AI Focus Areas',
+type: 'pie',
+radius: ['40%', '70%'],
+avoidLabelOverlap: false,
+itemStyle: {
+borderRadius: 10,
+borderColor: '#0A0A1F',
+borderWidth: 2
+},
+label: {
+show: false
+},
+emphasis: {
+label: {
+show: true,
+fontSize: 14,
+fontWeight: 'bold'
+}
+},
+labelLine: {
+show: false
+},
+data: [
+{ value: 35, name: 'Machine Learning', itemStyle: { color: 'rgba(87, 181, 231, 1)' } },
+{ value: 25, name: 'NLP', itemStyle: { color: 'rgba(141, 211, 199, 1)' } },
+{ value: 20, name: 'Computer Vision', itemStyle: { color: 'rgba(251, 191, 114, 1)' } },
+{ value: 15, name: 'Reinforcement Learning', itemStyle: { color: 'rgba(252, 141, 98, 1)' } }
+]
+}
+]
+};
+aiTechChart.setOption(aiTechOption);
+// Initialize Robotics Tech Chart
+const roboticsTechChart = echarts.init(document.getElementById('robotics-tech-chart'));
+const roboticsTechOption = {
+animation: false,
+grid: {
+top: 10,
+right: 10,
+bottom: 30,
+left: 40
+},
+xAxis: {
+type: 'category',
+data: ['2021', '2022', '2023', '2024', '2025'],
+axisLine: {
+lineStyle: {
+color: '#444'
+}
+},
+axisLabel: {
+color: '#999'
+}
+},
+yAxis: {
+type: 'value',
+axisLine: {
+lineStyle: {
+color: '#444'
+}
+},
+splitLine: {
+lineStyle: {
+color: '#333'
+}
+},
+axisLabel: {
+color: '#999'
+}
+},
+tooltip: {
+trigger: 'axis',
+backgroundColor: 'rgba(255, 255, 255, 0.8)',
+textStyle: {
+color: '#1f2937'
+}
+},
+series: [
+{
+name: 'Industrial',
+type: 'line',
+smooth: true,
+data: [30, 60, 120, 210, 350],
+lineStyle: {
+color: 'rgba(87, 181, 231, 1)'
+},
+itemStyle: {
+color: 'rgba(87, 181, 231, 1)'
+},
+showSymbol: false,
+areaStyle: {
+color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+{ offset: 0, color: 'rgba(87, 181, 231, 0.2)' },
+{ offset: 1, color: 'rgba(87, 181, 231, 0.0)' }
+])
+}
+},
+{
+name: 'Space',
+type: 'line',
+smooth: true,
+data: [20, 45, 90, 170, 280],
+lineStyle: {
+color: 'rgba(141, 211, 199, 1)'
+},
+itemStyle: {
+color: 'rgba(141, 211, 199, 1)'
+},
+showSymbol: false,
+areaStyle: {
+color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+{ offset: 0, color: 'rgba(141, 211, 199, 0.2)' },
+{ offset: 1, color: 'rgba(141, 211, 199, 0.0)' }
+])
+}
+},
+{
+name: 'Consumer',
+type: 'line',
+smooth: true,
+data: [50, 85, 140, 230, 320],
+lineStyle: {
+color: 'rgba(251, 191, 114, 1)'
+},
+itemStyle: {
+color: 'rgba(251, 191, 114, 1)'
+},
+showSymbol: false,
+areaStyle: {
+color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+{ offset: 0, color: 'rgba(251, 191, 114, 0.2)' },
+{ offset: 1, color: 'rgba(251, 191, 114, 0.0)' }
+])
+}
+}
+]
+};
+roboticsTechChart.setOption(roboticsTechOption);
+// Resize charts when window size changes
+window.addEventListener('resize', function() {
+itTechChart.resize();
+aiTechChart.resize();
+roboticsTechChart.resize();
+});
+});
+</script>
+<script id="language-switcher">
+document.addEventListener('DOMContentLoaded', function() {
+// Set default language
+let currentLang = 'en';
+// Function to switch language
+function switchLanguage(lang) {
+// Hide all language elements
+document.querySelectorAll('.lang-en, .lang-zh, .lang-ja').forEach(el => {
+el.classList.add('hidden');
+});
+// Show elements for selected language
+document.querySelectorAll(`.lang-${lang}`).forEach(el => {
+el.classList.remove('hidden');
+});
+// Update current language display
+document.querySelectorAll('.current-language').forEach(el => {
+if (lang === 'en') el.textContent = 'English';
+if (lang === 'zh') el.textContent = '简体中文';
+if (lang === 'ja') el.textContent = '日本語';
+});
+// Update form placeholders
+if (lang === 'en') {
+document.getElementById('name').placeholder = 'Your name';
+document.getElementById('email').placeholder = 'Your email address';
+document.getElementById('message').placeholder = 'Describe your project requirements';
+} else if (lang === 'zh') {
+document.getElementById('name').placeholder = '您的姓名';
+document.getElementById('email').placeholder = '您的电子邮箱';
+document.getElementById('message').placeholder = '描述您的项目需求';
+} else if (lang === 'ja') {
+document.getElementById('name').placeholder = 'お名前';
+document.getElementById('email').placeholder = 'メールアドレス';
+document.getElementById('message').placeholder = 'プロジェクトの要件を説明してください';
+}
+currentLang = lang;
+}
+// Add event listeners to language options
+document.querySelectorAll('.language-option').forEach(option => {
+option.addEventListener('click', function() {
+const lang = this.getAttribute('data-lang');
+switchLanguage(lang);
+});
+});
+// Mobile menu toggle
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+});
+// Scroll to top with footer logo
+const footerLogo = document.getElementById('footer-logo');
+if (footerLogo) {
+footerLogo.addEventListener('click', function(e) {
+e.preventDefault();
+window.scrollTo({
+top: 0,
+behavior: 'smooth'
+});
+});
+}
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+const href = this.getAttribute('href');
+if (href !== '#') {
+e.preventDefault();
+const target = document.querySelector(href);
+if (target) {
+const headerHeight = document.querySelector('header').offsetHeight;
+const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+window.scrollTo({
+top: targetPosition,
+behavior: 'smooth'
+});
+// Close mobile menu if open
+if (!mobileMenu.classList.contains('hidden')) {
+mobileMenu.classList.add('hidden');
+}
+}
+}
+});
+});
+});
+</script>
+</body>
+</html>

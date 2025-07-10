@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers - E2E Consulting</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#00F0FF',secondary:'#B026FF'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #0A0A1F;
+    color: #ffffff;
+}
+.language-selector {
+    position: relative;
+}
+.language-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #1A1A3F;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 160px;
+    z-index: 50;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+.language-selector:hover .language-options {
+    display: block;
+}
+.nav-link {
+    position: relative;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #00F0FF;
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+.job-card {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 240, 255, 0.1);
+    background: rgba(10, 10, 31, 0.7);
+    backdrop-filter: blur(10px);
+}
+.job-card:hover {
+    border-color: #00F0FF;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+    transform: translateY(-5px);
+}
+.testimonial-card {
+    transition: all 0.3s ease;
+    background: rgba(26, 26, 63, 0.7);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(176, 38, 255, 0.1);
+}
+.testimonial-card:hover {
+    border-color: #B026FF;
+    box-shadow: 0 0 15px rgba(176, 38, 255, 0.3);
+    transform: scale(1.02);
+}
+.contact-input {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+.contact-input:focus {
+    border-color: #00F0FF;
+    box-shadow: 0 0 0 2px rgba(0, 240, 255, 0.2);
+}
+</style>
+</head>
+<body>
+<!-- Header Section -->
+<header class="fixed top-0 left-0 w-full bg-opacity-90 bg-[#0A0A1F] backdrop-blur-md z-50">
+    <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca" data-readdy="true" class="text-3xl font-['-apple-system,BlinkMacSystemFont,SF_Pro_Display,Helvetica_Neue,Arial'] font-medium text-white">
+                    <div class="flex items-center">
+                        <img src="https://static.readdy.ai/image/53a4d54aa374b01413a309defbaefd8a/890389b5e509c8efbf5dd3ca6b3b0c06.png" alt="Logo" class="h-10 w-10 mr-3">
+                        <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tracking-tight">E2E Consulting</span>
+                    </div>
+                </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca" data-readdy="true" class="nav-link text-white hover:text-primary transition-colors duration-300">
+                    <span class="lang-en">Home</span>
+                </a>
+                <a href="#" class="nav-link text-white hover:text-primary transition-colors duration-300">
+                    <span class="lang-en">Services</span>
+                </a>
+                <a href="#" class="nav-link text-white hover:text-primary transition-colors duration-300">
+                    <span class="lang-en">Products</span>
+                </a>
+                <a href="#" class="nav-link text-white hover:text-primary transition-colors duration-300">
+                    <span class="lang-en">About</span>
+                </a>
+                <a href="#application" class="nav-link text-white hover:text-primary transition-colors duration-300">
+                    <span class="lang-en">Apply Now</span>
+                </a>
+                <div class="language-selector">
+                    <button class="flex items-center space-x-1 text-white hover:text-primary transition-colors duration-300 whitespace-nowrap !rounded-button">
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="ri-global-line ri-lg"></i>
+                        </div>
+                        <span class="current-language">English</span>
+                        <div class="w-4 h-4 flex items-center justify-center">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </button>
+                    <div class="language-options">
+                        <button class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="en">English</button>
+                        <button class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="zh">简体中文</button>
+                        <button class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="ja">日本語</button>
+                    </div>
+                </div>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none whitespace-nowrap !rounded-button">
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <i class="ri-menu-line ri-2x"></i>
+                    </div>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+            <div class="flex flex-col space-y-4">
+                <a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca" data-readdy="true" class="text-white hover:text-primary transition-colors duration-300">
+                    <span class="lang-en">Home</span>
+                </a>
+                <a href="#" class="text-white hover:text-primary transition-colors duration-300">
+                    <span class="lang-en">Services</span>
+                </a>
+                <a href="#" class="text-white hover:text-primary transition-colors duration-300">
+                    <span class="lang-en">Products</span>
+                </a>
+                <a href="#" class="text-white hover:text-primary transition-colors duration-300">
+                    <span class="lang-en">About</span>
+                </a>
+                <a href="#application" class="text-white hover:text-primary transition-colors duration-300">
+                    <span class="lang-en">Apply Now</span>
+                </a>
+                <div class="pt-2 border-t border-gray-700">
+                    <div class="flex flex-col space-y-2">
+                        <button class="text-left px-2 py-1 hover:bg-[#2A2A5F] rounded transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="en">English</button>
+                        <button class="text-left px-2 py-1 hover:bg-[#2A2A5F] rounded transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="zh">简体中文</button>
+                        <button class="text-left px-2 py-1 hover:bg-[#2A2A5F] rounded transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="ja">日本語</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="relative min-h-[70vh] flex items-center pt-24 overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=futuristic%2520office%2520environment%2520with%2520diverse%2520team%2520of%2520professionals%2520working%2520together%2520on%2520advanced%2520technology%2520projects%252C%2520blue%2520and%2520purple%2520lighting%2520accents%252C%2520holographic%2520displays%252C%2520sleek%2520modern%2520workspace%2520with%2520glass%2520walls%2520and%2520digital%2520interfaces%252C%2520space%2520theme%2520subtle%2520in%2520background&width=1920&height=1080&seq=1&orientation=landscape'); background-size: cover; background-position: center;">
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0A0A1F] via-[#0A0A1Fdd] to-transparent"></div>
+    <div class="container mx-auto px-6 z-10">
+        <div class="max-w-2xl">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                Join Our Mission to Europa
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-300 max-w-xl">
+                Be part of a team that's pushing the boundaries of technology to accelerate humanity's journey to become an interplanetary species.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="#openings" class="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-black font-bold rounded-full transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/50 whitespace-nowrap !rounded-button">
+                    Explore Opportunities
+                </a>
+                <a href="#culture" class="px-8 py-3 bg-transparent border-2 border-primary text-white font-bold rounded-full transition-transform duration-300 hover:scale-105 hover:bg-primary/10 whitespace-nowrap !rounded-button">
+                    Our Culture
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Company Culture Section -->
+<section id="culture" class="py-20 bg-[#0A0A1F]">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                Our Culture
+            </h2>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                At E2E Consulting, we foster an environment where innovation thrives and boundaries are pushed
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Culture Point 1 -->
+            <div class="bg-[#1A1A3F] rounded-lg p-8 text-center transition-all duration-300 hover:bg-[#2A2A5F] hover:shadow-lg hover:shadow-primary/20">
+                <div class="w-16 h-16 mx-auto bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center mb-6">
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <i class="ri-lightbulb-flash-line text-primary ri-xl"></i>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Innovation</h3>
+                <p class="text-gray-300">
+                    We encourage bold thinking and creative solutions to complex problems. Our team members are empowered to explore new ideas and approaches.
+                </p>
+            </div>
+            
+            <!-- Culture Point 2 -->
+            <div class="bg-[#1A1A3F] rounded-lg p-8 text-center transition-all duration-300 hover:bg-[#2A2A5F] hover:shadow-lg hover:shadow-primary/20">
+                <div class="w-16 h-16 mx-auto bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center mb-6">
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <i class="ri-team-line text-primary ri-xl"></i>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Collaboration</h3>
+                <p class="text-gray-300">
+                    We believe in the power of diverse perspectives. Our collaborative approach brings together experts from different fields to create breakthrough solutions.
+                </p>
+            </div>
+            
+            <!-- Culture Point 3 -->
+            <div class="bg-[#1A1A3F] rounded-lg p-8 text-center transition-all duration-300 hover:bg-[#2A2A5F] hover:shadow-lg hover:shadow-primary/20">
+                <div class="w-16 h-16 mx-auto bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center mb-6">
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <i class="ri-rocket-line text-primary ri-xl"></i>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Growth</h3>
+                <p class="text-gray-300">
+                    We invest in our team's professional development and provide opportunities to work on cutting-edge projects that expand skills and knowledge.
+                </p>
+            </div>
+            
+            <!-- Culture Point 4 -->
+            <div class="bg-[#1A1A3F] rounded-lg p-8 text-center transition-all duration-300 hover:bg-[#2A2A5F] hover:shadow-lg hover:shadow-primary/20">
+                <div class="w-16 h-16 mx-auto bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center mb-6">
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <i class="ri-heart-pulse-line text-primary ri-xl"></i>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Work-Life Balance</h3>
+                <p class="text-gray-300">
+                    We recognize the importance of balance and well-being. Our flexible work arrangements and comprehensive benefits support our team's overall health.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="py-20 bg-[#0F0F2F]">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                Employee Benefits
+            </h2>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                We offer competitive benefits designed to support your professional growth and personal well-being
+            </p>
+        </div>
+        
+        <!-- Benefit 1 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+            <div class="order-2 md:order-1">
+                <h3 class="text-2xl font-bold mb-4">Comprehensive Healthcare</h3>
+                <p class="text-gray-300 mb-6">
+                    We provide extensive medical, dental, and vision coverage for you and your dependents. Our wellness program includes mental health support and fitness subsidies.
+                </p>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <div class="w-6 h-6 flex items-center justify-center text-primary mr-3 mt-1">
+                            <i class="ri-check-line"></i>
+                        </div>
+                        <span class="text-gray-300">Medical, dental, and vision insurance</span>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="w-6 h-6 flex items-center justify-center text-primary mr-3 mt-1">
+                            <i class="ri-check-line"></i>
+                        </div>
+                        <span class="text-gray-300">Mental health resources and support</span>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="w-6 h-6 flex items-center justify-center text-primary mr-3 mt-1">
+                            <i class="ri-check-line"></i>
+                        </div>
+                        <span class="text-gray-300">Fitness and wellness program subsidies</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="order-1 md:order-2 bg-[#1A1A3F] rounded-lg p-6 flex justify-center items-center">
+                <div class="w-16 h-16 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-full flex items-center justify-center">
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <i class="ri-heart-pulse-fill text-white ri-xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Benefit 2 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+            <div class="bg-[#1A1A3F] rounded-lg p-6 flex justify-center items-center">
+                <div class="w-16 h-16 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-full flex items-center justify-center">
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <i class="ri-graduation-cap-fill text-white ri-xl"></i>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold mb-4">Professional Development</h3>
+                <p class="text-gray-300 mb-6">
+                    We invest in your growth with continuous learning opportunities, conference attendance, and specialized training programs tailored to your career path.
+                </p>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <div class="w-6 h-6 flex items-center justify-center text-primary mr-3 mt-1">
+                            <i class="ri-check-line"></i>
+                        </div>
+                        <span class="text-gray-300">Education reimbursement program</span>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="w-6 h-6 flex items-center justify-center text-primary mr-3 mt-1">
+                            <i class="ri-check-line"></i>
+                        </div>
+                        <span class="text-gray-300">Conference and certification support</span>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="w-6 h-6 flex items-center justify-center text-primary mr-3 mt-1">
+                            <i class="ri-check-line"></i>
+                        </div>
+                        <span class="text-gray-300">Mentorship and career development planning</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Benefit 3 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+                <h3 class="text-2xl font-bold mb-4">Work-Life Integration</h3>
+                <p class="text-gray-300 mb-6">
+                    We support flexible work arrangements, generous paid time off, and parental leave to ensure you can balance your professional and personal life effectively.
+                </p>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <div class="w-6 h-6 flex items-center justify-center text-primary mr-3 mt-1">
+                            <i class="ri-check-line"></i>
+                        </div>
+                        <span class="text-gray-300">Flexible work schedules and remote options</span>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="w-6 h-6 flex items-center justify-center text-primary mr-3 mt-1">
+                            <i class="ri-check-line"></i>
+                        </div>
+                        <span class="text-gray-300">Generous paid time off and holidays</span>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="w-6 h-6 flex items-center justify-center text-primary mr-3 mt-1">
+                            <i class="ri-check-line"></i>
+                        </div>
+                        <span class="text-gray-300">Comprehensive parental leave policy</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="order-1 md:order-2 bg-[#1A1A3F] rounded-lg p-6 flex justify-center items-center">
+                <div class="w-16 h-16 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-full flex items-center justify-center">
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <i class="ri-calendar-check-fill text-white ri-xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Current Openings Section -->
+<section id="openings" class="py-20 bg-[#0A0A1F]">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                Current Openings
+            </h2>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                Explore exciting career opportunities across our departments
+            </p>
+        </div>
+        
+        <!-- Job Categories Tabs -->
+        <div class="flex justify-center mb-12">
+            <div class="inline-flex bg-[#1A1A3F] rounded-full p-1">
+                <button class="job-filter px-6 py-2 rounded-full text-white bg-gradient-to-r from-primary to-secondary whitespace-nowrap !rounded-button" data-category="all">
+                    All Departments
+                </button>
+                <button class="job-filter px-6 py-2 rounded-full text-white hover:bg-[#2A2A5F] transition-colors duration-200 whitespace-nowrap !rounded-button" data-category="it">
+                    IT
+                </button>
+                <button class="job-filter px-6 py-2 rounded-full text-white hover:bg-[#2A2A5F] transition-colors duration-200 whitespace-nowrap !rounded-button" data-category="ai">
+                    AI
+                </button>
+                <button class="job-filter px-6 py-2 rounded-full text-white hover:bg-[#2A2A5F] transition-colors duration-200 whitespace-nowrap !rounded-button" data-category="robotics">
+                    Robotics
+                </button>
+            </div>
+        </div>
+        
+        <!-- Job Listings -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Job 1 - IT -->
+            <div class="job-card rounded-lg p-6 flex flex-col h-full" data-category="it">
+                <div class="mb-4 flex justify-between items-start">
+                    <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="ri-code-s-slash-line text-primary"></i>
+                        </div>
+                    </div>
+                    <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-xs">Tokyo</span>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Senior Full-Stack Developer</h3>
+                <p class="text-gray-400 mb-4 flex-grow">
+                    Lead the development of our next-generation software solutions, working with cutting-edge technologies to create robust and scalable applications.
+                </p>
+                <div class="mb-6">
+                    <h4 class="text-sm font-bold text-gray-300 mb-2">Requirements:</h4>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• 5+ years of full-stack development experience</li>
+                        <li>• Proficiency in React, Node.js, and cloud services</li>
+                        <li>• Experience with microservices architecture</li>
+                    </ul>
+                </div>
+                <a href="#application" class="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-primary to-secondary text-black font-bold rounded-lg transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/50 whitespace-nowrap !rounded-button">
+                    Apply Now
+                </a>
+            </div>
+            
+            <!-- Job 2 - AI -->
+            <div class="job-card rounded-lg p-6 flex flex-col h-full" data-category="ai">
+                <div class="mb-4 flex justify-between items-start">
+                    <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="ri-brain-line text-primary"></i>
+                        </div>
+                    </div>
+                    <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-xs">Remote</span>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Machine Learning Engineer</h3>
+                <p class="text-gray-400 mb-4 flex-grow">
+                    Design and implement advanced machine learning models to solve complex problems in natural language processing, computer vision, and predictive analytics.
+                </p>
+                <div class="mb-6">
+                    <h4 class="text-sm font-bold text-gray-300 mb-2">Requirements:</h4>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• MS/PhD in Computer Science or related field</li>
+                        <li>• Experience with PyTorch or TensorFlow</li>
+                        <li>• Strong background in deep learning techniques</li>
+                    </ul>
+                </div>
+                <a href="#application" class="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-primary to-secondary text-black font-bold rounded-lg transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/50 whitespace-nowrap !rounded-button">
+                    Apply Now
+                </a>
+            </div>
+            
+            <!-- Job 3 - Robotics -->
+            <div class="job-card rounded-lg p-6 flex flex-col h-full" data-category="robotics">
+                <div class="mb-4 flex justify-between items-start">
+                    <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="ri-robot-line text-primary"></i>
+                        </div>
+                    </div>
+                    <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-xs">Tokyo</span>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Robotics Systems Engineer</h3>
+                <p class="text-gray-400 mb-4 flex-grow">
+                    Develop and integrate hardware and software systems for our next-generation robotics platforms, focusing on autonomous navigation and control systems.
+                </p>
+                <div class="mb-6">
+                    <h4 class="text-sm font-bold text-gray-300 mb-2">Requirements:</h4>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• Degree in Robotics, Mechanical Engineering, or related field</li>
+                        <li>• Experience with ROS and sensor integration</li>
+                        <li>• Knowledge of control systems and kinematics</li>
+                    </ul>
+                </div>
+                <a href="#application" class="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-primary to-secondary text-black font-bold rounded-lg transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/50 whitespace-nowrap !rounded-button">
+                    Apply Now
+                </a>
+            </div>
+            
+            <!-- Job 4 - IT -->
+            <div class="job-card rounded-lg p-6 flex flex-col h-full" data-category="it">
+                <div class="mb-4 flex justify-between items-start">
+                    <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="ri-cloud-line text-primary"></i>
+                        </div>
+                    </div>
+                    <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-xs">Remote</span>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Cloud Infrastructure Architect</h3>
+                <p class="text-gray-400 mb-4 flex-grow">
+                    Design and implement scalable, secure, and high-performance cloud infrastructure to support our growing portfolio of applications and services.
+                </p>
+                <div class="mb-6">
+                    <h4 class="text-sm font-bold text-gray-300 mb-2">Requirements:</h4>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• 7+ years of experience in cloud architecture</li>
+                        <li>• AWS/Azure/GCP certification</li>
+                        <li>• Experience with containerization and orchestration</li>
+                    </ul>
+                </div>
+                <a href="#application" class="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-primary to-secondary text-black font-bold rounded-lg transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/50 whitespace-nowrap !rounded-button">
+                    Apply Now
+                </a>
+            </div>
+            
+            <!-- Job 5 - AI -->
+            <div class="job-card rounded-lg p-6 flex flex-col h-full" data-category="ai">
+                <div class="mb-4 flex justify-between items-start">
+                    <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="ri-ai-generate text-primary"></i>
+                        </div>
+                    </div>
+                    <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-xs">Tokyo</span>
+                </div>
+                <h3 class="text-xl font-bold mb-2">AI Research Scientist</h3>
+                <p class="text-gray-400 mb-4 flex-grow">
+                    Lead research initiatives to advance the state of the art in artificial intelligence, with a focus on reinforcement learning and generative models.
+                </p>
+                <div class="mb-6">
+                    <h4 class="text-sm font-bold text-gray-300 mb-2">Requirements:</h4>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• PhD in Computer Science, AI, or related field</li>
+                        <li>• Publication record in top AI conferences</li>
+                        <li>• Experience implementing novel AI algorithms</li>
+                    </ul>
+                </div>
+                <a href="#application" class="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-primary to-secondary text-black font-bold rounded-lg transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/50 whitespace-nowrap !rounded-button">
+                    Apply Now
+                </a>
+            </div>
+            
+            <!-- Job 6 - Robotics -->
+            <div class="job-card rounded-lg p-6 flex flex-col h-full" data-category="robotics">
+                <div class="mb-4 flex justify-between items-start">
+                    <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="ri-sensor-line text-primary"></i>
+                        </div>
+                    </div>
+                    <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-xs">Tokyo</span>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Robotics Vision Specialist</h3>
+                <p class="text-gray-400 mb-4 flex-grow">
+                    Develop advanced computer vision systems for robotic perception, enabling our robots to navigate and interact with complex environments.
+                </p>
+                <div class="mb-6">
+                    <h4 class="text-sm font-bold text-gray-300 mb-2">Requirements:</h4>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• Advanced degree in Computer Vision or related field</li>
+                        <li>• Experience with 3D perception and SLAM</li>
+                        <li>• Proficiency in OpenCV and deep learning frameworks</li>
+                    </ul>
+                </div>
+                <a href="#application" class="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-primary to-secondary text-black font-bold rounded-lg transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/50 whitespace-nowrap !rounded-button">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Employee Testimonials -->
+<section class="py-20 bg-[#0F0F2F]">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                Meet Our Team
+            </h2>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                Hear from the people who are shaping the future at E2E Consulting
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card rounded-lg overflow-hidden">
+                <div class="h-48 overflow-hidden">
+                    <img src="https://readdy.ai/api/search-image?query=professional%2520asian%2520female%2520tech%2520leader%2520in%2520modern%2520futuristic%2520office%2520environment%2520with%2520blue%2520lighting%2520accents%252C%2520confident%2520pose%252C%2520business%2520casual%2520attire%252C%2520tech%2520workspace%2520background%252C%2520high%2520quality%2520professional%2520portrait&width=600&height=400&seq=8&orientation=landscape" alt="Akiko Yamamoto" class="w-full h-full object-cover object-top">
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
+                            <i class="ri-double-quotes-l"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">
+                        "Working at E2E has been the most rewarding experience of my career. The collaborative environment and cutting-edge projects have allowed me to grow both professionally and personally."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="mr-4">
+                            <h4 class="font-bold">Akiko Yamamoto</h4>
+                            <p class="text-sm text-gray-400">AI Research Lead</p>
+                            <p class="text-xs text-gray-500">5 years at E2E</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card rounded-lg overflow-hidden">
+                <div class="h-48 overflow-hidden">
+                    <img src="https://readdy.ai/api/search-image?query=professional%2520caucasian%2520male%2520software%2520engineer%2520in%2520modern%2520futuristic%2520office%2520environment%2520with%2520blue%2520lighting%2520accents%252C%2520confident%2520pose%252C%2520business%2520casual%2520attire%252C%2520tech%2520workspace%2520background%252C%2520high%2520quality%2520professional%2520portrait&width=600&height=400&seq=9&orientation=landscape" alt="Michael Chen" class="w-full h-full object-cover object-top">
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
+                            <i class="ri-double-quotes-l"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">
+                        "The opportunity to work on technologies that will shape humanity's future is incredible. E2E's commitment to innovation and exploration aligns perfectly with my career aspirations."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="mr-4">
+                            <h4 class="font-bold">Michael Chen</h4>
+                            <p class="text-sm text-gray-400">Senior Software Architect</p>
+                            <p class="text-xs text-gray-500">3 years at E2E</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card rounded-lg overflow-hidden">
+                <div class="h-48 overflow-hidden">
+                    <img src="https://readdy.ai/api/search-image?query=professional%2520indian%2520female%2520robotics%2520engineer%2520in%2520modern%2520futuristic%2520office%2520environment%2520with%2520blue%2520lighting%2520accents%252C%2520confident%2520pose%252C%2520business%2520casual%2520attire%252C%2520tech%2520workspace%2520background%252C%2520high%2520quality%2520professional%2520portrait&width=600&height=400&seq=10&orientation=landscape" alt="Priya Sharma" class="w-full h-full object-cover object-top">
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
+                            <i class="ri-double-quotes-l"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">
+                        "The supportive culture at E2E has been instrumental in my growth. I've had the chance to lead projects that are pushing the boundaries of what's possible in robotics."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="mr-4">
+                            <h4 class="font-bold">Priya Sharma</h4>
+                            <p class="text-sm text-gray-400">Robotics Team Lead</p>
+                            <p class="text-xs text-gray-500">4 years at E2E</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Application Form -->
+<section id="application" class="py-20 bg-[#0A0A1F]">
+    <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Join Our Team
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Take the first step toward an exciting career at E2E Consulting
+                </p>
+            </div>
+            
+            <div class="bg-[#1A1A3F] rounded-lg p-8 md:p-10">
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="full-name" class="block text-sm font-medium text-gray-300 mb-2">
+                                Full Name *
+                            </label>
+                            <input type="text" id="full-name" class="contact-input w-full px-4 py-3 rounded-lg text-white focus:outline-none" placeholder="Your full name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-2">
+                                Email Address *
+                            </label>
+                            <input type="email" id="email" class="contact-input w-full px-4 py-3 rounded-lg text-white focus:outline-none" placeholder="Your email address">
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-300 mb-2">
+                                Phone Number
+                            </label>
+                            <input type="tel" id="phone" class="contact-input w-full px-4 py-3 rounded-lg text-white focus:outline-none" placeholder="Your phone number">
+                        </div>
+                        <div>
+                            <label for="position" class="block text-sm font-medium text-gray-300 mb-2">
+                                Position Applying For *
+                            </label>
+                            <div class="relative">
+                                <select id="position" class="contact-input w-full px-4 py-3 rounded-lg text-white focus:outline-none appearance-none pr-8">
+                                    <option value="">Select a position</option>
+                                    <option value="senior-fullstack">Senior Full-Stack Developer</option>
+                                    <option value="ml-engineer">Machine Learning Engineer</option>
+                                    <option value="robotics-engineer">Robotics Systems Engineer</option>
+                                    <option value="cloud-architect">Cloud Infrastructure Architect</option>
+                                    <option value="ai-scientist">AI Research Scientist</option>
+                                    <option value="robotics-vision">Robotics Vision Specialist</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                    <div class="w-5 h-5 flex items-center justify-center">
+                                        <i class="ri-arrow-down-s-line text-gray-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="resume" class="block text-sm font-medium text-gray-300 mb-2">
+                            Resume/CV *
+                        </label>
+                        <div class="border border-dashed border-gray-600 rounded-lg p-4">
+                            <div class="flex flex-col items-center justify-center py-6">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                    <div class="w-6 h-6 flex items-center justify-center">
+                                        <i class="ri-upload-cloud-line text-primary"></i>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-300 mb-2">Drag and drop your file here, or click to browse</p>
+                                <p class="text-xs text-gray-500">PDF, DOCX or TXT (Max 5MB)</p>
+                                <input type="file" id="resume" class="hidden">
+                                <button type="button" onclick="document.getElementById('resume').click()" class="mt-4 px-4 py-2 bg-[#2A2A5F] text-white rounded-lg hover:bg-[#3A3A6F] transition-colors duration-300 whitespace-nowrap !rounded-button">
+                                    Browse Files
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="cover-letter" class="block text-sm font-medium text-gray-300 mb-2">
+                            Cover Letter
+                        </label>
+                        <textarea id="cover-letter" rows="5" class="contact-input w-full px-4 py-3 rounded-lg text-white focus:outline-none" placeholder="Tell us why you're interested in joining E2E Consulting"></textarea>
+                    </div>
+                    
+                    <div>
+                        <label for="portfolio" class="block text-sm font-medium text-gray-300 mb-2">
+                            Portfolio/GitHub URL
+                        </label>
+                        <input type="url" id="portfolio" class="contact-input w-full px-4 py-3 rounded-lg text-white focus:outline-none" placeholder="https://github.com/yourusername">
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5">
+                            <input id="terms" type="checkbox" class="w-4 h-4 bg-transparent border-2 border-gray-400 rounded focus:ring-primary focus:ring-2">
+                        </div>
+                        <label for="terms" class="ml-3 text-sm text-gray-300">
+                            I agree to the processing of my personal data according to E2E Consulting's <a href="#" class="text-primary hover:underline">Privacy Policy</a>
+                        </label>
+                    </div>
+                    
+                    <div id="form-errors" class="space-y-2 hidden">
+                        <!-- Error messages will appear here -->
+                    </div>
+                    
+                    <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-primary to-secondary text-black font-bold rounded-lg transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/50 whitespace-nowrap !rounded-button">
+                        Submit Application
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#0A0A1F] pt-16 pb-8">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-1">
+                <a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca" data-readdy="true" class="inline-block mb-6">
+                    <div class="flex items-center">
+                        <img src="https://static.readdy.ai/image/53a4d54aa374b01413a309defbaefd8a/890389b5e509c8efbf5dd3ca6b3b0c06.png" alt="Logo" class="h-10 w-10 mr-2">
+                        <span class="text-2xl font-['-apple-system,BlinkMacSystemFont,SF_Pro_Display,Helvetica_Neue,Arial'] font-medium bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tracking-tight">E2E</span>
+                    </div>
+                </a>
+                <p class="text-gray-400 mb-6">
+                    From Earth To Europa - Accelerating humanity's journey to become an interplanetary species.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-twitter-x-line text-white"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-linkedin-line text-white"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-github-line text-white"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-youtube-line text-white"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold mb-6">
+                    Services
+                </h3>
+                <ul class="space-y-4">
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                            IT Software Development
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                            AI Technology R&D
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                            Robotics Development
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                            Consulting Services
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold mb-6">
+                    Company
+                </h3>
+                <ul class="space-y-4">
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                            About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300 font-bold text-primary">
+                            Careers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                            Press
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold mb-6">
+                    Legal
+                </h3>
+                <ul class="space-y-4">
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                            Terms of Service
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                            Privacy Policy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                            Cookie Policy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                            Security
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                    &copy; 2025 E2E Consulting LLC. All rights reserved.
+                </p>
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center">
+                        <div class="w-6 h-6 flex items-center justify-center mr-2">
+                            <i class="ri-visa-line text-gray-400 ri-lg"></i>
+                        </div>
+                        <div class="w-6 h-6 flex items-center justify-center mr-2">
+                            <i class="ri-mastercard-line text-gray-400 ri-lg"></i>
+                        </div>
+                        <div class="w-6 h-6 flex items-center justify-center mr-2">
+                            <i class="ri-paypal-line text-gray-400 ri-lg"></i>
+                        </div>
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="ri-alipay-line text-gray-400 ri-lg"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script id="mobile-menu-toggle">
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+    });
+});
+</script>
+
+<script id="job-filter">
+document.addEventListener('DOMContentLoaded', function() {
+    const jobCards = document.querySelectorAll('.job-card');
+    const filterButtons = document.querySelectorAll('.job-filter');
+    
+    // Set up filter functionality
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Update active button styling
+            filterButtons.forEach(btn => {
+                btn.classList.remove('bg-gradient-to-r', 'from-primary', 'to-secondary');
+                btn.classList.add('hover:bg-[#2A2A5F]');
+            });
+            this.classList.add('bg-gradient-to-r', 'from-primary', 'to-secondary');
+            this.classList.remove('hover:bg-[#2A2A5F]');
+            
+            const category = this.getAttribute('data-category');
+            
+            // Filter jobs
+            jobCards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+</script>
+
+<script id="form-validation">
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
+    const fullNameInput = document.getElementById('full-name');
+    const emailInput = document.getElementById('email');
+    const positionInput = document.getElementById('position');
+    const termsCheckbox = document.getElementById('terms');
+    const formErrors = document.getElementById('form-errors');
+    
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+    
+    function showError(message) {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'flex items-center text-red-500';
+        errorDiv.innerHTML = `
+            <div class="w-5 h-5 mr-2 flex items-center justify-center">
+                <i class="ri-error-warning-line"></i>
+            </div>
+            <span>${message}</span>
+        `;
+        formErrors.appendChild(errorDiv);
+    }
+    
+    function clearErrors() {
+        formErrors.innerHTML = '';
+        formErrors.classList.add('hidden');
+    }
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        clearErrors();
+        
+        let hasErrors = false;
+        
+        if (!fullNameInput.value.trim()) {
+            showError('Please enter your full name');
+            hasErrors = true;
+        }
+        
+        if (!emailInput.value.trim() || !validateEmail(emailInput.value.trim())) {
+            showError('Please enter a valid email address');
+            hasErrors = true;
+        }
+        
+        if (!positionInput.value) {
+            showError('Please select a position');
+            hasErrors = true;
+        }
+        
+        if (!termsCheckbox.checked) {
+            showError('Please agree to the privacy policy');
+            hasErrors = true;
+        }
+        
+        if (hasErrors) {
+            formErrors.classList.remove('hidden');
+            return;
+        }
+        
+        // Simulate form submission
+        alert('Thank you for your application! We will review your information and contact you soon.');
+        form.reset();
+    });
+});
+</script>
+
+<script id="file-upload">
+document.addEventListener('DOMContentLoaded', function() {
+    const fileInput = document.getElementById('resume');
+    const browseButton = document.querySelector('button[onclick]');
+    const uploadArea = browseButton.closest('.border');
+    
+    fileInput.addEventListener('change', function() {
+        if (this.files.length > 0) {
+            const fileName = this.files[0].name;
+            const fileSize = (this.files[0].size / 1024 / 1024).toFixed(2); // Convert to MB
+            
+            // Update the upload area to show the selected file
+            uploadArea.innerHTML = `
+                <div class="flex items-center justify-between w-full p-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-file-text-line text-primary"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-300">${fileName}</p>
+                            <p class="text-xs text-gray-500">${fileSize} MB</p>
+                        </div>
+                    </div>
+                    <button type="button" id="remove-file" class="text-gray-400 hover:text-red-500">
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="ri-close-line"></i>
+                        </div>
+                    </button>
+                </div>
+            `;
+            
+            // Add event listener to the remove button
+            document.getElementById('remove-file').addEventListener('click', function() {
+                fileInput.value = '';
+                uploadArea.innerHTML = `
+                    <div class="flex flex-col items-center justify-center py-6">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <div class="w-6 h-6 flex items-center justify-center">
+                                <i class="ri-upload-cloud-line text-primary"></i>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-2">Drag and drop your file here, or click to browse</p>
+                        <p class="text-xs text-gray-500">PDF, DOCX or TXT (Max 5MB)</p>
+                        <button type="button" onclick="document.getElementById('resume').click()" class="mt-4 px-4 py-2 bg-[#2A2A5F] text-white rounded-lg hover:bg-[#3A3A6F] transition-colors duration-300 whitespace-nowrap !rounded-button">
+                            Browse Files
+                        </button>
+                    </div>
+                `;
+            });
+        }
+    });
+});
+</script>
+</body>
+</html>

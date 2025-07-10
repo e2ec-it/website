@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy - E2E Consulting</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#00F0FF',secondary:'#B026FF'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #0A0A1F;
+  color: #ffffff;
+}
+.privacy-section {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.privacy-section:last-of-type {
+  border-bottom: none;
+}
+.toc-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+.toc-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #00F0FF;
+  transition: width 0.3s ease;
+}
+.toc-link:hover::after, .toc-link.active::after {
+  width: 100%;
+}
+.back-to-top {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+</style>
+</head>
+<body>
+<!-- Header Section -->
+<header class="fixed top-0 left-0 w-full bg-opacity-90 bg-[#0A0A1F] backdrop-blur-md z-50">
+  <div class="container mx-auto px-6 py-4">
+    <div class="flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca" data-readdy="true" class="text-3xl font-['-apple-system,BlinkMacSystemFont,SF_Pro_Display,Helvetica_Neue,Arial'] font-medium text-white">
+          <div class="flex items-center">
+            <img src="https://static.readdy.ai/image/53a4d54aa374b01413a309defbaefd8a/890389b5e509c8efbf5dd3ca6b3b0c06.png" alt="Logo" class="h-10 w-10 mr-3">
+            <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tracking-tight">E2E Consulting</span>
+          </div>
+        </a>
+      </div>
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca" data-readdy="true" class="nav-link text-white hover:text-primary transition-colors duration-300">Home</a>
+        <a href="#" class="nav-link text-white hover:text-primary transition-colors duration-300">Services</a>
+        <a href="#" class="nav-link text-white hover:text-primary transition-colors duration-300">Products</a>
+        <a href="#" class="nav-link text-white hover:text-primary transition-colors duration-300">About</a>
+        <a href="#" class="nav-link text-white hover:text-primary transition-colors duration-300">Contact</a>
+      </div>
+      <div class="md:hidden">
+        <button id="mobile-menu-button" class="text-white focus:outline-none whitespace-nowrap !rounded-button">
+          <div class="w-8 h-8 flex items-center justify-center">
+            <i class="ri-menu-line ri-2x"></i>
+          </div>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+      <div class="flex flex-col space-y-4">
+        <a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca" data-readdy="true" class="text-white hover:text-primary transition-colors duration-300">Home</a>
+        <a href="#" class="text-white hover:text-primary transition-colors duration-300">Services</a>
+        <a href="#" class="text-white hover:text-primary transition-colors duration-300">Products</a>
+        <a href="#" class="text-white hover:text-primary transition-colors duration-300">About</a>
+        <a href="#" class="text-white hover:text-primary transition-colors duration-300">Contact</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Page Title Section -->
+<section class="pt-32 pb-10 bg-[#0A0A1F]">
+  <div class="container mx-auto px-6">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Privacy Policy</h1>
+        <p class="text-gray-300 text-lg max-w-2xl">Last updated: June 30, 2025</p>
+      </div>
+      <a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca" data-readdy="true" class="inline-flex items-center text-primary hover:text-white transition-colors duration-300 mt-4 md:mt-0 group">
+        <div class="w-5 h-5 mr-2 flex items-center justify-center transition-transform duration-300 group-hover:-translate-x-1">
+          <i class="ri-arrow-left-line"></i>
+        </div>
+        Return to Homepage
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Main Content Section -->
+<section class="py-12 bg-[#0F0F2F]">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+      <!-- Table of Contents Sidebar -->
+      <div class="lg:col-span-1">
+        <div class="sticky top-28">
+          <div class="bg-[#1A1A3F] rounded-lg p-6">
+            <h2 class="text-xl font-bold mb-4 text-white">Contents</h2>
+            <ul class="space-y-3" id="toc">
+              <li><a href="#introduction" class="toc-link text-gray-300 hover:text-primary">1. Introduction</a></li>
+              <li><a href="#information-collection" class="toc-link text-gray-300 hover:text-primary">2. Information Collection</a></li>
+              <li><a href="#cookie-usage" class="toc-link text-gray-300 hover:text-primary">3. Cookie Usage</a></li>
+              <li><a href="#data-usage" class="toc-link text-gray-300 hover:text-primary">4. Data Usage & Sharing</a></li>
+              <li><a href="#user-rights" class="toc-link text-gray-300 hover:text-primary">5. User Rights & Choices</a></li>
+              <li><a href="#security" class="toc-link text-gray-300 hover:text-primary">6. Security Measures</a></li>
+              <li><a href="#international-transfers" class="toc-link text-gray-300 hover:text-primary">7. International Transfers</a></li>
+              <li><a href="#children" class="toc-link text-gray-300 hover:text-primary">8. Children's Privacy</a></li>
+              <li><a href="#updates" class="toc-link text-gray-300 hover:text-primary">9. Policy Updates</a></li>
+              <li><a href="#contact" class="toc-link text-gray-300 hover:text-primary">10. Contact Information</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Privacy Policy Content -->
+      <div class="lg:col-span-3">
+        <div class="bg-[#1A1A3F] rounded-xl p-8 shadow-lg">
+          <!-- Introduction -->
+          <div id="introduction" class="privacy-section pb-10 mb-10">
+            <h2 class="text-2xl font-bold mb-6 text-white">1. Introduction</h2>
+            <p class="text-gray-300 mb-4">
+              E2E Consulting ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+            </p>
+            <p class="text-gray-300 mb-4">
+              We respect your privacy and are committed to protecting it through our compliance with this policy. This policy describes the types of information we may collect from you or that you may provide when you visit our website and our practices for collecting, using, maintaining, protecting, and disclosing that information.
+            </p>
+            <p class="text-gray-300">
+              Please read this policy carefully to understand our policies and practices regarding your information. If you do not agree with our policies and practices, your choice is not to use our website. By accessing or using this website, you agree to this privacy policy.
+            </p>
+          </div>
+          
+          <!-- Information Collection -->
+          <div id="information-collection" class="privacy-section pb-10 mb-10">
+            <h2 class="text-2xl font-bold mb-6 text-white">2. Information Collection</h2>
+            <p class="text-gray-300 mb-6">
+              We collect several types of information from and about users of our website, including:
+            </p>
+            
+            <h3 class="text-xl font-bold mb-4 text-white">Personal Information</h3>
+            <p class="text-gray-300 mb-4">
+              Information that identifies you personally, such as your name, postal address, email address, telephone number, or any other identifier by which you may be contacted online or offline when you:
+            </p>
+            <ul class="list-disc pl-6 mb-6 text-gray-300 space-y-2">
+              <li>Register on our website</li>
+              <li>Subscribe to our newsletter</li>
+              <li>Request information about our services</li>
+              <li>Participate in surveys or promotions</li>
+              <li>Contact our customer service</li>
+            </ul>
+            
+            <h3 class="text-xl font-bold mb-4 text-white">Usage Information</h3>
+            <p class="text-gray-300 mb-4">
+              Information about your connection to our website, including:
+            </p>
+            <ul class="list-disc pl-6 mb-6 text-gray-300 space-y-2">
+              <li>IP address and device information</li>
+              <li>Browser type and version</li>
+              <li>Operating system</li>
+              <li>Pages you visit on our website</li>
+              <li>Time and date of your visit</li>
+              <li>Time spent on those pages</li>
+              <li>Clickstream data</li>
+            </ul>
+            
+            <h3 class="text-xl font-bold mb-4 text-white">Technical Information</h3>
+            <p class="text-gray-300 mb-4">
+              We may collect information about your computer or mobile device, including:
+            </p>
+            <ul class="list-disc pl-6 text-gray-300 space-y-2">
+              <li>Hardware model</li>
+              <li>Operating system and version</li>
+              <li>Unique device identifiers</li>
+              <li>Mobile network information</li>
+            </ul>
+          </div>
+          
+          <!-- Cookie Usage -->
+          <div id="cookie-usage" class="privacy-section pb-10 mb-10">
+            <h2 class="text-2xl font-bold mb-6 text-white">3. Cookie Usage</h2>
+            <p class="text-gray-300 mb-6">
+              Our website uses cookies and similar tracking technologies to track activity on our website and hold certain information to enhance your experience.
+            </p>
+            
+            <h3 class="text-xl font-bold mb-4 text-white">What Are Cookies</h3>
+            <p class="text-gray-300 mb-6">
+              Cookies are small files placed on your device when you visit a website. They allow the website to recognize your device and remember if you've been to the website before.
+            </p>
+            
+            <h3 class="text-xl font-bold mb-4 text-white">Types of Cookies We Use</h3>
+            <div class="space-y-4 mb-6">
+              <div class="bg-[#252550] rounded-lg p-4">
+                <h4 class="font-bold text-white mb-2">Essential Cookies</h4>
+                <p class="text-gray-300">These cookies are necessary for the website to function properly and cannot be switched off in our systems. They are usually set in response to actions made by you which amount to a request for services, such as setting your privacy preferences, logging in, or filling in forms.</p>
+              </div>
+              
+              <div class="bg-[#252550] rounded-lg p-4">
+                <h4 class="font-bold text-white mb-2">Performance Cookies</h4>
+                <p class="text-gray-300">These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us know which pages are the most and least popular and see how visitors move around the site.</p>
+              </div>
+              
+              <div class="bg-[#252550] rounded-lg p-4">
+                <h4 class="font-bold text-white mb-2">Functional Cookies</h4>
+                <p class="text-gray-300">These cookies enable the website to provide enhanced functionality and personalization. They may be set by us or by third-party providers whose services we have added to our pages.</p>
+              </div>
+              
+              <div class="bg-[#252550] rounded-lg p-4">
+                <h4 class="font-bold text-white mb-2">Targeting Cookies</h4>
+                <p class="text-gray-300">These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant advertisements on other sites.</p>
+              </div>
+            </div>
+            
+            <h3 class="text-xl font-bold mb-4 text-white">Cookie Management</h3>
+            <p class="text-gray-300">
+              Most web browsers allow some control of cookies through browser settings. To find out more about cookies, including how to see what cookies have been set and how to manage and delete them, visit <a href="http://www.allaboutcookies.org" class="text-primary hover:underline">www.allaboutcookies.org</a>.
+            </p>
+          </div>
+          
+          <!-- Data Usage & Sharing -->
+          <div id="data-usage" class="privacy-section pb-10 mb-10">
+            <h2 class="text-2xl font-bold mb-6 text-white">4. Data Usage & Sharing</h2>
+            <p class="text-gray-300 mb-6">
+              We use the information we collect about you or that you provide to us for the following purposes:
+            </p>
+            
+            <h3 class="text-xl font-bold mb-4 text-white">How We Use Your Information</h3>
+            <ul class="list-disc pl-6 mb-6 text-gray-300 space-y-2">
+              <li>To present our website and its contents to you</li>
+              <li>To provide you with information, products, or services that you request from us</li>
+              <li>To fulfill any other purpose for which you provide it</li>
+              <li>To provide you with notices about your account/subscription</li>
+              <li>To carry out our obligations and enforce our rights</li>
+              <li>To notify you about changes to our website or any products or services we offer</li>
+              <li>To improve our website, products or services, marketing, or customer relationships</li>
+              <li>In any other way we may describe when you provide the information</li>
+              <li>For any other purpose with your consent</li>
+            </ul>
+            
+            <h3 class="text-xl font-bold mb-4 text-white">Information Sharing</h3>
+            <p class="text-gray-300 mb-4">
+              We may disclose aggregated information about our users, and information that does not identify any individual, without restriction.
+            </p>
+            <p class="text-gray-300 mb-4">
+              We may disclose personal information that we collect or you provide as described in this privacy policy:
+            </p>
+            <ul class="list-disc pl-6 text-gray-300 space-y-2">
+              <li>To our subsidiaries and affiliates</li>
+              <li>To contractors, service providers, and other third parties we use to support our business</li>
+              <li>To a buyer or other successor in the event of a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of our assets</li>
+              <li>To fulfill the purpose for which you provide it</li>
+              <li>For any other purpose disclosed by us when you provide the information</li>
+              <li>With your consent</li>
+              <li>To comply with any court order, law, or legal process, including to respond to any government or regulatory request</li>
+              <li>To enforce or apply our terms of use and other agreements</li>
+              <li>If we believe disclosure is necessary or appropriate to protect the rights, property, or safety of E2E Consulting, our customers, or others</li>
+            </ul>
+          </div>
+          
+          <!-- User Rights & Choices -->
+          <div id="user-rights" class="privacy-section pb-10 mb-10">
+            <h2 class="text-2xl font-bold mb-6 text-white">5. User Rights & Choices</h2>
+            <p class="text-gray-300 mb-6">
+              We strive to provide you with choices regarding the personal information you provide to us. We have created mechanisms to provide you with the following control over your information:
+            </p>
+            
+            <h3 class="text-xl font-bold mb-4 text-white">Your Rights</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              <div class="bg-[#252550] rounded-lg p-4">
+                <h4 class="font-bold text-white mb-2">Right to Access</h4>
+                <p class="text-gray-300">You have the right to request information about the personal data we hold about you.</p>
+              </div>
+              
+              <div class="bg-[#252550] rounded-lg p-4">
+                <h4 class="font-bold text-white mb-2">Right to Rectification</h4>
+                <p class="text-gray-300">You have the right to request correction of your personal data if it is inaccurate or incomplete.</p>
+              </div>
+              
+              <div class="bg-[#252550] rounded-lg p-4">
+                <h4 class="font-bold text-white mb-2">Right to Erasure</h4>
+                <p class="text-gray-300">You have the right to request deletion of your personal data under certain conditions.</p>
+              </div>
+              
+              <div class="bg-[#252550] rounded-lg p-4">
+                <h4 class="font-bold text-white mb-2">Right to Restrict Processing</h4>
+                <p class="text-gray-300">You have the right to request restriction of processing of your personal data under certain conditions.</p>
+              </div>
+              
+              <div class="bg-[#252550] rounded-lg p-4">
+                <h4 class="font-bold text-white mb-2">Right to Data Portability</h4>
+                <p class="text-gray-300">You have the right to request the transfer of your personal data to another organization or directly to you.</p>
+              </div>
+              
+              <div class="bg-[#252550] rounded-lg p-4">
+                <h4 class="font-bold text-white mb-2">Right to Object</h4>
+                <p class="text-gray-300">You have the right to object to our processing of your personal data under certain conditions.</p>
+              </div>
+            </div>
+            
+            <h3 class="text-xl font-bold mb-4 text-white">How to Exercise Your Rights</h3>
+            <p class="text-gray-300 mb-4">
+              You can exercise your rights by contacting us using the contact information provided in the "Contact Information" section of this Privacy Policy. We may require specific information from you to help us confirm your identity and ensure your right to access your personal data or to exercise any of your other rights.
+            </p>
+            <p class="text-gray-300">
+              We will respond to all legitimate requests within one month. Occasionally it may take us longer than a month if your request is particularly complex or you have made a number of requests. In this case, we will notify you and keep you updated.
+            </p>
+          </div>
+          
+          <!-- Security Measures -->
+          <div id="security" class="privacy-section pb-10 mb-10">
+            <h2 class="text-2xl font-bold mb-6 text-white">6. Security Measures</h2>
+            <p class="text-gray-300 mb-6">
+              We have implemented measures designed to secure your personal information from accidental loss and from unauthorized access, use, alteration, and disclosure.
+            </p>
+            
+            <div class="bg-gradient-to-r from-[#1A1A3F] to-[#252550] rounded-lg p-6 mb-6">
+              <div class="flex items-start">
+                <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                  <div class="w-6 h-6 flex items-center justify-center">
+                    <i class="ri-shield-check-line text-primary"></i>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold mb-3 text-white">Our Security Practices</h3>
+                  <ul class="list-disc pl-6 text-gray-300 space-y-2">
+                    <li>All sensitive information you provide to us is encrypted using Secure Socket Layer (SSL) technology</li>
+                    <li>We maintain physical, electronic, and procedural safeguards to protect your personal information</li>
+                    <li>We regularly review our information collection, storage, and processing practices to guard against unauthorized access</li>
+                    <li>We restrict access to personal information to our employees, contractors, and agents who need to know that information to process it for us</li>
+                    <li>We use advanced security technologies to protect your data from unauthorized access</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <p class="text-gray-300 mb-4">
+              The safety and security of your information also depends on you. Where we have given you (or where you have chosen) a password for access to certain parts of our website, you are responsible for keeping this password confidential. We ask you not to share your password with anyone.
+            </p>
+            <p class="text-gray-300">
+              Unfortunately, the transmission of information via the internet is not completely secure. Although we do our best to protect your personal information, we cannot guarantee the security of your personal information transmitted to our website. Any transmission of personal information is at your own risk.
+            </p>
+          </div>
+          
+          <!-- International Transfers -->
+          <div id="international-transfers" class="privacy-section pb-10 mb-10">
+            <h2 class="text-2xl font-bold mb-6 text-white">7. International Transfers</h2>
+            <p class="text-gray-300 mb-4">
+              E2E Consulting is based in Japan, and your information may be transferred to, stored, and processed in Japan and other countries where our service providers maintain facilities.
+            </p>
+            <p class="text-gray-300 mb-4">
+              If you are located in the European Economic Area (EEA), United Kingdom, or other regions with laws governing data collection and use that may differ from Japanese law, please note that we may transfer information, including personal information, to a country and jurisdiction that does not have the same data protection laws as your jurisdiction.
+            </p>
+            <p class="text-gray-300">
+              We will take all steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy and no transfer of your personal data will take place to an organization or a country unless there are adequate controls in place including the security of your data and other personal information.
+            </p>
+          </div>
+          
+          <!-- Children's Privacy -->
+          <div id="children" class="privacy-section pb-10 mb-10">
+            <h2 class="text-2xl font-bold mb-6 text-white">8. Children's Privacy</h2>
+            <p class="text-gray-300 mb-4">
+              Our website is not intended for children under 16 years of age. No one under age 16 may provide any information to or on the website. We do not knowingly collect personal information from children under 16.
+            </p>
+            <p class="text-gray-300 mb-4">
+              If you are under 16, do not use or provide any information on this website or through any of its features, register on the website, make any purchases through the website, use any of the interactive or public comment features of this website, or provide any information about yourself to us, including your name, address, telephone number, email address, or any screen name or user name you may use.
+            </p>
+            <p class="text-gray-300">
+              If we learn we have collected or received personal information from a child under 16 without verification of parental consent, we will delete that information. If you believe we might have any information from or about a child under 16, please contact us using the contact information provided in the "Contact Information" section of this Privacy Policy.
+            </p>
+          </div>
+          
+          <!-- Policy Updates -->
+          <div id="updates" class="privacy-section pb-10 mb-10">
+            <h2 class="text-2xl font-bold mb-6 text-white">9. Policy Updates</h2>
+            <p class="text-gray-300 mb-4">
+              We may update our Privacy Policy from time to time. If we make material changes to how we treat our users' personal information, we will post the new Privacy Policy on this page with a notice that the Privacy Policy has been updated.
+            </p>
+            <p class="text-gray-300 mb-4">
+              The date the Privacy Policy was last revised is identified at the top of the page. You are responsible for periodically visiting our website and this Privacy Policy to check for any changes.
+            </p>
+            <p class="text-gray-300">
+              Your continued use of our website following the posting of changes constitutes your acceptance of such changes.
+            </p>
+          </div>
+          
+          <!-- Contact Information -->
+          <div id="contact" class="privacy-section">
+            <h2 class="text-2xl font-bold mb-6 text-white">10. Contact Information</h2>
+            <p class="text-gray-300 mb-6">
+              If you have any questions, concerns, or comments about this Privacy Policy or our privacy practices, please contact us at:
+            </p>
+            
+            <div class="bg-[#252550] rounded-lg p-6">
+              <h3 class="text-xl font-bold mb-4 text-white">E2E Consulting</h3>
+              <ul class="space-y-3 text-gray-300">
+                <li class="flex items-start">
+                  <div class="w-5 h-5 mr-3 flex items-center justify-center text-primary mt-1">
+                    <i class="ri-map-pin-line"></i>
+                  </div>
+                  <span>Ginza TH Building F9, 7-13-20, Ginza, Chuo-ku, Tokyo, Japan (104-0061)</span>
+                </li>
+                <li class="flex items-start">
+                  <div class="w-5 h-5 mr-3 flex items-center justify-center text-primary mt-1">
+                    <i class="ri-mail-line"></i>
+                  </div>
+                  <span>privacy@e2ec.biz</span>
+                </li>
+                <li class="flex items-start">
+                  <div class="w-5 h-5 mr-3 flex items-center justify-center text-primary mt-1">
+                    <i class="ri-phone-line"></i>
+                  </div>
+                  <span>+81-3-1234-5678</span>
+                </li>
+              </ul>
+              <div class="mt-6">
+                <a href="#" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary to-secondary text-black font-bold rounded-lg transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/50 whitespace-nowrap !rounded-button">
+                  Contact Us
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Back to Top Button -->
+<button id="back-to-top" class="back-to-top fixed bottom-8 right-8 w-12 h-12 bg-primary/80 hover:bg-primary text-black rounded-full flex items-center justify-center shadow-lg transition-all duration-300">
+  <div class="w-6 h-6 flex items-center justify-center">
+    <i class="ri-arrow-up-line ri-lg"></i>
+  </div>
+</button>
+
+<!-- Footer -->
+<footer class="bg-[#0A0A1F] pt-16 pb-8">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+      <div class="md:col-span-1">
+        <a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca" data-readdy="true" class="inline-block mb-6">
+          <div class="flex items-center">
+            <img src="https://static.readdy.ai/image/53a4d54aa374b01413a309defbaefd8a/890389b5e509c8efbf5dd3ca6b3b0c06.png" alt="Logo" class="h-10 w-10 mr-2">
+            <span class="text-2xl font-['-apple-system,BlinkMacSystemFont,SF_Pro_Display,Helvetica_Neue,Arial'] font-medium bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tracking-tight">E2E</span>
+          </div>
+        </a>
+        <p class="text-gray-400 mb-6">
+          From Earth To Europa - Accelerating humanity's journey to become an interplanetary species.
+        </p>
+        <div class="flex space-x-4">
+          <a href="#" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
+            <div class="w-5 h-5 flex items-center justify-center">
+              <i class="ri-twitter-x-line text-white"></i>
+            </div>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
+            <div class="w-5 h-5 flex items-center justify-center">
+              <i class="ri-linkedin-line text-white"></i>
+            </div>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
+            <div class="w-5 h-5 flex items-center justify-center">
+              <i class="ri-github-line text-white"></i>
+            </div>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
+            <div class="w-5 h-5 flex items-center justify-center">
+              <i class="ri-youtube-line text-white"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-lg font-bold mb-6">Services</h3>
+        <ul class="space-y-4">
+          <li>
+            <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">IT Software Development</a>
+          </li>
+          <li>
+            <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">AI Technology R&D</a>
+          </li>
+          <li>
+            <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">Robotics Development</a>
+          </li>
+          <li>
+            <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">Consulting Services</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-bold mb-6">Company</h3>
+        <ul class="space-y-4">
+          <li>
+            <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">About Us</a>
+          </li>
+          <li>
+            <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">Careers</a>
+          </li>
+          <li>
+            <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">Press</a>
+          </li>
+          <li>
+            <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-bold mb-6">Legal</h3>
+        <ul class="space-y-4">
+          <li>
+            <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">Terms of Service</a>
+          </li>
+          <li>
+            <a href="#" class="text-primary font-medium transition-colors duration-300">Privacy Policy</a>
+          </li>
+          <li>
+            <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">Cookie Policy</a>
+          </li>
+          <li>
+            <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">Security</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 pt-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-500 text-sm mb-4 md:mb-0">
+          &copy; 2025 E2E Consulting LLC. All rights reserved.
+        </p>
+        <div class="flex items-center space-x-4">
+          <div class="flex items-center">
+            <div class="w-6 h-6 flex items-center justify-center mr-2">
+              <i class="ri-visa-line text-gray-400 ri-lg"></i>
+            </div>
+            <div class="w-6 h-6 flex items-center justify-center mr-2">
+              <i class="ri-mastercard-line text-gray-400 ri-lg"></i>
+            </div>
+            <div class="w-6 h-6 flex items-center justify-center mr-2">
+              <i class="ri-paypal-line text-gray-400 ri-lg"></i>
+            </div>
+            <div class="w-6 h-6 flex items-center justify-center">
+              <i class="ri-alipay-line text-gray-400 ri-lg"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script id="mobile-menu-toggle">
+document.addEventListener('DOMContentLoaded', function() {
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  mobileMenuButton.addEventListener('click', function() {
+    mobileMenu.classList.toggle('hidden');
+  });
+});
+</script>
+
+<script id="scroll-tracking">
+document.addEventListener('DOMContentLoaded', function() {
+  const sections = document.querySelectorAll('.privacy-section');
+  const tocLinks = document.querySelectorAll('.toc-link');
+  const backToTopButton = document.getElementById('back-to-top');
+  
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top <= 150 &&
+      rect.bottom >= 150
+    );
+  }
+  
+  function updateTOC() {
+    let found = false;
+    
+    sections.forEach((section) => {
+      if (isInViewport(section) && !found) {
+        const id = section.getAttribute('id');
+        tocLinks.forEach((link) => {
+          link.classList.remove('active', 'text-primary');
+          link.classList.add('text-gray-300');
+          
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active', 'text-primary');
+            link.classList.remove('text-gray-300');
+            found = true;
+          }
+        });
+      }
+    });
+    
+    // Show/hide back to top button
+    if (window.pageYOffset > 300) {
+      backToTopButton.classList.add('visible');
+    } else {
+      backToTopButton.classList.remove('visible');
+    }
+  }
+  
+  window.addEventListener('scroll', updateTOC);
+  updateTOC();
+  
+  // Smooth scroll for TOC links
+  tocLinks.forEach((link) => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+      
+      window.scrollTo({
+        top: targetElement.offsetTop - 100,
+        behavior: 'smooth'
+      });
+    });
+  });
+  
+  // Back to top functionality
+  backToTopButton.addEventListener('click', function() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+});
+</script>
+
+</body>
+</html>
