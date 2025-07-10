@@ -1,997 +1,1141 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Press & Media Center - E2E Consulting</title>
-<script src="https://cdn.tailwindcss.com/3.4.16"></script>
-<script>tailwind.config={theme:{extend:{colors:{primary:'#00F0FF',secondary:'#B026FF'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
-<style>
-:where([class^="ri-"])::before { content: "\f3c2"; }
-body {
-font-family: 'Roboto', sans-serif;
-background-color: #0A0A1F;
-color: #ffffff;
-}
-.language-selector {
-position: relative;
-}
-.language-options {
-display: none;
-position: absolute;
-top: 100%;
-right: 0;
-background-color: #1A1A3F;
-border-radius: 8px;
-overflow: hidden;
-width: 160px;
-z-index: 50;
-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-}
-.language-selector:hover .language-options {
-display: block;
-}
-.nav-link {
-position: relative;
-}
-.nav-link::after {
-content: '';
-position: absolute;
-bottom: -5px;
-left: 0;
-width: 0;
-height: 2px;
-background-color: #00F0FF;
-transition: width 0.3s ease;
-}
-.nav-link:hover::after {
-width: 100%;
-}
-.press-card {
-transition: all 0.3s ease;
-border: 1px solid rgba(0, 240, 255, 0.1);
-background: rgba(10, 10, 31, 0.7);
-backdrop-filter: blur(10px);
-}
-.press-card:hover {
-border-color: #00F0FF;
-box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
-transform: translateY(-5px);
-}
-.resource-card {
-transition: all 0.3s ease;
-background: rgba(26, 26, 63, 0.7);
-backdrop-filter: blur(5px);
-border: 1px solid rgba(176, 38, 255, 0.1);
-}
-.resource-card:hover {
-border-color: #B026FF;
-box-shadow: 0 0 15px rgba(176, 38, 255, 0.3);
-transform: scale(1.02);
-}
-.contact-input {
-background-color: rgba(255, 255, 255, 0.05);
-border: 1px solid rgba(255, 255, 255, 0.1);
-transition: all 0.3s ease;
-}
-.contact-input:focus {
-border-color: #00F0FF;
-box-shadow: 0 0 0 2px rgba(0, 240, 255, 0.2);
-}
-.category-badge {
-font-size: 0.75rem;
-padding: 0.25rem 0.75rem;
-border-radius: 9999px;
-font-weight: 500;
-}
-.category-badge.company {
-background-color: rgba(0, 240, 255, 0.1);
-color: #00F0FF;
-}
-.category-badge.product {
-background-color: rgba(176, 38, 255, 0.1);
-color: #B026FF;
-}
-.category-badge.industry {
-background-color: rgba(255, 171, 0, 0.1);
-color: #FFAB00;
-}
-.category-badge.event {
-background-color: rgba(0, 184, 148, 0.1);
-color: #00B894;
-}
-.tab-button {
-position: relative;
-transition: all 0.3s ease;
-}
-.tab-button.active {
-color: #ffffff;
-background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(176, 38, 255, 0.1));
-}
-.tab-button.active::after {
-content: '';
-position: absolute;
-bottom: -2px;
-left: 0;
-width: 100%;
-height: 2px;
-background: linear-gradient(90deg, #00F0FF, #B026FF);
-}
-.search-input {
-background-color: rgba(255, 255, 255, 0.05);
-border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.search-input:focus {
-border-color: #00F0FF;
-box-shadow: 0 0 0 2px rgba(0, 240, 255, 0.2);
-}
-.pagination-button {
-width: 40px;
-height: 40px;
-display: flex;
-align-items: center;
-justify-content: center;
-border-radius: 8px;
-transition: all 0.3s ease;
-}
-.pagination-button.active {
-background: linear-gradient(135deg, #00F0FF, #B026FF);
-color: #0A0A1F;
-font-weight: bold;
-}
-.pagination-button:not(.active):hover {
-background-color: rgba(255, 255, 255, 0.1);
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Press & Media Center - E2E Consulting</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>tailwind.config = { theme: { extend: { colors: { primary: '#00F0FF', secondary: '#B026FF' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+  <style>
+    :where([class^="ri-"])::before {
+      content: "\f3c2";
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #0A0A1F;
+      color: #ffffff;
+    }
+
+    .language-selector {
+      position: relative;
+    }
+
+    .language-options {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: #1A1A3F;
+      border-radius: 8px;
+      overflow: hidden;
+      width: 160px;
+      z-index: 50;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .language-selector:hover .language-options {
+      display: block;
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #00F0FF;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .press-card {
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 240, 255, 0.1);
+      background: rgba(10, 10, 31, 0.7);
+      backdrop-filter: blur(10px);
+    }
+
+    .press-card:hover {
+      border-color: #00F0FF;
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+      transform: translateY(-5px);
+    }
+
+    .resource-card {
+      transition: all 0.3s ease;
+      background: rgba(26, 26, 63, 0.7);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(176, 38, 255, 0.1);
+    }
+
+    .resource-card:hover {
+      border-color: #B026FF;
+      box-shadow: 0 0 15px rgba(176, 38, 255, 0.3);
+      transform: scale(1.02);
+    }
+
+    .contact-input {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .contact-input:focus {
+      border-color: #00F0FF;
+      box-shadow: 0 0 0 2px rgba(0, 240, 255, 0.2);
+    }
+
+    .category-badge {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-weight: 500;
+    }
+
+    .category-badge.company {
+      background-color: rgba(0, 240, 255, 0.1);
+      color: #00F0FF;
+    }
+
+    .category-badge.product {
+      background-color: rgba(176, 38, 255, 0.1);
+      color: #B026FF;
+    }
+
+    .category-badge.industry {
+      background-color: rgba(255, 171, 0, 0.1);
+      color: #FFAB00;
+    }
+
+    .category-badge.event {
+      background-color: rgba(0, 184, 148, 0.1);
+      color: #00B894;
+    }
+
+    .tab-button {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .tab-button.active {
+      color: #ffffff;
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(176, 38, 255, 0.1));
+    }
+
+    .tab-button.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, #00F0FF, #B026FF);
+    }
+
+    .search-input {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .search-input:focus {
+      border-color: #00F0FF;
+      box-shadow: 0 0 0 2px rgba(0, 240, 255, 0.2);
+    }
+
+    .pagination-button {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .pagination-button.active {
+      background: linear-gradient(135deg, #00F0FF, #B026FF);
+      color: #0A0A1F;
+      font-weight: bold;
+    }
+
+    .pagination-button:not(.active):hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  </style>
 </head>
+
 <body>
-<!-- Header Section -->
-<header class="fixed top-0 left-0 w-full bg-opacity-90 bg-[#0A0A1F] backdrop-blur-md z-50">
-<div class="container mx-auto px-6 py-4">
-<div class="flex justify-between items-center">
-<div class="flex items-center">
-<a href="/" class="text-3xl font-['-apple-system,BlinkMacSystemFont,SF_Pro_Display,Helvetica_Neue,Arial'] font-medium text-white">
-<div class="flex items-center">
-<img src="https://static.readdy.ai/image/53a4d54aa374b01413a309defbaefd8a/890389b5e509c8efbf5dd3ca6b3b0c06.png" alt="Logo" class="h-10 w-10 mr-3">
-<span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tracking-tight">E2E Consulting</span>
-</div>
-</a>
-</div>
-<div class="hidden md:flex items-center space-x-8">
-<a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca" data-readdy="true" class="nav-link text-white hover:text-primary transition-colors duration-300">
-<span class="lang-en">Home</span>
-<span class="lang-zh hidden">首页</span>
-<span class="lang-ja hidden">ホーム</span>
-</a>
-<a href="/services" class="nav-link text-white hover:text-primary transition-colors duration-300">
-<span class="lang-en">Services</span>
-<span class="lang-zh hidden">服务</span>
-<span class="lang-ja hidden">サービス</span>
-</a>
-<a href="/products" class="nav-link text-white hover:text-primary transition-colors duration-300">
-<span class="lang-en">Products</span>
-<span class="lang-zh hidden">产品</span>
-<span class="lang-ja hidden">製品</span>
-</a>
-<a href="/about" class="nav-link text-white hover:text-primary transition-colors duration-300">
-<span class="lang-en">About</span>
-<span class="lang-zh hidden">关于我们</span>
-<span class="lang-ja hidden">会社概要</span>
-</a>
-<a href="#contact" class="nav-link text-white hover:text-primary transition-colors duration-300">
-<span class="lang-en">Contact</span>
-<span class="lang-zh hidden">联系我们</span>
-<span class="lang-ja hidden">お問い合わせ</span>
-</a>
-<div class="language-selector">
-<button class="flex items-center space-x-1 text-white hover:text-primary transition-colors duration-300 whitespace-nowrap !rounded-button">
-<div class="w-6 h-6 flex items-center justify-center">
-<i class="ri-global-line ri-lg"></i>
-</div>
-<span class="current-language">English</span>
-<div class="w-4 h-4 flex items-center justify-center">
-<i class="ri-arrow-down-s-line"></i>
-</div>
-</button>
-<div class="language-options">
-<button class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="en">English</button>
-<button class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="zh">简体中文</button>
-<button class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="ja">日本語</button>
-</div>
-</div>
-</div>
-<div class="md:hidden">
-<button id="mobile-menu-button" class="text-white focus:outline-none whitespace-nowrap !rounded-button">
-<div class="w-8 h-8 flex items-center justify-center">
-<i class="ri-menu-line ri-2x"></i>
-</div>
-</button>
-</div>
-</div>
-<!-- Mobile Menu -->
-<div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
-<div class="flex flex-col space-y-4">
-<a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca" data-readdy="true" class="text-white hover:text-primary transition-colors duration-300">
-<span class="lang-en">Home</span>
-<span class="lang-zh hidden">首页</span>
-<span class="lang-ja hidden">ホーム</span>
-</a>
-<a href="/services" class="text-white hover:text-primary transition-colors duration-300">
-<span class="lang-en">Services</span>
-<span class="lang-zh hidden">服务</span>
-<span class="lang-ja hidden">サービス</span>
-</a>
-<a href="/products" class="text-white hover:text-primary transition-colors duration-300">
-<span class="lang-en">Products</span>
-<span class="lang-zh hidden">产品</span>
-<span class="lang-ja hidden">製品</span>
-</a>
-<a href="/about" class="text-white hover:text-primary transition-colors duration-300">
-<span class="lang-en">About</span>
-<span class="lang-zh hidden">关于我们</span>
-<span class="lang-ja hidden">会社概要</span>
-</a>
-<a href="#contact" class="text-white hover:text-primary transition-colors duration-300">
-<span class="lang-en">Contact</span>
-<span class="lang-zh hidden">联系我们</span>
-<span class="lang-ja hidden">お問い合わせ</span>
-</a>
-<div class="pt-2 border-t border-gray-700">
-<div class="flex flex-col space-y-2">
-<button class="text-left px-2 py-1 hover:bg-[#2A2A5F] rounded transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="en">English</button>
-<button class="text-left px-2 py-1 hover:bg-[#2A2A5F] rounded transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="zh">简体中文</button>
-<button class="text-left px-2 py-1 hover:bg-[#2A2A5F] rounded transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="ja">日本語</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-</header>
-<!-- Hero Section -->
-<section class="relative pt-32 pb-20 overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=futuristic%2520technology%2520background%2520with%2520blue%2520and%2520purple%2520glowing%2520lights%252C%2520digital%2520particles%252C%2520abstract%2520tech%2520concept%2520with%2520space%2520theme%252C%2520high-tech%2520visualization%2520of%2520data%2520networks%252C%2520dark%2520space%2520theme%2520with%2520subtle%2520grid%2520pattern%252C%2520professional%2520corporate%2520feel&width=1920&height=600&seq=10&orientation=landscape'); background-size: cover; background-position: center;">
-<div class="absolute inset-0 bg-gradient-to-b from-[#0A0A1F] via-[#0A0A1F80] to-[#0A0A1F]"></div>
-<div class="container mx-auto px-6 relative z-10">
-<div class="flex flex-col items-center text-center">
-<a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca" data-readdy="true" class="self-start mb-6 flex items-center text-white hover:text-primary transition-colors duration-300">
-<div class="w-5 h-5 mr-2 flex items-center justify-center">
-<i class="ri-arrow-left-line"></i>
-</div>
-<span class="lang-en">Back to Home</span>
-<span class="lang-zh hidden">返回首页</span>
-<span class="lang-ja hidden">ホームに戻る</span>
-</a>
-<h1 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-<span class="lang-en">Press & Media Center</span>
-<span class="lang-zh hidden">新闻与媒体中心</span>
-<span class="lang-ja hidden">プレス＆メディアセンター</span>
-</h1>
-<p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-<span class="lang-en">Stay updated with the latest news, press releases, and media coverage about E2E Consulting and our innovative technologies.</span>
-<span class="lang-zh hidden">了解关于合同会社E2E咨询及我们创新技术的最新新闻、新闻稿和媒体报道。</span>
-<span class="lang-ja hidden">E2E Consultingと当社の革新的な技術に関する最新ニュース、プレスリリース、メディア報道をご覧ください。</span>
-</p>
-</div>
-</div>
-</section>
-<!-- Press Releases Section -->
-<section class="py-16 bg-[#0A0A1F]">
-<div class="container mx-auto px-6">
-<div class="mb-12">
-<h2 class="text-3xl font-bold mb-8">
-<span class="lang-en">Press Releases & News</span>
-<span class="lang-zh hidden">新闻稿与新闻</span>
-<span class="lang-ja hidden">プレスリリース＆ニュース</span>
-</h2>
-<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 space-y-4 md:space-y-0">
-<!-- Category Tabs -->
-<div class="flex overflow-x-auto pb-2 space-x-1">
-<button class="tab-button active px-4 py-2 rounded-full text-white whitespace-nowrap !rounded-button" data-category="all">
-<span class="lang-en">All</span>
-<span class="lang-zh hidden">全部</span>
-<span class="lang-ja hidden">すべて</span>
-</button>
-<button class="tab-button px-4 py-2 rounded-full text-gray-400 whitespace-nowrap !rounded-button" data-category="company">
-<span class="lang-en">Company News</span>
-<span class="lang-zh hidden">公司新闻</span>
-<span class="lang-ja hidden">企業ニュース</span>
-</button>
-<button class="tab-button px-4 py-2 rounded-full text-gray-400 whitespace-nowrap !rounded-button" data-category="product">
-<span class="lang-en">Product Updates</span>
-<span class="lang-zh hidden">产品更新</span>
-<span class="lang-ja hidden">製品アップデート</span>
-</button>
-<button class="tab-button px-4 py-2 rounded-full text-gray-400 whitespace-nowrap !rounded-button" data-category="industry">
-<span class="lang-en">Industry Insights</span>
-<span class="lang-zh hidden">行业洞察</span>
-<span class="lang-ja hidden">業界インサイト</span>
-</button>
-<button class="tab-button px-4 py-2 rounded-full text-gray-400 whitespace-nowrap !rounded-button" data-category="event">
-<span class="lang-en">Events</span>
-<span class="lang-zh hidden">活动</span>
-<span class="lang-ja hidden">イベント</span>
-</button>
-</div>
-<!-- Search Bar -->
-<div class="relative w-full md:w-64">
-<input type="text" id="press-search" class="search-input w-full px-4 py-2 pr-10 rounded-full text-white focus:outline-none" placeholder="Search press releases...">
-<div class="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
-<i class="ri-search-line"></i>
-</div>
-</div>
-</div>
-<!-- Press Releases Grid -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-<!-- Press Release 1 -->
-<div class="press-card rounded-lg overflow-hidden" data-category="company">
-<div class="p-6">
-<div class="flex justify-between items-start mb-4">
-<span class="text-gray-400 text-sm">June 25, 2025</span>
-<span class="category-badge company">Company News</span>
-</div>
-<h3 class="text-xl font-bold mb-3">E2E Consulting Announces New Tokyo Headquarters</h3>
-<p class="text-gray-300 mb-4 line-clamp-3">E2E Consulting has officially opened its new headquarters in Ginza, Tokyo, featuring state-of-the-art research facilities and collaborative workspaces designed to accelerate innovation in AI and robotics technologies.</p>
-<button class="press-read-more inline-flex items-center text-primary hover:text-white transition-colors duration-300 group" data-id="1">
-<span class="lang-en">Read More</span>
-<span class="lang-zh hidden">阅读更多</span>
-<span class="lang-ja hidden">続きを読む</span>
-<div class="w-5 h-5 ml-2 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
-<i class="ri-arrow-right-line"></i>
-</div>
-</button>
-</div>
-</div>
-<!-- Press Release 2 -->
-<div class="press-card rounded-lg overflow-hidden" data-category="product">
-<div class="p-6">
-<div class="flex justify-between items-start mb-4">
-<span class="text-gray-400 text-sm">June 15, 2025</span>
-<span class="category-badge product">Product Updates</span>
-</div>
-<h3 class="text-xl font-bold mb-3">NeuraSense AI 2.0 Launches with Enhanced Predictive Capabilities</h3>
-<p class="text-gray-300 mb-4 line-clamp-3">E2E Consulting has released version 2.0 of its flagship NeuraSense AI platform, featuring significant improvements in predictive analytics accuracy and processing speed, enabling businesses to make more informed decisions based on complex data patterns.</p>
-<button class="press-read-more inline-flex items-center text-primary hover:text-white transition-colors duration-300 group" data-id="2">
-<span class="lang-en">Read More</span>
-<span class="lang-zh hidden">阅读更多</span>
-<span class="lang-ja hidden">続きを読む</span>
-<div class="w-5 h-5 ml-2 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
-<i class="ri-arrow-right-line"></i>
-</div>
-</button>
-</div>
-</div>
-<!-- Press Release 3 -->
-<div class="press-card rounded-lg overflow-hidden" data-category="industry">
-<div class="p-6">
-<div class="flex justify-between items-start mb-4">
-<span class="text-gray-400 text-sm">June 8, 2025</span>
-<span class="category-badge industry">Industry Insights</span>
-</div>
-<h3 class="text-xl font-bold mb-3">E2E Consulting Releases Report on Future of Space Exploration Technology</h3>
-<p class="text-gray-300 mb-4 line-clamp-3">Our latest research report examines the technological advancements that will drive the next decade of space exploration, with particular focus on AI-driven autonomous systems and advanced materials designed for extreme environments.</p>
-<button class="press-read-more inline-flex items-center text-primary hover:text-white transition-colors duration-300 group" data-id="3">
-<span class="lang-en">Read More</span>
-<span class="lang-zh hidden">阅读更多</span>
-<span class="lang-ja hidden">続きを読む</span>
-<div class="w-5 h-5 ml-2 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
-<i class="ri-arrow-right-line"></i>
-</div>
-</button>
-</div>
-</div>
-<!-- Press Release 4 -->
-<div class="press-card rounded-lg overflow-hidden" data-category="event">
-<div class="p-6">
-<div class="flex justify-between items-start mb-4">
-<span class="text-gray-400 text-sm">May 30, 2025</span>
-<span class="category-badge event">Event</span>
-</div>
-<h3 class="text-xl font-bold mb-3">E2E Consulting to Host Global AI Summit in Tokyo</h3>
-<p class="text-gray-300 mb-4 line-clamp-3">E2E Consulting will host its inaugural Global AI Summit in Tokyo this September, bringing together industry leaders, researchers, and policymakers to discuss the future of artificial intelligence and its applications in space exploration and beyond.</p>
-<button class="press-read-more inline-flex items-center text-primary hover:text-white transition-colors duration-300 group" data-id="4">
-<span class="lang-en">Read More</span>
-<span class="lang-zh hidden">阅读更多</span>
-<span class="lang-ja hidden">続きを読む</span>
-<div class="w-5 h-5 ml-2 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
-<i class="ri-arrow-right-line"></i>
-</div>
-</button>
-</div>
-</div>
-<!-- Press Release 5 -->
-<div class="press-card rounded-lg overflow-hidden" data-category="company">
-<div class="p-6">
-<div class="flex justify-between items-start mb-4">
-<span class="text-gray-400 text-sm">May 22, 2025</span>
-<span class="category-badge company">Company News</span>
-</div>
-<h3 class="text-xl font-bold mb-3">E2E Consulting Announces Strategic Partnership with JAXA</h3>
-<p class="text-gray-300 mb-4 line-clamp-3">E2E Consulting has entered into a strategic partnership with the Japan Aerospace Exploration Agency (JAXA) to develop next-generation AI and robotics technologies for future lunar and Mars exploration missions.</p>
-<button class="press-read-more inline-flex items-center text-primary hover:text-white transition-colors duration-300 group" data-id="5">
-<span class="lang-en">Read More</span>
-<span class="lang-zh hidden">阅读更多</span>
-<span class="lang-ja hidden">続きを読む</span>
-<div class="w-5 h-5 ml-2 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
-<i class="ri-arrow-right-line"></i>
-</div>
-</button>
-</div>
-</div>
-<!-- Press Release 6 -->
-<div class="press-card rounded-lg overflow-hidden" data-category="product">
-<div class="p-6">
-<div class="flex justify-between items-start mb-4">
-<span class="text-gray-400 text-sm">May 15, 2025</span>
-<span class="category-badge product">Product Updates</span>
-</div>
-<h3 class="text-xl font-bold mb-3">E2E Consulting Unveils ExoBot Mini for Educational Market</h3>
-<p class="text-gray-300 mb-4 line-clamp-3">E2E Consulting has launched a compact version of its ExoBot robotics platform designed specifically for educational institutions, providing students with hands-on experience in robotics programming and AI integration.</p>
-<button class="press-read-more inline-flex items-center text-primary hover:text-white transition-colors duration-300 group" data-id="6">
-<span class="lang-en">Read More</span>
-<span class="lang-zh hidden">阅读更多</span>
-<span class="lang-ja hidden">続きを読む</span>
-<div class="w-5 h-5 ml-2 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
-<i class="ri-arrow-right-line"></i>
-</div>
-</button>
-</div>
-</div>
-<!-- Press Release 7 -->
-<div class="press-card rounded-lg overflow-hidden" data-category="industry">
-<div class="p-6">
-<div class="flex justify-between items-start mb-4">
-<span class="text-gray-400 text-sm">May 5, 2025</span>
-<span class="category-badge industry">Industry Insights</span>
-</div>
-<h3 class="text-xl font-bold mb-3">E2E Consulting Publishes White Paper on Quantum Computing Applications</h3>
-<p class="text-gray-300 mb-4 line-clamp-3">Our latest white paper explores the potential applications of quantum computing in space exploration, focusing on complex trajectory calculations, materials science, and optimization problems that traditional computing struggles to solve efficiently.</p>
-<button class="press-read-more inline-flex items-center text-primary hover:text-white transition-colors duration-300 group" data-id="7">
-<span class="lang-en">Read More</span>
-<span class="lang-zh hidden">阅读更多</span>
-<span class="lang-ja hidden">続きを読む</span>
-<div class="w-5 h-5 ml-2 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
-<i class="ri-arrow-right-line"></i>
-</div>
-</button>
-</div>
-</div>
-<!-- Press Release 8 -->
-<div class="press-card rounded-lg overflow-hidden" data-category="event">
-<div class="p-6">
-<div class="flex justify-between items-start mb-4">
-<span class="text-gray-400 text-sm">April 28, 2025</span>
-<span class="category-badge event">Event</span>
-</div>
-<h3 class="text-xl font-bold mb-3">E2E Consulting to Participate in International Space Development Conference</h3>
-<p class="text-gray-300 mb-4 line-clamp-3">E2E Consulting will showcase its latest space exploration technologies at the International Space Development Conference in Washington D.C., demonstrating how AI and robotics can accelerate humanity's journey to becoming an interplanetary species.</p>
-<button class="press-read-more inline-flex items-center text-primary hover:text-white transition-colors duration-300 group" data-id="8">
-<span class="lang-en">Read More</span>
-<span class="lang-zh hidden">阅读更多</span>
-<span class="lang-ja hidden">続きを読む</span>
-<div class="w-5 h-5 ml-2 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
-<i class="ri-arrow-right-line"></i>
-</div>
-</button>
-</div>
-</div>
-<!-- Press Release 9 -->
-<div class="press-card rounded-lg overflow-hidden" data-category="company">
-<div class="p-6">
-<div class="flex justify-between items-start mb-4">
-<span class="text-gray-400 text-sm">April 15, 2025</span>
-<span class="category-badge company">Company News</span>
-</div>
-<h3 class="text-xl font-bold mb-3">E2E Consulting Expands Research Team with Top AI Scientists</h3>
-<p class="text-gray-300 mb-4 line-clamp-3">E2E Consulting has significantly expanded its research capabilities with the addition of several renowned AI scientists and robotics engineers to its team, further strengthening the company's position as a leader in advanced technology development.</p>
-<button class="press-read-more inline-flex items-center text-primary hover:text-white transition-colors duration-300 group" data-id="9">
-<span class="lang-en">Read More</span>
-<span class="lang-zh hidden">阅读更多</span>
-<span class="lang-ja hidden">続きを読む</span>
-<div class="w-5 h-5 ml-2 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
-<i class="ri-arrow-right-line"></i>
-</div>
-</button>
-</div>
-</div>
-</div>
-<!-- Pagination -->
-<div class="flex justify-center">
-<div class="flex space-x-2">
-<button class="pagination-button text-gray-400" disabled>
-<div class="w-5 h-5 flex items-center justify-center">
-<i class="ri-arrow-left-s-line"></i>
-</div>
-</button>
-<button class="pagination-button active">1</button>
-<button class="pagination-button text-gray-300">2</button>
-<button class="pagination-button text-gray-300">3</button>
-<button class="pagination-button text-gray-300">
-<div class="w-5 h-5 flex items-center justify-center">
-<i class="ri-arrow-right-s-line"></i>
-</div>
-</button>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Media Kit Section -->
-<section class="py-16 bg-[#0F0F2F]">
-<div class="container mx-auto px-6">
-<div class="mb-12">
-<h2 class="text-3xl font-bold mb-6">
-<span class="lang-en">Media Resources</span>
-<span class="lang-zh hidden">媒体资源</span>
-<span class="lang-ja hidden">メディアリソース</span>
-</h2>
-<p class="text-xl text-gray-300 max-w-3xl mb-10">
-<span class="lang-en">Download official E2E Consulting assets for media use. All resources are available under our media usage guidelines.</span>
-<span class="lang-zh hidden">下载用于媒体使用的官方合同会社E2E咨询资源。所有资源均可在我们的媒体使用指南下使用。</span>
-<span class="lang-ja hidden">メディア用の公式E2E Consultingアセットをダウンロードしてください。すべてのリソースは当社のメディア使用ガイドラインに基づいて利用可能です。</span>
-</p>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<!-- Resource 1: Company Logos -->
-<div class="resource-card rounded-lg overflow-hidden">
-<div class="h-48 bg-gradient-to-br from-[#1A1A3F] to-[#2A2A5F] flex items-center justify-center p-6">
-<div class="w-32 h-32 bg-[#0A0A1F] rounded-full flex items-center justify-center">
-<span class="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">E2E</span>
-</div>
-</div>
-<div class="p-6">
-<h3 class="text-xl font-bold mb-2">Company Logos</h3>
-<p class="text-gray-400 mb-4">Official E2E Consulting logos in various formats and resolutions for print and digital media.</p>
-<div class="flex justify-between items-center">
-<span class="text-sm text-gray-500">PNG, SVG, EPS | 15 MB</span>
-<button class="px-4 py-2 bg-gradient-to-r from-primary to-secondary text-black font-medium rounded-lg flex items-center whitespace-nowrap !rounded-button">
-<div class="w-5 h-5 mr-2 flex items-center justify-center">
-<i class="ri-download-line"></i>
-</div>
-<span class="lang-en">Download</span>
-<span class="lang-zh hidden">下载</span>
-<span class="lang-ja hidden">ダウンロード</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Resource 2: Brand Guidelines -->
-<div class="resource-card rounded-lg overflow-hidden">
-<div class="h-48 bg-gradient-to-br from-[#1A1A3F] to-[#2A2A5F] flex items-center justify-center p-6">
-<div class="w-32 h-40 bg-white rounded-lg flex items-center justify-center relative">
-<div class="absolute inset-0 m-2 bg-[#0A0A1F] rounded-lg flex items-center justify-center">
-<div class="text-center">
-<div class="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1">BRAND</div>
-<div class="text-xs text-white">GUIDELINES</div>
-</div>
-</div>
-</div>
-</div>
-<div class="p-6">
-<h3 class="text-xl font-bold mb-2">Brand Guidelines</h3>
-<p class="text-gray-400 mb-4">Comprehensive guide to E2E Consulting's visual identity, including color palette, typography, and usage rules.</p>
-<div class="flex justify-between items-center">
-<span class="text-sm text-gray-500">PDF | 8.5 MB</span>
-<button class="px-4 py-2 bg-gradient-to-r from-primary to-secondary text-black font-medium rounded-lg flex items-center whitespace-nowrap !rounded-button">
-<div class="w-5 h-5 mr-2 flex items-center justify-center">
-<i class="ri-download-line"></i>
-</div>
-<span class="lang-en">Download</span>
-<span class="lang-zh hidden">下载</span>
-<span class="lang-ja hidden">ダウンロード</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Resource 3: Product Images -->
-<div class="resource-card rounded-lg overflow-hidden">
-<div class="h-48 bg-gradient-to-br from-[#1A1A3F] to-[#2A2A5F] flex items-center justify-center p-6">
-<div class="grid grid-cols-2 gap-2">
-<div class="w-16 h-16 bg-[#0A0A1F] rounded-lg flex items-center justify-center">
-<div class="w-10 h-10 flex items-center justify-center">
-<i class="ri-brain-line text-primary ri-xl"></i>
-</div>
-</div>
-<div class="w-16 h-16 bg-[#0A0A1F] rounded-lg flex items-center justify-center">
-<div class="w-10 h-10 flex items-center justify-center">
-<i class="ri-robot-line text-secondary ri-xl"></i>
-</div>
-</div>
-<div class="w-16 h-16 bg-[#0A0A1F] rounded-lg flex items-center justify-center">
-<div class="w-10 h-10 flex items-center justify-center">
-<i class="ri-code-s-slash-line text-blue-400 ri-xl"></i>
-</div>
-</div>
-<div class="w-16 h-16 bg-[#0A0A1F] rounded-lg flex items-center justify-center">
-<div class="w-10 h-10 flex items-center justify-center">
-<i class="ri-database-2-line text-green-400 ri-xl"></i>
-</div>
-</div>
-</div>
-</div>
-<div class="p-6">
-<h3 class="text-xl font-bold mb-2">Product Images</h3>
-<p class="text-gray-400 mb-4">High-resolution images of E2E Consulting's products, including NeuraSense AI and ExoBot Series.</p>
-<div class="flex justify-between items-center">
-<span class="text-sm text-gray-500">JPG, PNG | 45 MB</span>
-<button class="px-4 py-2 bg-gradient-to-r from-primary to-secondary text-black font-medium rounded-lg flex items-center whitespace-nowrap !rounded-button">
-<div class="w-5 h-5 mr-2 flex items-center justify-center">
-<i class="ri-download-line"></i>
-</div>
-<span class="lang-en">Download</span>
-<span class="lang-zh hidden">下载</span>
-<span class="lang-ja hidden">ダウンロード</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Resource 4: Executive Headshots -->
-<div class="resource-card rounded-lg overflow-hidden">
-<div class="h-48 bg-gradient-to-br from-[#1A1A3F] to-[#2A2A5F] flex items-center justify-center p-6">
-<div class="flex space-x-4">
-<div class="w-20 h-20 bg-[#0A0A1F] rounded-full flex items-center justify-center">
-<div class="w-10 h-10 flex items-center justify-center">
-<i class="ri-user-line text-primary ri-xl"></i>
-</div>
-</div>
-<div class="w-20 h-20 bg-[#0A0A1F] rounded-full flex items-center justify-center">
-<div class="w-10 h-10 flex items-center justify-center">
-<i class="ri-user-line text-secondary ri-xl"></i>
-</div>
-</div>
-</div>
-</div>
-<div class="p-6">
-<h3 class="text-xl font-bold mb-2">Executive Headshots</h3>
-<p class="text-gray-400 mb-4">Professional photographs of E2E Consulting's executive team for media publications and presentations.</p>
-<div class="flex justify-between items-center">
-<span class="text-sm text-gray-500">JPG | 25 MB</span>
-<button class="px-4 py-2 bg-gradient-to-r from-primary to-secondary text-black font-medium rounded-lg flex items-center whitespace-nowrap !rounded-button">
-<div class="w-5 h-5 mr-2 flex items-center justify-center">
-<i class="ri-download-line"></i>
-</div>
-<span class="lang-en">Download</span>
-<span class="lang-zh hidden">下载</span>
-<span class="lang-ja hidden">ダウンロード</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Resource 5: Company Fact Sheet -->
-<div class="resource-card rounded-lg overflow-hidden">
-<div class="h-48 bg-gradient-to-br from-[#1A1A3F] to-[#2A2A5F] flex items-center justify-center p-6">
-<div class="w-32 h-40 bg-white rounded-lg flex items-center justify-center relative">
-<div class="absolute inset-0 m-2 bg-[#0A0A1F] rounded-lg flex flex-col items-center justify-center p-4">
-<div class="text-center mb-2">
-<div class="text-sm font-bold text-white">FACT SHEET</div>
-</div>
-<div class="w-full border-t border-gray-600 my-1"></div>
-<div class="w-full border-t border-gray-600 my-1"></div>
-<div class="w-full border-t border-gray-600 my-1"></div>
-<div class="w-3/4 border-t border-gray-600 my-1"></div>
-</div>
-</div>
-</div>
-<div class="p-6">
-<h3 class="text-xl font-bold mb-2">Company Fact Sheet</h3>
-<p class="text-gray-400 mb-4">Key information about E2E Consulting, including company history, mission, leadership, and major achievements.</p>
-<div class="flex justify-between items-center">
-<span class="text-sm text-gray-500">PDF | 2.3 MB</span>
-<button class="px-4 py-2 bg-gradient-to-r from-primary to-secondary text-black font-medium rounded-lg flex items-center whitespace-nowrap !rounded-button">
-<div class="w-5 h-5 mr-2 flex items-center justify-center">
-<i class="ri-download-line"></i>
-</div>
-<span class="lang-en">Download</span>
-<span class="lang-zh hidden">下载</span>
-<span class="lang-ja hidden">ダウンロード</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Resource 6: Media Usage Guidelines -->
-<div class="resource-card rounded-lg overflow-hidden">
-<div class="h-48 bg-gradient-to-br from-[#1A1A3F] to-[#2A2A5F] flex items-center justify-center p-6">
-<div class="w-32 h-40 bg-white rounded-lg flex items-center justify-center relative">
-<div class="absolute inset-0 m-2 bg-[#0A0A1F] rounded-lg flex items-center justify-center">
-<div class="text-center">
-<div class="w-10 h-10 mx-auto flex items-center justify-center mb-2">
-<i class="ri-file-list-3-line text-primary ri-2x"></i>
-</div>
-<div class="text-xs text-white">MEDIA USAGE</div>
-<div class="text-xs text-white">GUIDELINES</div>
-</div>
-</div>
-</div>
-</div>
-<div class="p-6">
-<h3 class="text-xl font-bold mb-2">Media Usage Guidelines</h3>
-<p class="text-gray-400 mb-4">Guidelines for proper use of E2E Consulting's media resources, including attribution requirements and restrictions.</p>
-<div class="flex justify-between items-center">
-<span class="text-sm text-gray-500">PDF | 1.5 MB</span>
-<button class="px-4 py-2 bg-gradient-to-r from-primary to-secondary text-black font-medium rounded-lg flex items-center whitespace-nowrap !rounded-button">
-<div class="w-5 h-5 mr-2 flex items-center justify-center">
-<i class="ri-download-line"></i>
-</div>
-<span class="lang-en">Download</span>
-<span class="lang-zh hidden">下载</span>
-<span class="lang-ja hidden">ダウンロード</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Media Contact Section -->
-<section class="py-16 bg-[#0A0A1F]">
-<div class="container mx-auto px-6">
-<div class="bg-gradient-to-r from-[#1A1A3F] to-[#2A2A5F] rounded-2xl p-8 md:p-12">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-<div>
-<h2 class="text-3xl font-bold mb-6">
-<span class="lang-en">Media Contact</span>
-<span class="lang-zh hidden">媒体联系</span>
-<span class="lang-ja hidden">メディア連絡先</span>
-</h2>
-<p class="text-gray-300 mb-6">
-<span class="lang-en">For press inquiries, interview requests, or additional information about E2E Consulting, please contact our media relations team.</span>
-<span class="lang-zh hidden">如需新闻咨询、采访请求或有关合同会社E2E咨询的更多信息，请联系我们的媒体关系团队。</span>
-<span class="lang-ja hidden">プレス関連のお問い合わせ、インタビューのご依頼、またはE2E Consultingに関する追加情報については、当社のメディア広報チームにお問い合わせください。</span>
-</p>
-<div class="space-y-6">
-<div class="flex items-start">
-<div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-4 mt-1">
-<div class="w-5 h-5 flex items-center justify-center">
-<i class="ri-mail-line text-primary"></i>
-</div>
-</div>
-<div>
-<h3 class="text-lg font-bold mb-1">Email</h3>
-<a href="mailto:contact@e2ec.biz" class="text-primary hover:text-white transition-colors duration-300">contact@e2ec.biz</a>
-</div>
-</div>
-<div class="flex items-start">
-<div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-4 mt-1">
-<div class="w-5 h-5 flex items-center justify-center">
-<i class="ri-phone-line text-primary"></i>
-</div>
-</div>
-<div>
-<h3 class="text-lg font-bold mb-1">Phone</h3>
-<p class="text-gray-300">+81 3-1234-5678</p>
-</div>
-</div>
-<div class="flex items-start">
-<div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-4 mt-1">
-<div class="w-5 h-5 flex items-center justify-center">
-<i class="ri-time-line text-primary"></i>
-</div>
-</div>
-<div>
-<h3 class="text-lg font-bold mb-1">Response Time</h3>
-<p class="text-gray-300">We typically respond to media inquiries within 24 hours during business days.</p>
-</div>
-</div>
-</div>
-</div>
-<div>
-<h3 class="text-xl font-bold mb-6">Press Kit Request</h3>
-<form class="space-y-4">
-<div>
-<label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
-<input type="text" id="name" class="contact-input w-full px-4 py-3 rounded-lg text-white focus:outline-none" placeholder="Your name">
-</div>
-<div>
-<label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
-<input type="email" id="email" class="contact-input w-full px-4 py-3 rounded-lg text-white focus:outline-none" placeholder="Your email address">
-</div>
-<div>
-<label for="organization" class="block text-sm font-medium text-gray-300 mb-2">Organization</label>
-<input type="text" id="organization" class="contact-input w-full px-4 py-3 rounded-lg text-white focus:outline-none" placeholder="Your organization">
-</div>
-<div>
-<label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
-<textarea id="message" rows="3" class="contact-input w-full px-4 py-3 rounded-lg text-white focus:outline-none" placeholder="Please specify your requirements"></textarea>
-</div>
-<div>
-<button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-primary to-secondary text-black font-bold rounded-lg transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/50 whitespace-nowrap !rounded-button">
-<span class="lang-en">Submit Request</span>
-<span class="lang-zh hidden">提交请求</span>
-<span class="lang-ja hidden">リクエストを送信</span>
-</button>
-</div>
-</form>
-</div>
-</div>
-</div>
-</div>
-</section>
+  <!-- Header Section -->
+  <header class="fixed top-0 left-0 w-full bg-opacity-90 bg-[#0A0A1F] backdrop-blur-md z-50">
+    <div class="container mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center">
+          <a href="/"
+            class="text-3xl font-['-apple-system,BlinkMacSystemFont,SF_Pro_Display,Helvetica_Neue,Arial'] font-medium text-white">
+            <div class="flex items-center">
+              <img
+                src="https://static.readdy.ai/image/53a4d54aa374b01413a309defbaefd8a/890389b5e509c8efbf5dd3ca6b3b0c06.png"
+                alt="Logo" class="h-10 w-10 mr-3">
+              <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tracking-tight">E2E
+                Consulting</span>
+            </div>
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca"
+            data-readdy="true" class="nav-link text-white hover:text-primary transition-colors duration-300">
+            <span class="lang-en">Home</span>
+            <span class="lang-zh hidden">首页</span>
+            <span class="lang-ja hidden">ホーム</span>
+          </a>
+          <a href="/services" class="nav-link text-white hover:text-primary transition-colors duration-300">
+            <span class="lang-en">Services</span>
+            <span class="lang-zh hidden">服务</span>
+            <span class="lang-ja hidden">サービス</span>
+          </a>
+          <a href="/products" class="nav-link text-white hover:text-primary transition-colors duration-300">
+            <span class="lang-en">Products</span>
+            <span class="lang-zh hidden">产品</span>
+            <span class="lang-ja hidden">製品</span>
+          </a>
+          <a href="/about" class="nav-link text-white hover:text-primary transition-colors duration-300">
+            <span class="lang-en">About</span>
+            <span class="lang-zh hidden">关于我们</span>
+            <span class="lang-ja hidden">会社概要</span>
+          </a>
+          <a href="#contact" class="nav-link text-white hover:text-primary transition-colors duration-300">
+            <span class="lang-en">Contact</span>
+            <span class="lang-zh hidden">联系我们</span>
+            <span class="lang-ja hidden">お問い合わせ</span>
+          </a>
+          <div class="language-selector">
+            <button
+              class="flex items-center space-x-1 text-white hover:text-primary transition-colors duration-300 whitespace-nowrap !rounded-button">
+              <div class="w-6 h-6 flex items-center justify-center">
+                <i class="ri-global-line ri-lg"></i>
+              </div>
+              <span class="current-language">English</span>
+              <div class="w-4 h-4 flex items-center justify-center">
+                <i class="ri-arrow-down-s-line"></i>
+              </div>
+            </button>
+            <div class="language-options">
+              <button
+                class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button"
+                data-lang="en">English</button>
+              <button
+                class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button"
+                data-lang="zh">简体中文</button>
+              <button
+                class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button"
+                data-lang="ja">日本語</button>
+            </div>
+          </div>
+        </div>
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="text-white focus:outline-none whitespace-nowrap !rounded-button">
+            <div class="w-8 h-8 flex items-center justify-center">
+              <i class="ri-menu-line ri-2x"></i>
+            </div>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+        <div class="flex flex-col space-y-4">
+          <a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca"
+            data-readdy="true" class="text-white hover:text-primary transition-colors duration-300">
+            <span class="lang-en">Home</span>
+            <span class="lang-zh hidden">首页</span>
+            <span class="lang-ja hidden">ホーム</span>
+          </a>
+          <a href="/services" class="text-white hover:text-primary transition-colors duration-300">
+            <span class="lang-en">Services</span>
+            <span class="lang-zh hidden">服务</span>
+            <span class="lang-ja hidden">サービス</span>
+          </a>
+          <a href="/products" class="text-white hover:text-primary transition-colors duration-300">
+            <span class="lang-en">Products</span>
+            <span class="lang-zh hidden">产品</span>
+            <span class="lang-ja hidden">製品</span>
+          </a>
+          <a href="/about" class="text-white hover:text-primary transition-colors duration-300">
+            <span class="lang-en">About</span>
+            <span class="lang-zh hidden">关于我们</span>
+            <span class="lang-ja hidden">会社概要</span>
+          </a>
+          <a href="#contact" class="text-white hover:text-primary transition-colors duration-300">
+            <span class="lang-en">Contact</span>
+            <span class="lang-zh hidden">联系我们</span>
+            <span class="lang-ja hidden">お問い合わせ</span>
+          </a>
+          <div class="pt-2 border-t border-gray-700">
+            <div class="flex flex-col space-y-2">
+              <button
+                class="text-left px-2 py-1 hover:bg-[#2A2A5F] rounded transition-colors duration-200 language-option whitespace-nowrap !rounded-button"
+                data-lang="en">English</button>
+              <button
+                class="text-left px-2 py-1 hover:bg-[#2A2A5F] rounded transition-colors duration-200 language-option whitespace-nowrap !rounded-button"
+                data-lang="zh">简体中文</button>
+              <button
+                class="text-left px-2 py-1 hover:bg-[#2A2A5F] rounded transition-colors duration-200 language-option whitespace-nowrap !rounded-button"
+                data-lang="ja">日本語</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Hero Section -->
+  <section class="relative pt-32 pb-20 overflow-hidden"
+    style="background-image: url('https://readdy.ai/api/search-image?query=futuristic%2520technology%2520background%2520with%2520blue%2520and%2520purple%2520glowing%2520lights%252C%2520digital%2520particles%252C%2520abstract%2520tech%2520concept%2520with%2520space%2520theme%252C%2520high-tech%2520visualization%2520of%2520data%2520networks%252C%2520dark%2520space%2520theme%2520with%2520subtle%2520grid%2520pattern%252C%2520professional%2520corporate%2520feel&width=1920&height=600&seq=10&orientation=landscape'); background-size: cover; background-position: center;">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0A0A1F] via-[#0A0A1F80] to-[#0A0A1F]"></div>
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="flex flex-col items-center text-center">
+        <a href="https://readdy.ai/home/4a1eb426-3766-412d-8d07-5ad52c9a6df3/63579490-4b4a-4a7d-a398-fadd4d1c71ca"
+          data-readdy="true"
+          class="self-start mb-6 flex items-center text-white hover:text-primary transition-colors duration-300">
+          <div class="w-5 h-5 mr-2 flex items-center justify-center">
+            <i class="ri-arrow-left-line"></i>
+          </div>
+          <span class="lang-en">Back to Home</span>
+          <span class="lang-zh hidden">返回首页</span>
+          <span class="lang-ja hidden">ホームに戻る</span>
+        </a>
+        <h1
+          class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          <span class="lang-en">Press & Media Center</span>
+          <span class="lang-zh hidden">新闻与媒体中心</span>
+          <span class="lang-ja hidden">プレス＆メディアセンター</span>
+        </h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+          <span class="lang-en">Stay updated with the latest news, press releases, and media coverage about E2E
+            Consulting and our innovative technologies.</span>
+          <span class="lang-zh hidden">了解关于合同会社E2E咨询及我们创新技术的最新新闻、新闻稿和媒体报道。</span>
+          <span class="lang-ja hidden">E2E Consultingと当社の革新的な技術に関する最新ニュース、プレスリリース、メディア報道をご覧ください。</span>
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- Press Releases Section -->
+  <section class="py-16 bg-[#0A0A1F]">
+    <div class="container mx-auto px-6">
+      <div class="mb-12">
+        <h2 class="text-3xl font-bold mb-8">
+          <span class="lang-en">Press Releases & News</span>
+          <span class="lang-zh hidden">新闻稿与新闻</span>
+          <span class="lang-ja hidden">プレスリリース＆ニュース</span>
+        </h2>
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 space-y-4 md:space-y-0">
+          <!-- Category Tabs -->
+          <div class="flex overflow-x-auto pb-2 space-x-1">
+            <button class="tab-button active px-4 py-2 rounded-full text-white whitespace-nowrap !rounded-button"
+              data-category="all">
+              <span class="lang-en">All</span>
+              <span class="lang-zh hidden">全部</span>
+              <span class="lang-ja hidden">すべて</span>
+            </button>
+            <button class="tab-button px-4 py-2 rounded-full text-gray-400 whitespace-nowrap !rounded-button"
+              data-category="company">
+              <span class="lang-en">Company News</span>
+              <span class="lang-zh hidden">公司新闻</span>
+              <span class="lang-ja hidden">企業ニュース</span>
+            </button>
+            <button class="tab-button px-4 py-2 rounded-full text-gray-400 whitespace-nowrap !rounded-button"
+              data-category="product">
+              <span class="lang-en">Product Updates</span>
+              <span class="lang-zh hidden">产品更新</span>
+              <span class="lang-ja hidden">製品アップデート</span>
+            </button>
+            <button class="tab-button px-4 py-2 rounded-full text-gray-400 whitespace-nowrap !rounded-button"
+              data-category="industry">
+              <span class="lang-en">Industry Insights</span>
+              <span class="lang-zh hidden">行业洞察</span>
+              <span class="lang-ja hidden">業界インサイト</span>
+            </button>
+            <button class="tab-button px-4 py-2 rounded-full text-gray-400 whitespace-nowrap !rounded-button"
+              data-category="event">
+              <span class="lang-en">Events</span>
+              <span class="lang-zh hidden">活动</span>
+              <span class="lang-ja hidden">イベント</span>
+            </button>
+          </div>
+          <!-- Search Bar -->
+          <div class="relative w-full md:w-64">
+            <input type="text" id="press-search"
+              class="search-input w-full px-4 py-2 pr-10 rounded-full text-white focus:outline-none"
+              placeholder="Search press releases...">
+            <div
+              class="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+              <i class="ri-search-line"></i>
+            </div>
+          </div>
+        </div>
+        <!-- Press Releases Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+          <!-- Press Release 1 -->
+          <div class="press-card rounded-lg overflow-hidden" data-category="company">
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <span class="text-gray-400 text-sm">June 25, 2025</span>
+                <span class="category-badge company">Company News</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">E2E Consulting Announces New Tokyo Headquarters</h3>
+              <p class="text-gray-300 mb-4 line-clamp-3">E2E Consulting has officially opened its new headquarters in
+                Ginza, Tokyo, featuring state-of-the-art research facilities and collaborative workspaces designed to
+                accelerate innovation in AI and robotics technologies.</p>
+              <button
+                class="press-read-more inline-flex items-center text-primary hover:text-white transition-colors duration-300 group"
+                data-id="1">
+                <span class="lang-en">Read More</span>
+                <span class="lang-zh hidden">阅读更多</span>
+                <span class="lang-ja hidden">続きを読む</span>
+                <div
+                  class="w-5 h-5 ml-2 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+                  <i class="ri-arrow-right-line"></i>
+                </div>
+              </button>
+            </div>
+          </div>
+          <!-- Press Release 2 -->
+          <div class="press-card rounded-lg overflow-hidden" data-category="product">
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <span class="text-gray-400 text-sm">June 15, 2025</span>
+                <span class="category-badge product">Product Updates</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">NeuraSense AI 2.0 Launches with Enhanced Predictive Capabilities</h3>
+              <p class="text-gray-300 mb-4 line-clamp-3">E2E Consulting has released version 2.0 of its flagship
+                NeuraSense AI platform, featuring significant improvements in predictive analytics accuracy and
+                processing speed, enabling businesses to make more informed decisions based on complex data patterns.
+              </p>
+              <button
+                class="press-read-more inline-flex items-center text-primary hover:text-white transition-colors duration-300 group"
+                data-id="2">
+                <span class="lang-en">Read More</span>
+                <span class="lang-zh hidden">阅读更多</span>
+                <span class="lang-ja hidden">続きを読む</span>
+                <div
+                  class="w-5 h-5 ml-2 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+                  <i class="ri-arrow-right-line"></i>
+                </div>
+              </button>
+            </div>
+          </div>
+          <!-- Press Release 3 -->
+          <div class="press-card rounded-lg overflow-hidden" data-category="industry">
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <span class="text-gray-400 text-sm">June 8, 2025</span>
+                <span class="category-badge industry">Industry Insights</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">E2E Consulting Releases Report on Future of Space Exploration
+                Technology</h3>
+              <p class="text-gray-300 mb-4 line-clamp-3">Our latest research report examines the technological
+                advancements that will drive the next decade of space exploration, with particular focus on AI-driven
+                autonomous systems and advanced materials designed for extreme environments.</p>
+              <button
+                class="press-read-more inline-flex items-center text-primary hover:text-white transition-colors duration-300 group"
+                data-id="3">
+                <span class="lang-en">Read More</span>
+                <span class="lang-zh hidden">阅读更多</span>
+                <span class="lang-ja hidden">続きを読む</span>
+                <div
+                  class="w-5 h-5 ml-2 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+                  <i class="ri-arrow-right-line"></i>
+                </div>
+              </button>
+            </div>
+          </div>
+          <!-- Press Release 4 -->
+          <div class="press-card rounded-lg overflow-hidden" data-category="event">
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <span class="text-gray-400 text-sm">May 30, 2025</span>
+                <span class="category-badge event">Event</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">E2E Consulting to Host Global AI Summit in Tokyo</h3>
+              <p class="text-gray-300 mb-4 line-clamp-3">E2E Consulting will host its inaugural Global AI Summit in
+                Tokyo this September, bringing together industry leaders, researchers, and policymakers to discuss the
+                future of artificial intelligence and its applications in space exploration and beyond.</p>
+              <button
+                class="press-read-more inline-flex items-center text-primary hover:text-white transition-colors duration-300 group"
+                data-id="4">
+                <span class="lang-en">Read More</span>
+                <span class="lang-zh hidden">阅读更多</span>
+                <span class="lang-ja hidden">続きを読む</span>
+                <div
+                  class="w-5 h-5 ml-2 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+                  <i class="ri-arrow-right-line"></i>
+                </div>
+              </button>
+            </div>
+          </div>
+          <!-- Press Release 5 -->
+          <div class="press-card rounded-lg overflow-hidden" data-category="company">
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <span class="text-gray-400 text-sm">May 22, 2025</span>
+                <span class="category-badge company">Company News</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">E2E Consulting Announces Strategic Partnership with JAXA</h3>
+              <p class="text-gray-300 mb-4 line-clamp-3">E2E Consulting has entered into a strategic partnership with
+                the Japan Aerospace Exploration Agency (JAXA) to develop next-generation AI and robotics technologies
+                for future lunar and Mars exploration missions.</p>
+              <button
+                class="press-read-more inline-flex items-center text-primary hover:text-white transition-colors duration-300 group"
+                data-id="5">
+                <span class="lang-en">Read More</span>
+                <span class="lang-zh hidden">阅读更多</span>
+                <span class="lang-ja hidden">続きを読む</span>
+                <div
+                  class="w-5 h-5 ml-2 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+                  <i class="ri-arrow-right-line"></i>
+                </div>
+              </button>
+            </div>
+          </div>
+          <!-- Press Release 6 -->
+          <div class="press-card rounded-lg overflow-hidden" data-category="product">
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <span class="text-gray-400 text-sm">May 15, 2025</span>
+                <span class="category-badge product">Product Updates</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">E2E Consulting Unveils ExoBot Mini for Educational Market</h3>
+              <p class="text-gray-300 mb-4 line-clamp-3">E2E Consulting has launched a compact version of its ExoBot
+                robotics platform designed specifically for educational institutions, providing students with hands-on
+                experience in robotics programming and AI integration.</p>
+              <button
+                class="press-read-more inline-flex items-center text-primary hover:text-white transition-colors duration-300 group"
+                data-id="6">
+                <span class="lang-en">Read More</span>
+                <span class="lang-zh hidden">阅读更多</span>
+                <span class="lang-ja hidden">続きを読む</span>
+                <div
+                  class="w-5 h-5 ml-2 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+                  <i class="ri-arrow-right-line"></i>
+                </div>
+              </button>
+            </div>
+          </div>
+          <!-- Press Release 7 -->
+          <div class="press-card rounded-lg overflow-hidden" data-category="industry">
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <span class="text-gray-400 text-sm">May 5, 2025</span>
+                <span class="category-badge industry">Industry Insights</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">E2E Consulting Publishes White Paper on Quantum Computing Applications
+              </h3>
+              <p class="text-gray-300 mb-4 line-clamp-3">Our latest white paper explores the potential applications of
+                quantum computing in space exploration, focusing on complex trajectory calculations, materials science,
+                and optimization problems that traditional computing struggles to solve efficiently.</p>
+              <button
+                class="press-read-more inline-flex items-center text-primary hover:text-white transition-colors duration-300 group"
+                data-id="7">
+                <span class="lang-en">Read More</span>
+                <span class="lang-zh hidden">阅读更多</span>
+                <span class="lang-ja hidden">続きを読む</span>
+                <div
+                  class="w-5 h-5 ml-2 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+                  <i class="ri-arrow-right-line"></i>
+                </div>
+              </button>
+            </div>
+          </div>
+          <!-- Press Release 8 -->
+          <div class="press-card rounded-lg overflow-hidden" data-category="event">
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <span class="text-gray-400 text-sm">April 28, 2025</span>
+                <span class="category-badge event">Event</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">E2E Consulting to Participate in International Space Development
+                Conference</h3>
+              <p class="text-gray-300 mb-4 line-clamp-3">E2E Consulting will showcase its latest space exploration
+                technologies at the International Space Development Conference in Washington D.C., demonstrating how AI
+                and robotics can accelerate humanity's journey to becoming an interplanetary species.</p>
+              <button
+                class="press-read-more inline-flex items-center text-primary hover:text-white transition-colors duration-300 group"
+                data-id="8">
+                <span class="lang-en">Read More</span>
+                <span class="lang-zh hidden">阅读更多</span>
+                <span class="lang-ja hidden">続きを読む</span>
+                <div
+                  class="w-5 h-5 ml-2 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+                  <i class="ri-arrow-right-line"></i>
+                </div>
+              </button>
+            </div>
+          </div>
+          <!-- Press Release 9 -->
+          <div class="press-card rounded-lg overflow-hidden" data-category="company">
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <span class="text-gray-400 text-sm">April 15, 2025</span>
+                <span class="category-badge company">Company News</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">E2E Consulting Expands Research Team with Top AI Scientists</h3>
+              <p class="text-gray-300 mb-4 line-clamp-3">E2E Consulting has significantly expanded its research
+                capabilities with the addition of several renowned AI scientists and robotics engineers to its team,
+                further strengthening the company's position as a leader in advanced technology development.</p>
+              <button
+                class="press-read-more inline-flex items-center text-primary hover:text-white transition-colors duration-300 group"
+                data-id="9">
+                <span class="lang-en">Read More</span>
+                <span class="lang-zh hidden">阅读更多</span>
+                <span class="lang-ja hidden">続きを読む</span>
+                <div
+                  class="w-5 h-5 ml-2 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+                  <i class="ri-arrow-right-line"></i>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Pagination -->
+        <div class="flex justify-center">
+          <div class="flex space-x-2">
+            <button class="pagination-button text-gray-400" disabled>
+              <div class="w-5 h-5 flex items-center justify-center">
+                <i class="ri-arrow-left-s-line"></i>
+              </div>
+            </button>
+            <button class="pagination-button active">1</button>
+            <button class="pagination-button text-gray-300">2</button>
+            <button class="pagination-button text-gray-300">3</button>
+            <button class="pagination-button text-gray-300">
+              <div class="w-5 h-5 flex items-center justify-center">
+                <i class="ri-arrow-right-s-line"></i>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Media Kit Section -->
+  <section class="py-16 bg-[#0F0F2F]">
+    <div class="container mx-auto px-6">
+      <div class="mb-12">
+        <h2 class="text-3xl font-bold mb-6">
+          <span class="lang-en">Media Resources</span>
+          <span class="lang-zh hidden">媒体资源</span>
+          <span class="lang-ja hidden">メディアリソース</span>
+        </h2>
+        <p class="text-xl text-gray-300 max-w-3xl mb-10">
+          <span class="lang-en">Download official E2E Consulting assets for media use. All resources are available under
+            our media usage guidelines.</span>
+          <span class="lang-zh hidden">下载用于媒体使用的官方合同会社E2E咨询资源。所有资源均可在我们的媒体使用指南下使用。</span>
+          <span class="lang-ja hidden">メディア用の公式E2E
+            Consultingアセットをダウンロードしてください。すべてのリソースは当社のメディア使用ガイドラインに基づいて利用可能です。</span>
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Resource 1: Company Logos -->
+          <div class="resource-card rounded-lg overflow-hidden">
+            <div class="h-48 bg-gradient-to-br from-[#1A1A3F] to-[#2A2A5F] flex items-center justify-center p-6">
+              <div class="w-32 h-32 bg-[#0A0A1F] rounded-full flex items-center justify-center">
+                <span
+                  class="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">E2E</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Company Logos</h3>
+              <p class="text-gray-400 mb-4">Official E2E Consulting logos in various formats and resolutions for print
+                and digital media.</p>
+              <div class="flex justify-between items-center">
+                <span class="text-sm text-gray-500">PNG, SVG, EPS | 15 MB</span>
+                <button
+                  class="px-4 py-2 bg-gradient-to-r from-primary to-secondary text-black font-medium rounded-lg flex items-center whitespace-nowrap !rounded-button">
+                  <div class="w-5 h-5 mr-2 flex items-center justify-center">
+                    <i class="ri-download-line"></i>
+                  </div>
+                  <span class="lang-en">Download</span>
+                  <span class="lang-zh hidden">下载</span>
+                  <span class="lang-ja hidden">ダウンロード</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Resource 2: Brand Guidelines -->
+          <div class="resource-card rounded-lg overflow-hidden">
+            <div class="h-48 bg-gradient-to-br from-[#1A1A3F] to-[#2A2A5F] flex items-center justify-center p-6">
+              <div class="w-32 h-40 bg-white rounded-lg flex items-center justify-center relative">
+                <div class="absolute inset-0 m-2 bg-[#0A0A1F] rounded-lg flex items-center justify-center">
+                  <div class="text-center">
+                    <div
+                      class="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1">
+                      BRAND</div>
+                    <div class="text-xs text-white">GUIDELINES</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Brand Guidelines</h3>
+              <p class="text-gray-400 mb-4">Comprehensive guide to E2E Consulting's visual identity, including color
+                palette, typography, and usage rules.</p>
+              <div class="flex justify-between items-center">
+                <span class="text-sm text-gray-500">PDF | 8.5 MB</span>
+                <button
+                  class="px-4 py-2 bg-gradient-to-r from-primary to-secondary text-black font-medium rounded-lg flex items-center whitespace-nowrap !rounded-button">
+                  <div class="w-5 h-5 mr-2 flex items-center justify-center">
+                    <i class="ri-download-line"></i>
+                  </div>
+                  <span class="lang-en">Download</span>
+                  <span class="lang-zh hidden">下载</span>
+                  <span class="lang-ja hidden">ダウンロード</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Resource 3: Product Images -->
+          <div class="resource-card rounded-lg overflow-hidden">
+            <div class="h-48 bg-gradient-to-br from-[#1A1A3F] to-[#2A2A5F] flex items-center justify-center p-6">
+              <div class="grid grid-cols-2 gap-2">
+                <div class="w-16 h-16 bg-[#0A0A1F] rounded-lg flex items-center justify-center">
+                  <div class="w-10 h-10 flex items-center justify-center">
+                    <i class="ri-brain-line text-primary ri-xl"></i>
+                  </div>
+                </div>
+                <div class="w-16 h-16 bg-[#0A0A1F] rounded-lg flex items-center justify-center">
+                  <div class="w-10 h-10 flex items-center justify-center">
+                    <i class="ri-robot-line text-secondary ri-xl"></i>
+                  </div>
+                </div>
+                <div class="w-16 h-16 bg-[#0A0A1F] rounded-lg flex items-center justify-center">
+                  <div class="w-10 h-10 flex items-center justify-center">
+                    <i class="ri-code-s-slash-line text-blue-400 ri-xl"></i>
+                  </div>
+                </div>
+                <div class="w-16 h-16 bg-[#0A0A1F] rounded-lg flex items-center justify-center">
+                  <div class="w-10 h-10 flex items-center justify-center">
+                    <i class="ri-database-2-line text-green-400 ri-xl"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Product Images</h3>
+              <p class="text-gray-400 mb-4">High-resolution images of E2E Consulting's products, including NeuraSense AI
+                and ExoBot Series.</p>
+              <div class="flex justify-between items-center">
+                <span class="text-sm text-gray-500">JPG, PNG | 45 MB</span>
+                <button
+                  class="px-4 py-2 bg-gradient-to-r from-primary to-secondary text-black font-medium rounded-lg flex items-center whitespace-nowrap !rounded-button">
+                  <div class="w-5 h-5 mr-2 flex items-center justify-center">
+                    <i class="ri-download-line"></i>
+                  </div>
+                  <span class="lang-en">Download</span>
+                  <span class="lang-zh hidden">下载</span>
+                  <span class="lang-ja hidden">ダウンロード</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Resource 4: Executive Headshots -->
+          <div class="resource-card rounded-lg overflow-hidden">
+            <div class="h-48 bg-gradient-to-br from-[#1A1A3F] to-[#2A2A5F] flex items-center justify-center p-6">
+              <div class="flex space-x-4">
+                <div class="w-20 h-20 bg-[#0A0A1F] rounded-full flex items-center justify-center">
+                  <div class="w-10 h-10 flex items-center justify-center">
+                    <i class="ri-user-line text-primary ri-xl"></i>
+                  </div>
+                </div>
+                <div class="w-20 h-20 bg-[#0A0A1F] rounded-full flex items-center justify-center">
+                  <div class="w-10 h-10 flex items-center justify-center">
+                    <i class="ri-user-line text-secondary ri-xl"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Executive Headshots</h3>
+              <p class="text-gray-400 mb-4">Professional photographs of E2E Consulting's executive team for media
+                publications and presentations.</p>
+              <div class="flex justify-between items-center">
+                <span class="text-sm text-gray-500">JPG | 25 MB</span>
+                <button
+                  class="px-4 py-2 bg-gradient-to-r from-primary to-secondary text-black font-medium rounded-lg flex items-center whitespace-nowrap !rounded-button">
+                  <div class="w-5 h-5 mr-2 flex items-center justify-center">
+                    <i class="ri-download-line"></i>
+                  </div>
+                  <span class="lang-en">Download</span>
+                  <span class="lang-zh hidden">下载</span>
+                  <span class="lang-ja hidden">ダウンロード</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Resource 5: Company Fact Sheet -->
+          <div class="resource-card rounded-lg overflow-hidden">
+            <div class="h-48 bg-gradient-to-br from-[#1A1A3F] to-[#2A2A5F] flex items-center justify-center p-6">
+              <div class="w-32 h-40 bg-white rounded-lg flex items-center justify-center relative">
+                <div class="absolute inset-0 m-2 bg-[#0A0A1F] rounded-lg flex flex-col items-center justify-center p-4">
+                  <div class="text-center mb-2">
+                    <div class="text-sm font-bold text-white">FACT SHEET</div>
+                  </div>
+                  <div class="w-full border-t border-gray-600 my-1"></div>
+                  <div class="w-full border-t border-gray-600 my-1"></div>
+                  <div class="w-full border-t border-gray-600 my-1"></div>
+                  <div class="w-3/4 border-t border-gray-600 my-1"></div>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Company Fact Sheet</h3>
+              <p class="text-gray-400 mb-4">Key information about E2E Consulting, including company history, mission,
+                leadership, and major achievements.</p>
+              <div class="flex justify-between items-center">
+                <span class="text-sm text-gray-500">PDF | 2.3 MB</span>
+                <button
+                  class="px-4 py-2 bg-gradient-to-r from-primary to-secondary text-black font-medium rounded-lg flex items-center whitespace-nowrap !rounded-button">
+                  <div class="w-5 h-5 mr-2 flex items-center justify-center">
+                    <i class="ri-download-line"></i>
+                  </div>
+                  <span class="lang-en">Download</span>
+                  <span class="lang-zh hidden">下载</span>
+                  <span class="lang-ja hidden">ダウンロード</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Resource 6: Media Usage Guidelines -->
+          <div class="resource-card rounded-lg overflow-hidden">
+            <div class="h-48 bg-gradient-to-br from-[#1A1A3F] to-[#2A2A5F] flex items-center justify-center p-6">
+              <div class="w-32 h-40 bg-white rounded-lg flex items-center justify-center relative">
+                <div class="absolute inset-0 m-2 bg-[#0A0A1F] rounded-lg flex items-center justify-center">
+                  <div class="text-center">
+                    <div class="w-10 h-10 mx-auto flex items-center justify-center mb-2">
+                      <i class="ri-file-list-3-line text-primary ri-2x"></i>
+                    </div>
+                    <div class="text-xs text-white">MEDIA USAGE</div>
+                    <div class="text-xs text-white">GUIDELINES</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Media Usage Guidelines</h3>
+              <p class="text-gray-400 mb-4">Guidelines for proper use of E2E Consulting's media resources, including
+                attribution requirements and restrictions.</p>
+              <div class="flex justify-between items-center">
+                <span class="text-sm text-gray-500">PDF | 1.5 MB</span>
+                <button
+                  class="px-4 py-2 bg-gradient-to-r from-primary to-secondary text-black font-medium rounded-lg flex items-center whitespace-nowrap !rounded-button">
+                  <div class="w-5 h-5 mr-2 flex items-center justify-center">
+                    <i class="ri-download-line"></i>
+                  </div>
+                  <span class="lang-en">Download</span>
+                  <span class="lang-zh hidden">下载</span>
+                  <span class="lang-ja hidden">ダウンロード</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Media Contact Section -->
+  <section class="py-16 bg-[#0A0A1F]">
+    <div class="container mx-auto px-6">
+      <div class="bg-gradient-to-r from-[#1A1A3F] to-[#2A2A5F] rounded-2xl p-8 md:p-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h2 class="text-3xl font-bold mb-6">
+              <span class="lang-en">Media Contact</span>
+              <span class="lang-zh hidden">媒体联系</span>
+              <span class="lang-ja hidden">メディア連絡先</span>
+            </h2>
+            <p class="text-gray-300 mb-6">
+              <span class="lang-en">For press inquiries, interview requests, or additional information about E2E
+                Consulting, please contact our media relations team.</span>
+              <span class="lang-zh hidden">如需新闻咨询、采访请求或有关合同会社E2E咨询的更多信息，请联系我们的媒体关系团队。</span>
+              <span class="lang-ja hidden">プレス関連のお問い合わせ、インタビューのご依頼、またはE2E
+                Consultingに関する追加情報については、当社のメディア広報チームにお問い合わせください。</span>
+            </p>
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-4 mt-1">
+                  <div class="w-5 h-5 flex items-center justify-center">
+                    <i class="ri-mail-line text-primary"></i>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold mb-1">Email</h3>
+                  <a href="mailto:contact@e2ec.biz"
+                    class="text-primary hover:text-white transition-colors duration-300">contact@e2ec.biz</a>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-4 mt-1">
+                  <div class="w-5 h-5 flex items-center justify-center">
+                    <i class="ri-phone-line text-primary"></i>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold mb-1">Phone</h3>
+                  <p class="text-gray-300">+81 3-1234-5678</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-4 mt-1">
+                  <div class="w-5 h-5 flex items-center justify-center">
+                    <i class="ri-time-line text-primary"></i>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold mb-1">Response Time</h3>
+                  <p class="text-gray-300">We typically respond to media inquiries within 24 hours during business days.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-6">Press Kit Request</h3>
+            <form class="space-y-4">
+              <div>
+                <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+                <input type="text" id="name"
+                  class="contact-input w-full px-4 py-3 rounded-lg text-white focus:outline-none"
+                  placeholder="Your name">
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                <input type="email" id="email"
+                  class="contact-input w-full px-4 py-3 rounded-lg text-white focus:outline-none"
+                  placeholder="Your email address">
+              </div>
+              <div>
+                <label for="organization" class="block text-sm font-medium text-gray-300 mb-2">Organization</label>
+                <input type="text" id="organization"
+                  class="contact-input w-full px-4 py-3 rounded-lg text-white focus:outline-none"
+                  placeholder="Your organization">
+              </div>
+              <div>
+                <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                <textarea id="message" rows="3"
+                  class="contact-input w-full px-4 py-3 rounded-lg text-white focus:outline-none"
+                  placeholder="Please specify your requirements"></textarea>
+              </div>
+              <div>
+                <button type="submit"
+                  class="w-full px-6 py-3 bg-gradient-to-r from-primary to-secondary text-black font-bold rounded-lg transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/50 whitespace-nowrap !rounded-button">
+                  <span class="lang-en">Submit Request</span>
+                  <span class="lang-zh hidden">提交请求</span>
+                  <span class="lang-ja hidden">リクエストを送信</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Press Release Modal -->
-<div id="press-modal" class="fixed inset-0 z-50 hidden">
-<div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
-<div class="absolute inset-0 flex items-center justify-center p-4">
-<div class="bg-[#1A1A3F] rounded-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative">
-<button id="close-press-modal" class="absolute right-4 top-4 w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-300">
-<div class="w-5 h-5 flex items-center justify-center">
-<i class="ri-close-line text-white"></i>
-</div>
-</button>
-<div class="p-8">
-<div id="press-modal-content">
-<!-- Content will be dynamically inserted here -->
-</div>
-<div class="mt-8 flex justify-between">
-<button id="share-press-release" class="px-6 py-3 bg-[#2A2A5F] text-white font-bold rounded-lg transition-transform duration-300 hover:scale-105 flex items-center whitespace-nowrap !rounded-button">
-<div class="w-5 h-5 mr-2 flex items-center justify-center">
-<i class="ri-share-line"></i>
-</div>
-<span class="lang-en">Share</span>
-<span class="lang-zh hidden">分享</span>
-<span class="lang-ja hidden">共有</span>
-</button>
-<button id="close-press-btn" class="px-6 py-3 bg-gradient-to-r from-primary to-secondary text-black font-bold rounded-lg transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/50 whitespace-nowrap !rounded-button">
-<span class="lang-en">Close</span>
-<span class="lang-zh hidden">关闭</span>
-<span class="lang-ja hidden">閉じる</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-<script id="mobile-menu-toggle">
-document.addEventListener('DOMContentLoaded', function() {
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-const mobileMenu = document.getElementById('mobile-menu');
-mobileMenuButton.addEventListener('click', function() {
-mobileMenu.classList.toggle('hidden');
-});
-});
-</script>
-<script id="language-switcher">
-document.addEventListener('DOMContentLoaded', function() {
-// Set default language
-let currentLang = 'en';
-// Function to switch language
-function switchLanguage(lang) {
-// Hide all language elements
-document.querySelectorAll('.lang-en, .lang-zh, .lang-ja').forEach(el => {
-el.classList.add('hidden');
-});
-// Show elements for selected language
-document.querySelectorAll(`.lang-${lang}`).forEach(el => {
-el.classList.remove('hidden');
-});
-// Update current language display
-document.querySelectorAll('.current-language').forEach(el => {
-if (lang === 'en') el.textContent = 'English';
-if (lang === 'zh') el.textContent = '简体中文';
-if (lang === 'ja') el.textContent = '日本語';
-});
-// Update form placeholders
-if (lang === 'en') {
-document.getElementById('press-search').placeholder = 'Search press releases...';
-document.getElementById('name').placeholder = 'Your name';
-document.getElementById('email').placeholder = 'Your email address';
-document.getElementById('organization').placeholder = 'Your organization';
-document.getElementById('message').placeholder = 'Please specify your requirements';
-} else if (lang === 'zh') {
-document.getElementById('press-search').placeholder = '搜索新闻稿...';
-document.getElementById('name').placeholder = '您的姓名';
-document.getElementById('email').placeholder = '您的电子邮箱';
-document.getElementById('organization').placeholder = '您的组织';
-document.getElementById('message').placeholder = '请说明您的要求';
-} else if (lang === 'ja') {
-document.getElementById('press-search').placeholder = 'プレスリリースを検索...';
-document.getElementById('name').placeholder = 'お名前';
-document.getElementById('email').placeholder = 'メールアドレス';
-document.getElementById('organization').placeholder = '組織名';
-document.getElementById('message').placeholder = 'ご要件を明記してください';
-}
-currentLang = lang;
-}
-// Add event listeners to language options
-document.querySelectorAll('.language-option').forEach(option => {
-option.addEventListener('click', function() {
-const lang = this.getAttribute('data-lang');
-switchLanguage(lang);
-});
-});
-});
-</script>
-<script id="press-filter-and-search">
-document.addEventListener('DOMContentLoaded', function() {
-const tabButtons = document.querySelectorAll('.tab-button');
-const pressCards = document.querySelectorAll('.press-card');
-const searchInput = document.getElementById('press-search');
-let currentPage = 1;
-let itemsPerPage = 9;
-let currentCategory = 'all';
-let currentSearchQuery = '';
+  <!-- Press Release Modal -->
+  <div id="press-modal" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+    <div class="absolute inset-0 flex items-center justify-center p-4">
+      <div class="bg-[#1A1A3F] rounded-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative">
+        <button id="close-press-modal"
+          class="absolute right-4 top-4 w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-300">
+          <div class="w-5 h-5 flex items-center justify-center">
+            <i class="ri-close-line text-white"></i>
+          </div>
+        </button>
+        <div class="p-8">
+          <div id="press-modal-content">
+            <!-- Content will be dynamically inserted here -->
+          </div>
+          <div class="mt-8 flex justify-between">
+            <button id="share-press-release"
+              class="px-6 py-3 bg-[#2A2A5F] text-white font-bold rounded-lg transition-transform duration-300 hover:scale-105 flex items-center whitespace-nowrap !rounded-button">
+              <div class="w-5 h-5 mr-2 flex items-center justify-center">
+                <i class="ri-share-line"></i>
+              </div>
+              <span class="lang-en">Share</span>
+              <span class="lang-zh hidden">分享</span>
+              <span class="lang-ja hidden">共有</span>
+            </button>
+            <button id="close-press-btn"
+              class="px-6 py-3 bg-gradient-to-r from-primary to-secondary text-black font-bold rounded-lg transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/50 whitespace-nowrap !rounded-button">
+              <span class="lang-en">Close</span>
+              <span class="lang-zh hidden">关闭</span>
+              <span class="lang-ja hidden">閉じる</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script id="mobile-menu-toggle">
+    document.addEventListener('DOMContentLoaded', function () {
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenuButton.addEventListener('click', function () {
+        mobileMenu.classList.toggle('hidden');
+      });
+    });
+  </script>
+  <script id="language-switcher">
+    document.addEventListener('DOMContentLoaded', function () {
+      // Set default language
+      let currentLang = 'en';
+      // Function to switch language
+      function switchLanguage(lang) {
+        // Hide all language elements
+        document.querySelectorAll('.lang-en, .lang-zh, .lang-ja').forEach(el => {
+          el.classList.add('hidden');
+        });
+        // Show elements for selected language
+        document.querySelectorAll(`.lang-${lang}`).forEach(el => {
+          el.classList.remove('hidden');
+        });
+        // Update current language display
+        document.querySelectorAll('.current-language').forEach(el => {
+          if (lang === 'en') el.textContent = 'English';
+          if (lang === 'zh') el.textContent = '简体中文';
+          if (lang === 'ja') el.textContent = '日本語';
+        });
+        // Update form placeholders
+        if (lang === 'en') {
+          document.getElementById('press-search').placeholder = 'Search press releases...';
+          document.getElementById('name').placeholder = 'Your name';
+          document.getElementById('email').placeholder = 'Your email address';
+          document.getElementById('organization').placeholder = 'Your organization';
+          document.getElementById('message').placeholder = 'Please specify your requirements';
+        } else if (lang === 'zh') {
+          document.getElementById('press-search').placeholder = '搜索新闻稿...';
+          document.getElementById('name').placeholder = '您的姓名';
+          document.getElementById('email').placeholder = '您的电子邮箱';
+          document.getElementById('organization').placeholder = '您的组织';
+          document.getElementById('message').placeholder = '请说明您的要求';
+        } else if (lang === 'ja') {
+          document.getElementById('press-search').placeholder = 'プレスリリースを検索...';
+          document.getElementById('name').placeholder = 'お名前';
+          document.getElementById('email').placeholder = 'メールアドレス';
+          document.getElementById('organization').placeholder = '組織名';
+          document.getElementById('message').placeholder = 'ご要件を明記してください';
+        }
+        currentLang = lang;
+      }
+      // Add event listeners to language options
+      document.querySelectorAll('.language-option').forEach(option => {
+        option.addEventListener('click', function () {
+          const lang = this.getAttribute('data-lang');
+          switchLanguage(lang);
+        });
+      });
+    });
+  </script>
+  <script id="press-filter-and-search">
+    document.addEventListener('DOMContentLoaded', function () {
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const pressCards = document.querySelectorAll('.press-card');
+      const searchInput = document.getElementById('press-search');
+      let currentPage = 1;
+      let itemsPerPage = 9;
+      let currentCategory = 'all';
+      let currentSearchQuery = '';
 
-const pressReleasesData = {
-  19: {
-    title: "E2E Consulting Launches Space Technology Innovation Fund",
-    date: "March 15, 2025",
-    category: "company",
-    content: "E2E Consulting announces $100M fund to invest in early-stage space technology startups..."
-  },
-  20: {
-    title: "New AI-Powered Space Debris Tracking System",
-    date: "March 10, 2025",
-    category: "product",
-    content: "Revolutionary system uses advanced AI algorithms to track and predict space debris movements..."
-  },
-  21: {
-    title: "E2E Consulting Opens Research Center in Singapore",
-    date: "March 5, 2025",
-    category: "company",
-    content: "New facility will focus on developing AI solutions for space exploration in collaboration with local universities..."
-  },
-  22: {
-    title: "Breakthrough in Quantum Navigation Technology",
-    date: "February 28, 2025",
-    category: "industry",
-    content: "Research team achieves milestone in quantum-based navigation systems for deep space missions..."
-  },
-  23: {
-    title: "E2E Consulting to Host Space Tech Hackathon",
-    date: "February 20, 2025",
-    category: "event",
-    content: "Global virtual event will bring together developers to solve space exploration challenges..."
-  },
-  24: {
-    title: "Advanced Materials Testing Program Launches",
-    date: "February 15, 2025",
-    category: "product",
-    content: "New testing program will evaluate materials for extreme space environments..."
-  },
-  25: {
-    title: "E2E Consulting Partners with European Universities",
-    date: "February 10, 2025",
-    category: "company",
-    content: "Collaboration program established with leading European institutions for space research..."
-  },
-  26: {
-    title: "AI Ethics Guidelines for Space Exploration",
-    date: "February 5, 2025",
-    category: "industry",
-    content: "Company publishes comprehensive guidelines for ethical AI use in space missions..."
-  },
-  27: {
-    title: "Space Technology Symposium 2025",
-    date: "January 30, 2025",
-    category: "event",
-    content: "Annual symposium will showcase latest advancements in space technology..."
-  }
-};
-// Filter by category
-function filterByCategory(category) {
-currentCategory = category;
-applyFiltersAndPagination();
-}
-function applyFiltersAndPagination() {
-  const allCards = Array.from(pressCards);
-  let filteredCards = allCards;
-  
-  // If we're on page 3, replace the content with new press releases
-  if (currentPage === 3) {
-    const pressContainer = document.querySelector('.grid.grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-3.gap-6.mb-10');
-    pressContainer.innerHTML = '';
-    
-    // Generate new cards for page 3
-    for (let i = 19; i <= 27; i++) {
-      const release = pressReleasesData[i];
-      if (release) {
-        const card = document.createElement('div');
-        card.className = 'press-card rounded-lg overflow-hidden';
-        card.setAttribute('data-category', release.category);
-        
-        card.innerHTML = `
+      const pressReleasesData = {
+        19: {
+          title: "E2E Consulting Launches Space Technology Innovation Fund",
+          date: "March 15, 2025",
+          category: "company",
+          content: "E2E Consulting announces $100M fund to invest in early-stage space technology startups..."
+        },
+        20: {
+          title: "New AI-Powered Space Debris Tracking System",
+          date: "March 10, 2025",
+          category: "product",
+          content: "Revolutionary system uses advanced AI algorithms to track and predict space debris movements..."
+        },
+        21: {
+          title: "E2E Consulting Opens Research Center in Singapore",
+          date: "March 5, 2025",
+          category: "company",
+          content: "New facility will focus on developing AI solutions for space exploration in collaboration with local universities..."
+        },
+        22: {
+          title: "Breakthrough in Quantum Navigation Technology",
+          date: "February 28, 2025",
+          category: "industry",
+          content: "Research team achieves milestone in quantum-based navigation systems for deep space missions..."
+        },
+        23: {
+          title: "E2E Consulting to Host Space Tech Hackathon",
+          date: "February 20, 2025",
+          category: "event",
+          content: "Global virtual event will bring together developers to solve space exploration challenges..."
+        },
+        24: {
+          title: "Advanced Materials Testing Program Launches",
+          date: "February 15, 2025",
+          category: "product",
+          content: "New testing program will evaluate materials for extreme space environments..."
+        },
+        25: {
+          title: "E2E Consulting Partners with European Universities",
+          date: "February 10, 2025",
+          category: "company",
+          content: "Collaboration program established with leading European institutions for space research..."
+        },
+        26: {
+          title: "AI Ethics Guidelines for Space Exploration",
+          date: "February 5, 2025",
+          category: "industry",
+          content: "Company publishes comprehensive guidelines for ethical AI use in space missions..."
+        },
+        27: {
+          title: "Space Technology Symposium 2025",
+          date: "January 30, 2025",
+          category: "event",
+          content: "Annual symposium will showcase latest advancements in space technology..."
+        }
+      };
+      // Filter by category
+      function filterByCategory(category) {
+        currentCategory = category;
+        applyFiltersAndPagination();
+      }
+      function applyFiltersAndPagination() {
+        const allCards = Array.from(pressCards);
+        let filteredCards = allCards;
+
+        // If we're on page 3, replace the content with new press releases
+        if (currentPage === 3) {
+          const pressContainer = document.querySelector('.grid.grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-3.gap-6.mb-10');
+          pressContainer.innerHTML = '';
+
+          // Generate new cards for page 3
+          for (let i = 19; i <= 27; i++) {
+            const release = pressReleasesData[i];
+            if (release) {
+              const card = document.createElement('div');
+              card.className = 'press-card rounded-lg overflow-hidden';
+              card.setAttribute('data-category', release.category);
+
+              card.innerHTML = `
           <div class="p-6">
             <div class="flex justify-between items-start mb-4">
               <span class="text-gray-400 text-sm">${release.date}</span>
@@ -1009,148 +1153,148 @@ function applyFiltersAndPagination() {
             </button>
           </div>
         `;
-        
-        pressContainer.appendChild(card);
+
+              pressContainer.appendChild(card);
+            }
+          }
+
+          // Reattach event listeners to new read more buttons
+          document.querySelectorAll('.press-read-more').forEach(button => {
+            button.addEventListener('click', function () {
+              const id = this.getAttribute('data-id');
+              openPressModal(id);
+            });
+          });
+        } else {
+          // Original filtering logic for other pages
+          if (currentCategory !== 'all') {
+            filteredCards = filteredCards.filter(card =>
+              card.getAttribute('data-category') === currentCategory
+            );
+          }
+
+          if (currentSearchQuery) {
+            filteredCards = filteredCards.filter(card => {
+              const title = card.querySelector('h3').textContent.toLowerCase();
+              const content = card.querySelector('p').textContent.toLowerCase();
+              return title.includes(currentSearchQuery) || content.includes(currentSearchQuery);
+            });
+          }
+
+          allCards.forEach(card => card.style.display = 'none');
+          const start = (currentPage - 1) * itemsPerPage;
+          const end = start + itemsPerPage;
+          filteredCards.slice(start, end).forEach(card => card.style.display = 'block');
+        }
+
+        // Update pagination buttons
+        updatePaginationButtons(27); // Total number of items
       }
-    }
-    
-    // Reattach event listeners to new read more buttons
-    document.querySelectorAll('.press-read-more').forEach(button => {
-      button.addEventListener('click', function() {
-        const id = this.getAttribute('data-id');
-        openPressModal(id);
+      function updatePaginationButtons(totalItems) {
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+        const prevButton = document.querySelector('.pagination-button:first-child');
+        const nextButton = document.querySelector('.pagination-button:last-child');
+        const pageButtons = Array.from(document.querySelectorAll('.pagination-button')).slice(1, -1);
+        // Update page buttons
+        pageButtons.forEach((button, index) => {
+          const pageNum = index + 1;
+          button.classList.remove('active', 'text-gray-300');
+          if (pageNum === currentPage) {
+            button.classList.add('active');
+          } else {
+            button.classList.add('text-gray-300');
+          }
+        });
+        // Update prev/next buttons
+        prevButton.disabled = currentPage === 1;
+        prevButton.classList.toggle('text-gray-400', currentPage === 1);
+        prevButton.classList.toggle('text-gray-300', currentPage !== 1);
+        nextButton.disabled = currentPage === totalPages;
+        nextButton.classList.toggle('text-gray-400', currentPage === totalPages);
+        nextButton.classList.toggle('text-gray-300', currentPage !== totalPages);
+      }
+      // Search functionality
+      function searchPressReleases(query) {
+        const normalizedQuery = query.toLowerCase().trim();
+        pressCards.forEach(card => {
+          const title = card.querySelector('h3').textContent.toLowerCase();
+          const content = card.querySelector('p').textContent.toLowerCase();
+          if (title.includes(normalizedQuery) || content.includes(normalizedQuery)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+      // Add event listeners to tab buttons
+      tabButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          // Update active button styling
+          tabButtons.forEach(btn => {
+            btn.classList.remove('active');
+            btn.classList.add('text-gray-400');
+          });
+          this.classList.add('active');
+          this.classList.remove('text-gray-400');
+          this.classList.add('text-white');
+          // Reset to first page when changing category
+          currentPage = 1;
+          // Filter press releases
+          const category = this.getAttribute('data-category');
+          filterByCategory(category);
+          // Clear search input
+          searchInput.value = '';
+          currentSearchQuery = '';
+        });
       });
+      // Add event listener to search input
+      searchInput.addEventListener('input', function () {
+        currentSearchQuery = this.value.toLowerCase().trim();
+        currentPage = 1; // Reset to first page when searching
+        applyFiltersAndPagination();
+      });
+      // Add event listeners to pagination buttons
+      document.querySelectorAll('.pagination-button').forEach((button, index) => {
+        if (index === 0) { // Previous button
+          button.addEventListener('click', () => {
+            if (!button.disabled && currentPage > 1) {
+              currentPage--;
+              applyFiltersAndPagination();
+            }
+          });
+        } else if (index === 4) { // Next button
+          button.addEventListener('click', () => {
+            if (!button.disabled) {
+              currentPage++;
+              applyFiltersAndPagination();
+            }
+          });
+        } else { // Number buttons
+          button.addEventListener('click', () => {
+            currentPage = index;
+            applyFiltersAndPagination();
+          });
+        }
+      });
+      // Initial display
+      applyFiltersAndPagination();
     });
-  } else {
-    // Original filtering logic for other pages
-    if (currentCategory !== 'all') {
-      filteredCards = filteredCards.filter(card =>
-        card.getAttribute('data-category') === currentCategory
-      );
-    }
-    
-    if (currentSearchQuery) {
-      filteredCards = filteredCards.filter(card => {
-        const title = card.querySelector('h3').textContent.toLowerCase();
-        const content = card.querySelector('p').textContent.toLowerCase();
-        return title.includes(currentSearchQuery) || content.includes(currentSearchQuery);
-      });
-    }
-    
-    allCards.forEach(card => card.style.display = 'none');
-    const start = (currentPage - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
-    filteredCards.slice(start, end).forEach(card => card.style.display = 'block');
-  }
-  
-  // Update pagination buttons
-  updatePaginationButtons(27); // Total number of items
-}
-function updatePaginationButtons(totalItems) {
-const totalPages = Math.ceil(totalItems / itemsPerPage);
-const prevButton = document.querySelector('.pagination-button:first-child');
-const nextButton = document.querySelector('.pagination-button:last-child');
-const pageButtons = Array.from(document.querySelectorAll('.pagination-button')).slice(1, -1);
-// Update page buttons
-pageButtons.forEach((button, index) => {
-const pageNum = index + 1;
-button.classList.remove('active', 'text-gray-300');
-if (pageNum === currentPage) {
-button.classList.add('active');
-} else {
-button.classList.add('text-gray-300');
-}
-});
-// Update prev/next buttons
-prevButton.disabled = currentPage === 1;
-prevButton.classList.toggle('text-gray-400', currentPage === 1);
-prevButton.classList.toggle('text-gray-300', currentPage !== 1);
-nextButton.disabled = currentPage === totalPages;
-nextButton.classList.toggle('text-gray-400', currentPage === totalPages);
-nextButton.classList.toggle('text-gray-300', currentPage !== totalPages);
-}
-// Search functionality
-function searchPressReleases(query) {
-const normalizedQuery = query.toLowerCase().trim();
-pressCards.forEach(card => {
-const title = card.querySelector('h3').textContent.toLowerCase();
-const content = card.querySelector('p').textContent.toLowerCase();
-if (title.includes(normalizedQuery) || content.includes(normalizedQuery)) {
-card.style.display = 'block';
-} else {
-card.style.display = 'none';
-}
-});
-}
-// Add event listeners to tab buttons
-tabButtons.forEach(button => {
-button.addEventListener('click', function() {
-// Update active button styling
-tabButtons.forEach(btn => {
-btn.classList.remove('active');
-btn.classList.add('text-gray-400');
-});
-this.classList.add('active');
-this.classList.remove('text-gray-400');
-this.classList.add('text-white');
-// Reset to first page when changing category
-currentPage = 1;
-// Filter press releases
-const category = this.getAttribute('data-category');
-filterByCategory(category);
-// Clear search input
-searchInput.value = '';
-currentSearchQuery = '';
-});
-});
-// Add event listener to search input
-searchInput.addEventListener('input', function() {
-currentSearchQuery = this.value.toLowerCase().trim();
-currentPage = 1; // Reset to first page when searching
-applyFiltersAndPagination();
-});
-// Add event listeners to pagination buttons
-document.querySelectorAll('.pagination-button').forEach((button, index) => {
-if (index === 0) { // Previous button
-button.addEventListener('click', () => {
-if (!button.disabled && currentPage > 1) {
-currentPage--;
-applyFiltersAndPagination();
-}
-});
-} else if (index === 4) { // Next button
-button.addEventListener('click', () => {
-if (!button.disabled) {
-currentPage++;
-applyFiltersAndPagination();
-}
-});
-} else { // Number buttons
-button.addEventListener('click', () => {
-currentPage = index;
-applyFiltersAndPagination();
-});
-}
-});
-// Initial display
-applyFiltersAndPagination();
-});
-</script>
-<script id="press-modal-handler">
-document.addEventListener('DOMContentLoaded', function() {
-const pressModal = document.getElementById('press-modal');
-const pressModalContent = document.getElementById('press-modal-content');
-const closeModalBtn = document.getElementById('close-press-modal');
-const closeModalButton = document.getElementById('close-press-btn');
-const shareButton = document.getElementById('share-press-release');
-const readMoreButtons = document.querySelectorAll('.press-read-more');
-// Press release content data
-const pressReleases = {
-1: {
-title: "E2E Consulting Announces New Tokyo Headquarters",
-date: "June 25, 2025",
-category: "Company News",
-content: `
+  </script>
+  <script id="press-modal-handler">
+    document.addEventListener('DOMContentLoaded', function () {
+      const pressModal = document.getElementById('press-modal');
+      const pressModalContent = document.getElementById('press-modal-content');
+      const closeModalBtn = document.getElementById('close-press-modal');
+      const closeModalButton = document.getElementById('close-press-btn');
+      const shareButton = document.getElementById('share-press-release');
+      const readMoreButtons = document.querySelectorAll('.press-read-more');
+      // Press release content data
+      const pressReleases = {
+        1: {
+          title: "E2E Consulting Announces New Tokyo Headquarters",
+          date: "June 25, 2025",
+          category: "Company News",
+          content: `
 <p class="mb-4">TOKYO, JAPAN - E2E Consulting has officially opened its new headquarters in Ginza, Tokyo, featuring state-of-the-art research facilities and collaborative workspaces designed to accelerate innovation in AI and robotics technologies.</p>
 <p class="mb-4">The new 15,000 square meter facility represents a significant investment in the company's future and will serve as the central hub for E2E Consulting's global operations. The headquarters features specialized laboratories for AI development, robotics testing, and space technology research, as well as collaborative workspaces designed to foster innovation and cross-disciplinary collaboration.</p>
 <p class="mb-4">"Our new headquarters represents our commitment to pushing the boundaries of what's possible in AI, robotics, and space technology," said Dr. Hiroshi Tanaka, CEO of E2E Consulting. "We've created an environment where our talented team can collaborate, experiment, and innovate as we work toward our mission of accelerating humanity's journey to become an interplanetary species."</p>
@@ -1158,12 +1302,12 @@ content: `
 <p class="mb-4">In addition to research and development spaces, the headquarters includes amenities designed to support employee wellbeing, including fitness facilities, meditation rooms, and sustainable dining options. The building itself incorporates numerous sustainable design elements, including solar power generation, rainwater harvesting, and energy-efficient systems.</p>
 <p class="mb-4">The opening of the new headquarters coincides with E2E Consulting's plans to expand its workforce by 30% over the next year, with a particular focus on recruiting top talent in AI research, robotics engineering, and space technology development.</p>
 `
-},
-2: {
-title: "NeuraSense AI 2.0 Launches with Enhanced Predictive Capabilities",
-date: "June 15, 2025",
-category: "Product Updates",
-content: `
+        },
+        2: {
+          title: "NeuraSense AI 2.0 Launches with Enhanced Predictive Capabilities",
+          date: "June 15, 2025",
+          category: "Product Updates",
+          content: `
 <p class="mb-4">TOKYO, JAPAN - E2E Consulting has released version 2.0 of its flagship NeuraSense AI platform, featuring significant improvements in predictive analytics accuracy and processing speed, enabling businesses to make more informed decisions based on complex data patterns.</p>
 <p class="mb-4">NeuraSense AI 2.0 represents a major advancement in artificial intelligence technology, with improvements across all core components of the platform. The updated system features enhanced neural network architectures that deliver a 40% increase in pattern recognition accuracy and a 60% reduction in processing time compared to the previous version.</p>
 <p class="mb-4">"With NeuraSense AI 2.0, we've significantly advanced our artificial intelligence capabilities, particularly in the areas of predictive analytics and natural language understanding," said Dr. Mei Chen, Chief AI Scientist at E2E Consulting. "These improvements will enable our clients to extract more valuable insights from their data and make better-informed decisions in real-time."</p>
@@ -1178,12 +1322,12 @@ content: `
 <p class="mb-4">Early adopters of NeuraSense AI 2.0 have reported significant improvements in their operations. Financial services firm Global Investments Ltd. has used the platform to enhance its market analysis capabilities, resulting in a 15% improvement in investment performance. Meanwhile, healthcare provider MediTech Solutions has implemented the system to improve patient diagnosis accuracy by 22%.</p>
 <p class="mb-4">NeuraSense AI 2.0 is available immediately for existing customers as a free upgrade, while new customers can access the platform through a subscription-based model with flexible pricing options based on usage requirements.</p>
 `
-},
-3: {
-title: "E2E Consulting Releases Report on Future of Space Exploration Technology",
-date: "June 8, 2025",
-category: "Industry Insights",
-content: `
+        },
+        3: {
+          title: "E2E Consulting Releases Report on Future of Space Exploration Technology",
+          date: "June 8, 2025",
+          category: "Industry Insights",
+          content: `
 <p class="mb-4">TOKYO, JAPAN - E2E Consulting has published a comprehensive research report examining the technological advancements that will drive the next decade of space exploration, with particular focus on AI-driven autonomous systems and advanced materials designed for extreme environments.</p>
 <p class="mb-4">The 120-page report, titled "Beyond Earth: Technological Frontiers in Space Exploration 2025-2035," provides an in-depth analysis of emerging technologies that will shape humanity's expansion into space over the next decade. The research draws on insights from leading experts in space technology, artificial intelligence, robotics, and materials science.</p>
 <p class="mb-4">"As we look toward establishing a permanent human presence beyond Earth, we need to understand the technological challenges and opportunities that lie ahead," said Dr. James Rodriguez, Director of Space Technology Research at E2E Consulting. "This report provides a roadmap for the innovations that will make sustainable space exploration and eventual colonization possible."</p>
@@ -1198,12 +1342,12 @@ content: `
 <p class="mb-4">The report also examines the economic implications of these technological developments, projecting that the global space economy will grow from $450 billion in 2025 to over $1.2 trillion by 2035, driven largely by commercial applications of space-derived technologies.</p>
 <p class="mb-4">"Beyond Earth: Technological Frontiers in Space Exploration 2025-2035" is available for download from the E2E Consulting website. The company will also host a virtual symposium on July 15, 2025, featuring presentations from the report's authors and panel discussions with industry experts.</p>
 `
-},
-4: {
-title: "E2E Consulting to Host Global AI Summit in Tokyo",
-date: "May 30, 2025",
-category: "Event",
-content: `
+        },
+        4: {
+          title: "E2E Consulting to Host Global AI Summit in Tokyo",
+          date: "May 30, 2025",
+          category: "Event",
+          content: `
 <p class="mb-4">TOKYO, JAPAN - E2E Consulting will host its inaugural Global AI Summit in Tokyo this September, bringing together industry leaders, researchers, and policymakers to discuss the future of artificial intelligence and its applications in space exploration and beyond.</p>
 <p class="mb-4">The three-day event, scheduled for September 15-17, 2025, at the Tokyo International Forum, will feature keynote presentations, panel discussions, workshops, and networking opportunities focused on the latest advancements in artificial intelligence and its applications across various industries, with a special emphasis on space technology.</p>
 <p class="mb-4">"The Global AI Summit represents an opportunity to bring together the brightest minds in AI research and application to address some of humanity's most pressing challenges," said Yuki Nakamura, Chief Technology Officer at E2E Consulting. "By fostering collaboration between academia, industry, and government, we aim to accelerate the development and responsible deployment of AI technologies that can transform our future on Earth and beyond."</p>
@@ -1227,12 +1371,12 @@ content: `
 <p class="mb-4">In addition to the main conference program, the summit will feature an innovation showcase where companies and research institutions can demonstrate their latest AI technologies and applications. A startup competition will also be held, offering emerging companies the opportunity to pitch their AI solutions to a panel of investors and industry experts.</p>
 <p class="mb-4">Registration for the Global AI Summit is now open, with early bird discounts available until July 31, 2025. For more information and to register, visit the E2E Consulting website.</p>
 `
-},
-5: {
-title: "E2E Consulting Announces Strategic Partnership with JAXA",
-date: "May 22, 2025",
-category: "Company News",
-content: `
+        },
+        5: {
+          title: "E2E Consulting Announces Strategic Partnership with JAXA",
+          date: "May 22, 2025",
+          category: "Company News",
+          content: `
 <p class="mb-4">TOKYO, JAPAN - E2E Consulting has entered into a strategic partnership with the Japan Aerospace Exploration Agency (JAXA) to develop next-generation AI and robotics technologies for future lunar and Mars exploration missions.</p>
 <p class="mb-4">The five-year collaboration agreement, signed today at JAXA's Tsukuba Space Center, will focus on developing advanced artificial intelligence systems and robotic platforms specifically designed for extreme space environments. The partnership aims to enhance Japan's capabilities in space exploration while advancing E2E Consulting's mission to accelerate humanity's journey to become an interplanetary species.</p>
 <p class="mb-4">"This partnership with JAXA represents a significant milestone in our company's journey," said Dr. Hiroshi Tanaka, CEO of E2E Consulting. "By combining JAXA's extensive experience in space missions with our expertise in AI and robotics, we can develop technologies that will play a crucial role in establishing a sustainable human presence on the Moon and eventually Mars."</p>
@@ -1247,12 +1391,12 @@ content: `
 <p class="mb-4">The partnership will include joint research projects, technology demonstrations, and knowledge exchange programs. E2E Consulting will establish a dedicated research team at its Tokyo headquarters to work on the JAXA collaboration, with plans to grow the team to 50 researchers and engineers over the next two years.</p>
 <p class="mb-4">The first joint project under the partnership will focus on developing an AI system for autonomous resource identification on the lunar surface, with initial testing scheduled to begin in early 2026. The technology could potentially be deployed on future JAXA lunar missions later this decade.</p>
 `
-},
-6: {
-title: "E2E Consulting Unveils ExoBot Mini for Educational Market",
-date: "May 15, 2025",
-category: "Product Updates",
-content: `
+        },
+        6: {
+          title: "E2E Consulting Unveils ExoBot Mini for Educational Market",
+          date: "May 15, 2025",
+          category: "Product Updates",
+          content: `
 <p class="mb-4">TOKYO, JAPAN - E2E Consulting has launched a compact version of its ExoBot robotics platform designed specifically for educational institutions, providing students with hands-on experience in robotics programming and AI integration.</p>
 <p class="mb-4">The ExoBot Mini, unveiled today at the International Educational Technology Conference in Kyoto, is a scaled-down version of E2E Consulting's professional-grade ExoBot robotics platform. The new educational system retains many of the advanced features of its larger counterpart while being more accessible and affordable for schools, universities, and educational programs.</p>
 <p class="mb-4">"We believe that inspiring the next generation of engineers, programmers, and scientists is crucial for humanity's future in space and beyond," said Dr. Akiko Yamamoto, Director of Educational Initiatives at E2E Consulting. "The ExoBot Mini gives students hands-on experience with the same cutting-edge technologies that are driving real-world advancements in robotics and AI."</p>
@@ -1270,12 +1414,12 @@ content: `
 <p class="mb-4">E2E Consulting has also announced the ExoBot Educational Initiative, which will donate 100 ExoBot Mini units to underserved schools globally each year. The initiative aims to expand access to advanced robotics education in communities that might otherwise lack the resources for such technology.</p>
 <p class="mb-4">The ExoBot Mini is available for pre-order starting today, with shipments beginning in August 2025, in time for the new academic year. Educational institutions can purchase individual units or classroom sets with volume discounts available.</p>
 `
-},
-7: {
-title: "E2E Consulting Publishes White Paper on Quantum Computing Applications",
-date: "May 5, 2025",
-category: "Industry Insights",
-content: `
+        },
+        7: {
+          title: "E2E Consulting Publishes White Paper on Quantum Computing Applications",
+          date: "May 5, 2025",
+          category: "Industry Insights",
+          content: `
 <p class="mb-4">TOKYO, JAPAN - E2E Consulting has published a comprehensive white paper exploring the potential applications of quantum computing in space exploration, focusing on complex trajectory calculations, materials science, and optimization problems that traditional computing struggles to solve efficiently.</p>
 <p class="mb-4">The white paper, titled "Quantum Horizons: Applications of Quantum Computing in Space Exploration," provides an in-depth analysis of how quantum computing technologies could transform various aspects of space missions and research. The paper draws on E2E Consulting's ongoing research in quantum algorithms and their practical applications in aerospace engineering.</p>
 <p class="mb-4">"Quantum computing represents a paradigm shift in computational capabilities that could help us overcome some of the most challenging problems in space exploration," said Dr. Victor Kwong, Quantum Research Lead at E2E Consulting. "This white paper examines both near-term applications where quantum advantage is emerging and longer-term possibilities that could fundamentally change how we approach space missions."</p>
@@ -1293,12 +1437,12 @@ content: `
 <p class="mb-4">The white paper concludes with a roadmap for the integration of quantum computing into space mission planning and operations over the next decade, highlighting key milestones and research priorities.</p>
 <p class="mb-4">"Quantum Horizons: Applications of Quantum Computing in Space Exploration" is available for download from the E2E Consulting website. The company will also host a webinar on May 20, 2025, featuring the paper's authors discussing their findings and answering questions from participants.</p>
 `
-},
-8: {
-title: "E2E Consulting to Participate in International Space Development Conference",
-date: "April 28, 2025",
-category: "Event",
-content: `
+        },
+        8: {
+          title: "E2E Consulting to Participate in International Space Development Conference",
+          date: "April 28, 2025",
+          category: "Event",
+          content: `
 <p class="mb-4">TOKYO, JAPAN - E2E Consulting will showcase its latest space exploration technologies at the International Space Development Conference (ISDC) in Washington D.C., demonstrating how AI and robotics can accelerate humanity's journey to becoming an interplanetary species.</p>
 <p class="mb-4">The ISDC, organized by the National Space Society, will take place from June 5-8, 2025, bringing together thousands of space enthusiasts, industry professionals, and policymakers to discuss the future of space exploration and development. E2E Consulting will have a significant presence at the conference, with a 200-square-meter exhibition space and multiple speaking engagements.</p>
 <p class="mb-4">"The International Space Development Conference provides an ideal platform for us to share our vision of humanity's future in space and the technologies we're developing to make that vision a reality," said Dr. Hiroshi Tanaka, CEO of E2E Consulting. "We're excited to engage with the global space community and demonstrate how our AI and robotics solutions are addressing key challenges in space exploration."</p>
@@ -1321,12 +1465,12 @@ content: `
 <p class="mb-4">"Collaboration is essential for making meaningful progress in space exploration," said Dr. Tanaka. "At ISDC, we look forward to strengthening existing partnerships and forming new ones with organizations that share our commitment to expanding humanity's presence beyond Earth."</p>
 <p class="mb-4">E2E Consulting invites all ISDC attendees to visit their exhibition in Hall B, Booth 305, and attend their presentations throughout the conference. The company will also host a reception for industry partners and media on June 6, 2025, at 7:00 PM at the conference venue.</p>
 `
-},
-9: {
-title: "E2E Consulting Expands Research Team with Top AI Scientists",
-date: "April 15, 2025",
-category: "Company News",
-content: `
+        },
+        9: {
+          title: "E2E Consulting Expands Research Team with Top AI Scientists",
+          date: "April 15, 2025",
+          category: "Company News",
+          content: `
 <p class="mb-4">TOKYO, JAPAN - E2E Consulting has significantly expanded its research capabilities with the addition of several renowned AI scientists and robotics engineers to its team, further strengthening the company's position as a leader in advanced technology development.</p>
 <p class="mb-4">The expansion includes the hiring of 25 new researchers and engineers, including several high-profile appointments that bring world-class expertise in artificial intelligence, machine learning, robotics, and space technology to the company. This strategic growth aligns with E2E Consulting's mission to accelerate humanity's journey to become an interplanetary species through cutting-edge technology development.</p>
 <p class="mb-4">"We're thrilled to welcome these exceptional talents to our research team," said Dr. Hiroshi Tanaka, CEO of E2E Consulting. "Their expertise and innovative thinking will be instrumental as we push the boundaries of what's possible in AI and robotics, particularly for applications in extreme environments like space."</p>
@@ -1342,13 +1486,13 @@ content: `
 <p class="mb-4">To accommodate the expanded research team, E2E Consulting has added 2,000 square meters of laboratory and office space to its Tokyo facility, including specialized labs for AI development, robotics testing, and materials research. The company has also invested in advanced computing infrastructure, including a new quantum computing research lab.</p>
 <p class="mb-4">The research team expansion is part of E2E Consulting's five-year strategic plan, which includes increasing R&D investment by 200% and establishing the company as a global leader in space-focused AI and robotics technologies by 2030.</p>
 `
-}
-};
-// Function to open modal with press release content
-function openPressModal(id) {
-const release = pressReleases[id];
-if (release) {
-pressModalContent.innerHTML = `
+        }
+      };
+      // Function to open modal with press release content
+      function openPressModal(id) {
+        const release = pressReleases[id];
+        if (release) {
+          pressModalContent.innerHTML = `
 <span class="text-gray-400 text-sm">${release.date}</span>
 <h2 class="text-2xl md:text-3xl font-bold my-4">${release.title}</h2>
 <div class="inline-block mb-6">
@@ -1358,66 +1502,67 @@ pressModalContent.innerHTML = `
 ${release.content}
 </div>
 `;
-pressModal.classList.remove('hidden');
-document.body.style.overflow = 'hidden';
-}
-}
-// Helper function to get category class
-function getCategoryClass(category) {
-switch(category) {
-case 'Company News': return 'company';
-case 'Product Updates': return 'product';
-case 'Industry Insights': return 'industry';
-case 'Event': return 'event';
-default: return '';
-}
-}
-// Function to close modal
-function closePressModal() {
-pressModal.classList.add('hidden');
-document.body.style.overflow = '';
-}
-// Add event listeners to read more buttons
-readMoreButtons.forEach(button => {
-button.addEventListener('click', function() {
-const id = this.getAttribute('data-id');
-openPressModal(id);
-});
-});
-// Add event listeners to close buttons
-if (closeModalBtn) {
-closeModalBtn.addEventListener('click', closePressModal);
-}
-if (closeModalButton) {
-closeModalButton.addEventListener('click', closePressModal);
-}
-// Close modal when clicking outside content
-pressModal.addEventListener('click', function(e) {
-if (e.target === pressModal) {
-closePressModal();
-}
-});
-// Share functionality (simplified)
-if (shareButton) {
-shareButton.addEventListener('click', function() {
-alert('Share functionality would be implemented here. In a real application, this would open sharing options for social media, email, etc.');
-});
-}
-});
-</script>
-<script id="scroll-to-top">
-document.addEventListener('DOMContentLoaded', function() {
-const footerLogo = document.getElementById('footer-logo');
-if (footerLogo) {
-footerLogo.addEventListener('click', function(e) {
-e.preventDefault();
-window.scrollTo({
-top: 0,
-behavior: 'smooth'
-});
-});
-}
-});
-</script>
+          pressModal.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+      // Helper function to get category class
+      function getCategoryClass(category) {
+        switch (category) {
+          case 'Company News': return 'company';
+          case 'Product Updates': return 'product';
+          case 'Industry Insights': return 'industry';
+          case 'Event': return 'event';
+          default: return '';
+        }
+      }
+      // Function to close modal
+      function closePressModal() {
+        pressModal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+      // Add event listeners to read more buttons
+      readMoreButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          const id = this.getAttribute('data-id');
+          openPressModal(id);
+        });
+      });
+      // Add event listeners to close buttons
+      if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closePressModal);
+      }
+      if (closeModalButton) {
+        closeModalButton.addEventListener('click', closePressModal);
+      }
+      // Close modal when clicking outside content
+      pressModal.addEventListener('click', function (e) {
+        if (e.target === pressModal) {
+          closePressModal();
+        }
+      });
+      // Share functionality (simplified)
+      if (shareButton) {
+        shareButton.addEventListener('click', function () {
+          alert('Share functionality would be implemented here. In a real application, this would open sharing options for social media, email, etc.');
+        });
+      }
+    });
+  </script>
+  <script id="scroll-to-top">
+    document.addEventListener('DOMContentLoaded', function () {
+      const footerLogo = document.getElementById('footer-logo');
+      if (footerLogo) {
+        footerLogo.addEventListener('click', function (e) {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+    });
+  </script>
 </body>
+
 </html>

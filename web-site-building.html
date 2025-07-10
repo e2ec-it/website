@@ -1,129 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Website Under Construction - E2E Consulting</title>
-<script src="https://cdn.tailwindcss.com/3.4.16"></script>
-<script>tailwind.config={theme:{extend:{colors:{primary:'#00F0FF',secondary:'#B026FF'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
-<style>
-:where([class^="ri-"])::before { content: "\f3c2"; }
-body {
-font-family: 'Roboto', sans-serif;
-background-color: #0A0A1F;
-color: #ffffff;
-}
-.language-selector {
-position: relative;
-}
-.language-options {
-display: none;
-position: absolute;
-top: 100%;
-right: 0;
-background-color: #1A1A3F;
-border-radius: 8px;
-overflow: hidden;
-width: 160px;
-z-index: 50;
-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-}
-.language-selector:hover .language-options {
-display: block;
-}
-.nav-link {
-position: relative;
-}
-.nav-link::after {
-content: '';
-position: absolute;
-bottom: -5px;
-left: 0;
-width: 0;
-height: 2px;
-background-color: #00F0FF;
-transition: width 0.3s ease;
-}
-.nav-link:hover::after {
-width: 100%;
-}
-.back-to-top {
-opacity: 0;
-visibility: hidden;
-transition: all 0.3s ease;
-}
-.back-to-top.visible {
-opacity: 1;
-visibility: visible;
-}
-.construction-animation {
-animation: float 6s ease-in-out infinite;
-}
-@keyframes float {
-0% {
-transform: translateY(0px);
-}
-50% {
-transform: translateY(-20px);
-}
-100% {
-transform: translateY(0px);
-}
-}
-.glow {
-animation: glow 2s ease-in-out infinite alternate;
-}
-@keyframes glow {
-from {
-box-shadow: 0 0 10px -10px rgba(0, 240, 255, 0.5);
-}
-to {
-box-shadow: 0 0 20px 10px rgba(0, 240, 255, 0.3);
-}
-}
-.progress-bar {
-width: 100%;
-height: 6px;
-background: rgba(255, 255, 255, 0.1);
-border-radius: 3px;
-overflow: hidden;
-}
-.progress-fill {
-height: 100%;
-background: linear-gradient(to right, #00F0FF, #B026FF);
-border-radius: 3px;
-transition: width 0.5s ease;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Under Construction - E2E Consulting</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { primary: '#00F0FF', secondary: '#B026FF' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0A0A1F;
+            color: #ffffff;
+        }
+
+        .language-selector {
+            position: relative;
+        }
+
+        .language-options {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #1A1A3F;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 160px;
+            z-index: 50;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .language-selector:hover .language-options {
+            display: block;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #00F0FF;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .back-to-top {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .construction-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px -10px rgba(0, 240, 255, 0.5);
+            }
+
+            to {
+                box-shadow: 0 0 20px 10px rgba(0, 240, 255, 0.3);
+            }
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, #00F0FF, #B026FF);
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+    </style>
 </head>
+
 <body>
-<!-- Header Section -->
-<header class="fixed top-0 left-0 w-full bg-opacity-90 bg-[#0A0A1F] backdrop-blur-md z-50">
-<div class="container mx-auto px-6 py-4">
-<div class="flex justify-between items-center">
-<div class="flex items-center">
-<a href="/index.html" data-readdy="true" class="text-3xl font-['-apple-system,BlinkMacSystemFont,SF_Pro_Display,Helvetica_Neue,Arial'] font-medium text-white">
-<div class="flex items-center">
-<img src="/images/890389b5e509c8efbf5dd3ca6b3b0c06.png" alt="Logo" class="h-10 w-10 mr-3">
-<span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tracking-tight">E2E Consulting</span>
-</div>
-</a>
-</div>
-<div class="md:hidden">
-<button id="mobile-menu-button" class="text-white focus:outline-none whitespace-nowrap !rounded-button">
-<div class="w-8 h-8 flex items-center justify-center">
-<i class="ri-menu-line ri-2x"></i>
-</div>
-</button>
-</div>
-</div>
-<!-- Mobile Menu -->
-<!-- <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+    <!-- Header Section -->
+    <header class="fixed top-0 left-0 w-full bg-opacity-90 bg-[#0A0A1F] backdrop-blur-md z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="/index.html" data-readdy="true"
+                        class="text-3xl font-['-apple-system,BlinkMacSystemFont,SF_Pro_Display,Helvetica_Neue,Arial'] font-medium text-white">
+                        <div class="flex items-center">
+                            <img src="/images/890389b5e509c8efbf5dd3ca6b3b0c06.png" alt="Logo" class="h-10 w-10 mr-3">
+                            <span
+                                class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tracking-tight">E2E
+                                Consulting</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button"
+                        class="text-white focus:outline-none whitespace-nowrap !rounded-button">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-menu-line ri-2x"></i>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <!-- <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
 <div class="flex flex-col space-y-4">
 <a href="/index.html" data-readdy="true" class="text-white hover:text-primary transition-colors duration-300">
 <span class="lang-en">Home</span>
@@ -159,139 +185,146 @@ transition: width 0.5s ease;
 </div>
 </div>
 </div> -->
-</div>
-</header>
-<!-- Main Content -->
-<main class="pt-28 pb-20 min-h-screen">
-<div class="container mx-auto px-6">
-<!-- Hero Section -->
-<div class="flex flex-col items-center justify-center py-16 md:py-24">
-<div class="construction-animation w-64 h-64 mb-8 relative">
-<img src="https://readdy.ai/api/search-image?query=futuristic%20robot%20working%20diligently%20in%20a%20high-tech%20laboratory%2C%20glowing%20cyan%20and%20purple%20accent%20lights%2C%20holographic%20displays%20surrounding%20the%20robot%2C%20sleek%20metallic%20surfaces%20with%20reflective%20properties%2C%20the%20robot%20has%20modern%20design%20with%20smooth%20curves%2C%20ambient%20lighting%20creating%20dramatic%20shadows%2C%20clean%20minimal%20workspace%2C%20focus%20on%20the%20robots%20precise%20movements%2C%20ultra%20HD%20quality%20photorealistic%20render&width=512&height=512&seq=6&orientation=squarish" alt="Under Construction" class="w-full h-full object-cover rounded-2xl glow">
-</div>
-<h1 class="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent text-center">Website Under Construction</h1>
-<p class="text-xl text-gray-300 mb-8 text-center max-w-2xl">We're building something extraordinary. Our team is working diligently to create an exceptional experience for you. Please check back soon.</p>
-<!-- Progress Section -->
-<div class="w-full max-w-lg mb-12">
-<div class="flex justify-between mb-2">
-<span class="text-sm text-gray-400">Development Progress</span>
-<span class="text-sm font-medium text-primary progress-percentage">65%</span>
-</div>
-<div class="progress-bar">
-<div class="progress-fill" style="width: 65%"></div>
-</div>
-</div>
-<!-- Action Buttons -->
-<div class="flex flex-col sm:flex-row gap-4 items-center">
-<a href="/index.html" data-readdy="true" class="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-black font-semibold rounded-button hover:opacity-90 transition-opacity duration-300 flex items-center whitespace-nowrap">
-<div class="w-5 h-5 mr-2 flex items-center justify-center">
-<i class="ri-home-line"></i>
-</div>
-Return to Homepage
-</a>
-</div>
-</div>
-</div>
-</main>
-<!-- Back to Top Button -->
-<button id="back-to-top" class="back-to-top fixed bottom-8 right-8 w-12 h-12 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center shadow-lg z-50 transition-all duration-300">
-<div class="w-6 h-6 flex items-center justify-center">
-<i class="ri-arrow-up-line text-black"></i>
-</div>
-</button>
+        </div>
+    </header>
+    <!-- Main Content -->
+    <main class="pt-28 pb-20 min-h-screen">
+        <div class="container mx-auto px-6">
+            <!-- Hero Section -->
+            <div class="flex flex-col items-center justify-center py-16 md:py-24">
+                <div class="construction-animation w-64 h-64 mb-8 relative">
+                    <img src="https://readdy.ai/api/search-image?query=futuristic%20robot%20working%20diligently%20in%20a%20high-tech%20laboratory%2C%20glowing%20cyan%20and%20purple%20accent%20lights%2C%20holographic%20displays%20surrounding%20the%20robot%2C%20sleek%20metallic%20surfaces%20with%20reflective%20properties%2C%20the%20robot%20has%20modern%20design%20with%20smooth%20curves%2C%20ambient%20lighting%20creating%20dramatic%20shadows%2C%20clean%20minimal%20workspace%2C%20focus%20on%20the%20robots%20precise%20movements%2C%20ultra%20HD%20quality%20photorealistic%20render&width=512&height=512&seq=6&orientation=squarish"
+                        alt="Under Construction" class="w-full h-full object-cover rounded-2xl glow">
+                </div>
+                <h1
+                    class="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent text-center">
+                    Website Under Construction</h1>
+                <p class="text-xl text-gray-300 mb-8 text-center max-w-2xl">We're building something extraordinary. Our
+                    team is working diligently to create an exceptional experience for you. Please check back soon.</p>
+                <!-- Progress Section -->
+                <div class="w-full max-w-lg mb-12">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm text-gray-400">Development Progress</span>
+                        <span class="text-sm font-medium text-primary progress-percentage">65%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 65%"></div>
+                    </div>
+                </div>
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 items-center">
+                    <a href="/index.html" data-readdy="true"
+                        class="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-black font-semibold rounded-button hover:opacity-90 transition-opacity duration-300 flex items-center whitespace-nowrap">
+                        <div class="w-5 h-5 mr-2 flex items-center justify-center">
+                            <i class="ri-home-line"></i>
+                        </div>
+                        Return to Homepage
+                    </a>
+                </div>ß
+            </div>
+        </div>
+    </main>
+    <!-- Back to Top Button -->
+    <button id="back-to-top"
+        class="back-to-top fixed bottom-8 right-8 w-12 h-12 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center shadow-lg z-50 transition-all duration-300">
+        <div class="w-6 h-6 flex items-center justify-center">
+            <i class="ri-arrow-up-line text-black"></i>
+        </div>
+    </button>
 
-<script id="scroll-to-top">
-document.addEventListener('DOMContentLoaded', function() {
-const backToTopButton = document.getElementById('back-to-top');
-const footerLogo = document.getElementById('footer-logo');
-// Show/hide back to top button based on scroll position
-window.addEventListener('scroll', function() {
-if (window.scrollY > 300) {
-backToTopButton.classList.add('visible');
-} else {
-backToTopButton.classList.remove('visible');
-}
-});
-// Scroll to top when button is clicked
-backToTopButton.addEventListener('click', function() {
-window.scrollTo({
-top: 0,
-behavior: 'smooth'
-});
-});
-// Scroll to top when footer logo is clicked
-if (footerLogo) {
-footerLogo.addEventListener('click', function(e) {
-e.preventDefault();
-window.scrollTo({
-top: 0,
-behavior: 'smooth'
-});
-});
-}
-});
-</script>
-<script id="language-switcher">
-document.addEventListener('DOMContentLoaded', function() {
-// Set default language
-let currentLang = 'en';
-// Function to switch language
-function switchLanguage(lang) {
-// Hide all language elements
-document.querySelectorAll('.lang-en, .lang-zh, .lang-ja').forEach(el => {
-el.classList.add('hidden');
-});
-// Show elements for selected language
-document.querySelectorAll(`.lang-${lang}`).forEach(el => {
-el.classList.remove('hidden');
-});
-// Update current language display
-document.querySelectorAll('.current-language').forEach(el => {
-if (lang === 'en') el.textContent = 'English';
-if (lang === 'zh') el.textContent = '简体中文';
-if (lang === 'ja') el.textContent = '日本語';
-});
-currentLang = lang;
-}
-// Add event listeners to language options
-document.querySelectorAll('.language-option').forEach(option => {
-option.addEventListener('click', function() {
-const lang = this.getAttribute('data-lang');
-switchLanguage(lang);
-});
-});
-// Mobile menu toggle
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-const mobileMenu = document.getElementById('mobile-menu');
-mobileMenuButton.addEventListener('click', function() {
-mobileMenu.classList.toggle('hidden');
-});
-});
-</script>
-<script id="progress-animation">
-document.addEventListener('DOMContentLoaded', function() {
-const progressFill = document.querySelector('.progress-fill');
-const progressText = document.querySelector('.progress-percentage');
-let currentProgress = 65;
-let direction = 1;
-function updateProgress() {
-if (direction > 0) {
-currentProgress += 0.5;
-if (currentProgress >= 95) {
-direction = -1;
-}
-} else {
-currentProgress -= 0.5;
-if (currentProgress <= 65) {
-direction = 1;
-}
-}
-progressFill.style.width = `${currentProgress}%`;
-progressText.textContent = `${Math.round(currentProgress)}%`;
-requestAnimationFrame(updateProgress);
-}
-requestAnimationFrame(updateProgress);
-});
-</script>
+    <script id="scroll-to-top">
+        document.addEventListener('DOMContentLoaded', function () {
+            const backToTopButton = document.getElementById('back-to-top');
+            const footerLogo = document.getElementById('footer-logo');
+            // Show/hide back to top button based on scroll position
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            // Scroll to top when button is clicked
+            backToTopButton.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            // Scroll to top when footer logo is clicked
+            if (footerLogo) {
+                footerLogo.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    </script>
+    <script id="language-switcher">
+        document.addEventListener('DOMContentLoaded', function () {
+            // Set default language
+            let currentLang = 'en';
+            // Function to switch language
+            function switchLanguage(lang) {
+                // Hide all language elements
+                document.querySelectorAll('.lang-en, .lang-zh, .lang-ja').forEach(el => {
+                    el.classList.add('hidden');
+                });
+                // Show elements for selected language
+                document.querySelectorAll(`.lang-${lang}`).forEach(el => {
+                    el.classList.remove('hidden');
+                });
+                // Update current language display
+                document.querySelectorAll('.current-language').forEach(el => {
+                    if (lang === 'en') el.textContent = 'English';
+                    if (lang === 'zh') el.textContent = '简体中文';
+                    if (lang === 'ja') el.textContent = '日本語';
+                });
+                currentLang = lang;
+            }
+            // Add event listeners to language options
+            document.querySelectorAll('.language-option').forEach(option => {
+                option.addEventListener('click', function () {
+                    const lang = this.getAttribute('data-lang');
+                    switchLanguage(lang);
+                });
+            });
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+    <script id="progress-animation">
+        document.addEventListener('DOMContentLoaded', function () {
+            const progressFill = document.querySelector('.progress-fill');
+            const progressText = document.querySelector('.progress-percentage');
+            let currentProgress = 65;
+            let direction = 1;
+            function updateProgress() {
+                if (direction > 0) {
+                    currentProgress += 0.5;
+                    if (currentProgress >= 95) {
+                        direction = -1;
+                    }
+                } else {
+                    currentProgress -= 0.5;
+                    if (currentProgress <= 65) {
+                        direction = 1;
+                    }
+                }
+                progressFill.style.width = `${currentProgress}%`;
+                progressText.textContent = `${Math.round(currentProgress)}%`;
+                requestAnimationFrame(updateProgress);
+            }
+            requestAnimationFrame(updateProgress);
+        });
+    </script>
 </body>
+
 </html>
