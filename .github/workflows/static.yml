@@ -31,15 +31,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
       - name: Inject Commit SHA into index.html
         run: |
-          # 取当前提交的短 SHA（7 位）
+          # 取当前提交的短 SHA(7 位)
           SHA=$(git rev-parse --short=7 HEAD)
           echo "Injecting commit SHA: $SHA"
           # 替换 index.html 中的占位符 __COMMIT_SHA__
           sed -i "s/__COMMIT_SHA__/$SHA/g" index.html
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
