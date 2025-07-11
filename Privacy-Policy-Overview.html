@@ -23,6 +23,27 @@
       color: #ffffff;
     }
 
+    .language-selector {
+      position: relative;
+    }
+
+    .language-options {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: #1A1A3F;
+      border-radius: 8px;
+      overflow: hidden;
+      width: 160px;
+      z-index: 50;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .language-selector:hover .language-options {
+      display: block;
+    }
+
     .privacy-section {
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
