@@ -40,7 +40,7 @@
                     <span class="lang-zh hidden">联系我们</span>
                     <span class="lang-ja hidden">お問い合わせ</span>
                 </a>
-                <div class="language-selector">
+                <div class="language-selector relative">
                     <button
                         class="flex items-center space-x-1 text-white hover:text-primary transition-colors duration-300 whitespace-nowrap !rounded-button">
                         <div class="w-6 h-6 flex items-center justify-center">
@@ -51,7 +51,10 @@
                             <i class="ri-arrow-down-s-line"></i>
                         </div>
                     </button>
-                    <div class="language-options">
+                    <!-- <div class="language-options"> -->
+                    <!-- ② 用 Tailwind 实现绝对定位 -->
+                    <div class="language-options hidden absolute right-0 mt-2 w-40
++                             bg-[#1A1A3F] rounded-lg shadow-lg z-50 overflow-hidden">
                         <button
                             class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button"
                             data-lang="en">English</button>
