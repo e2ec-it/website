@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>羲梵机器人 - 双形态变形机器人 | E2E Consulting</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#00F0FF',secondary:'#B026FF'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Roboto', sans-serif;
+background-color: #0A0A1F;
+color: #ffffff;
+}
+body[data-lang="ja"] {
+font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+}
+.language-selector {
+position: relative;
+}
+.language-options {
+display: none;
+position: absolute;
+top: 100%;
+right: 0;
+background-color: #1A1A3F;
+border-radius: 8px;
+overflow: hidden;
+width: 160px;
+z-index: 50;
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+transform: translateY(10px);
+opacity: 0;
+transition: all 0.3s ease;
+}
+.language-selector:hover .language-options {
+display: block;
+transform: translateY(0);
+opacity: 1;
+}
+.language-option {
+transition: all 0.2s ease;
+}
+.language-option:hover {
+background-color: #2A2A5F;
+transform: translateX(5px);
+}
+.hero-particles {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+overflow: hidden;
+z-index: 0;
+}
+.particle {
+position: absolute;
+border-radius: 50%;
+background: rgba(0, 240, 255, 0.3);
+animation: float 15s infinite ease-in-out;
+}
+@keyframes float {
+0%, 100% {
+transform: translateY(0) translateX(0);
+}
+25% {
+transform: translateY(-30px) translateX(30px);
+}
+50% {
+transform: translateY(-15px) translateX(-20px);
+}
+75% {
+transform: translateY(20px) translateX(25px);
+}
+}
+.feature-card {
+transition: all 0.3s ease;
+border: 1px solid rgba(0, 240, 255, 0.1);
+background: rgba(10, 10, 31, 0.7);
+backdrop-filter: blur(10px);
+}
+.feature-card:hover {
+border-color: #00F0FF;
+box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+transform: translateY(-5px);
+}
+.tech-card {
+transition: all 0.3s ease;
+background: rgba(26, 26, 63, 0.7);
+backdrop-filter: blur(5px);
+border: 1px solid rgba(176, 38, 255, 0.1);
+}
+.tech-card:hover {
+border-color: #B026FF;
+box-shadow: 0 0 15px rgba(176, 38, 255, 0.3);
+transform: scale(1.02);
+}
+.tech-icon {
+background: linear-gradient(135deg, #0A0A1F 0%, #1A1A3F 100%);
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.tech-icon i {
+background: linear-gradient(135deg, #00F0FF 0%, #B026FF 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.nav-link {
+position: relative;
+transition: all 0.3s ease;
+}
+.nav-link::after {
+content: '';
+position: absolute;
+bottom: -5px;
+left: 0;
+width: 0;
+height: 2px;
+background-color: #00F0FF;
+transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+width: 100%;
+}
+.transform-animation {
+animation: morphTransform 6s infinite ease-in-out;
+}
+@keyframes morphTransform {
+0%, 100% { transform: translateY(0) rotate(0deg); }
+25% { transform: translateY(-10px) rotate(5deg); }
+50% { transform: translateY(-5px) rotate(-3deg); }
+75% { transform: translateY(-8px) rotate(2deg); }
+}
+.spec-table {
+background: rgba(26, 26, 63, 0.5);
+backdrop-filter: blur(10px);
+border: 1px solid rgba(0, 240, 255, 0.1);
+}
+.spec-row:nth-child(even) {
+background: rgba(0, 240, 255, 0.05);
+}
+.content-transition {
+transition: all 0.5s ease;
+}
+.fade-in {
+animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.language-indicator {
+display: inline-block;
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: #00F0FF;
+margin-right: 8px;
+animation: pulse 2s infinite;
+}
+@keyframes pulse {
+0%, 100% { opacity: 1; }
+50% { opacity: 0.5; }
+}
+</style>
+</head>
+<body data-lang="zh">
+<header class="fixed top-0 left-0 w-full bg-opacity-90 bg-[#0A0A1F] backdrop-blur-md z-50">
+<div class="container mx-auto px-6 py-4">
+<div class="flex justify-between items-center">
+<div class="flex items-center">
+<a href="/" class="text-3xl font-['-apple-system,BlinkMacSystemFont,SF_Pro_Display,Helvetica_Neue,Arial'] font-medium text-white">
+<div class="flex items-center">
+<img src="https://static.readdy.ai/image/53a4d54aa374b01413a309defbaefd8a/890389b5e509c8efbf5dd3ca6b3b0c06.png" alt="Logo" class="h-10 w-10 mr-3">
+<span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tracking-tight">E2E Consulting</span>
+</div>
+</a>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a href="/" class="nav-link text-white hover:text-primary transition-colors duration-300" data-translate="nav-home">首页</a>
+<a href="/services" class="nav-link text-white hover:text-primary transition-colors duration-300" data-translate="nav-services">服务</a>
+<a href="/products" class="nav-link text-white hover:text-primary transition-colors duration-300" data-translate="nav-products">产品</a>
+<a href="/about" class="nav-link text-white hover:text-primary transition-colors duration-300" data-translate="nav-about">关于我们</a>
+<a href="#contact" class="nav-link text-white hover:text-primary transition-colors duration-300" data-translate="nav-contact">联系我们</a>
+<div class="language-selector">
+<button class="flex items-center space-x-1 text-white hover:text-primary transition-colors duration-300 whitespace-nowrap !rounded-button">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-global-line ri-lg"></i>
+</div>
+<span class="language-indicator"></span>
+<span class="current-language" id="current-language">简体中文</span>
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</button>
+<div class="language-options">
+<button class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="zh">
+<span class="flex items-center">
+<span class="mr-2">🇨🇳</span>
+简体中文
+</span>
+</button>
+<button class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="en">
+<span class="flex items-center">
+<span class="mr-2">🇺🇸</span>
+English
+</span>
+</button>
+<button class="w-full px-4 py-2 text-left hover:bg-[#2A2A5F] transition-colors duration-200 language-option whitespace-nowrap !rounded-button" data-lang="ja">
+<span class="flex items-center">
+<span class="mr-2">🇯🇵</span>
+日本語
+</span>
+</button>
+</div>
+</div>
+</div>
+<div class="md:hidden">
+<button id="mobile-menu-button" class="text-white focus:outline-none whitespace-nowrap !rounded-button">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-menu-line ri-2x"></i>
+</div>
+</button>
+</div>
+</div>
+<div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+<div class="flex flex-col space-y-4">
+<a href="/" class="text-white hover:text-primary transition-colors duration-300" data-translate="nav-home">首页</a>
+<a href="/services" class="text-white hover:text-primary transition-colors duration-300" data-translate="nav-services">服务</a>
+<a href="/products" class="text-white hover:text-primary transition-colors duration-300" data-translate="nav-products">产品</a>
+<a href="/about" class="text-white hover:text-primary transition-colors duration-300" data-translate="nav-about">关于我们</a>
+<a href="#contact" class="text-white hover:text-primary transition-colors duration-300" data-translate="nav-contact">联系我们</a>
+<div class="pt-4 border-t border-gray-700">
+<div class="flex space-x-4">
+<button class="language-option px-3 py-2 bg-[#1A1A3F] rounded-lg text-sm hover:bg-[#2A2A5F] transition-colors duration-200 whitespace-nowrap !rounded-button" data-lang="zh">🇨🇳 中文</button>
+<button class="language-option px-3 py-2 bg-[#1A1A3F] rounded-lg text-sm hover:bg-[#2A2A5F] transition-colors duration-200 whitespace-nowrap !rounded-button" data-lang="en">🇺🇸 EN</button>
+<button class="language-option px-3 py-2 bg-[#1A1A3F] rounded-lg text-sm hover:bg-[#2A2A5F] transition-colors duration-200 whitespace-nowrap !rounded-button" data-lang="ja">🇯🇵 JP</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<section class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+<div class="hero-particles"></div>
+<div class="absolute inset-0">
+<img src="https://static.readdy.ai/image/53a4d54aa374b01413a309defbaefd8a/10de70b44b47f7257024c6a7e326a42c.png" alt="Hero Background" class="w-full h-full object-contain object-center">
+</div>
+<div class="absolute inset-0 bg-gradient-to-r from-[#0A0A1F] via-[#0A0A1Fdd] to-transparent"></div>
+<div class="container mx-auto px-6 z-10">
+<div class="w-full flex flex-col md:flex-row items-center">
+<div class="w-full md:w-1/2 mb-10 md:mb-0 content-transition">
+<h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+<span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent" data-translate="hero-title">羲梵机器人</span>
+</h1>
+<p class="text-xl md:text-2xl mb-4 text-gray-300 max-w-xl" data-translate="hero-subtitle">
+双形态变形机器人
+</p>
+<p class="text-lg mb-8 text-gray-400 max-w-xl" data-translate="hero-description">
+行业首个可在人形机器人与机器狗之间自动切换的消费级机器人，3 秒内完成形态变换，开启智能家居新时代。
+</p>
+<div class="flex flex-wrap gap-4">
+<a href="#features" class="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-black font-bold rounded-full transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/50 whitespace-nowrap !rounded-button" data-translate="btn-learn-more">
+了解更多
+</a>
+<a href="#contact" class="px-8 py-3 bg-transparent border-2 border-primary text-white font-bold rounded-full transition-transform duration-300 hover:scale-105 hover:bg-primary/10 whitespace-nowrap !rounded-button" data-translate="btn-contact">
+联系我们
+</a>
+</div>
+</div>
+<div class="w-full md:w-1/2 flex justify-center">
+<div class="relative w-80 h-80 md:w-96 md:h-96 transform-animation">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full animate-pulse" style="animation-duration: 3s;"></div>
+<div class="absolute inset-4 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-full animate-pulse" style="animation-duration: 4s;"></div>
+<div class="absolute inset-8 bg-[#1A1A3F]/50 rounded-full flex items-center justify-center">
+<div class="text-4xl font-bold text-primary">XFRobot</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-[#0F0F2F]">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16 content-transition">
+<h2 class="text-3xl md:text-4xl font-bold mb-4" data-translate="section-overview">产品概述</h2>
+<p class="text-xl text-gray-400 max-w-3xl mx-auto" data-translate="overview-description">
+羲梵机器人是一款革命性的双形态变形机器人，能够在人形机器人和机器狗两种形态之间自由切换，为不同场景提供最优化的服务体验。
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+<div class="flex items-center gap-8 content-transition">
+<div class="w-1/2">
+<img src="https://static.readdy.ai/image/53a4d54aa374b01413a309defbaefd8a/c79f61cfccc59e7f274688c637218a11.png" alt="人形模式" class="w-full h-80 object-contain object-center rounded-lg">
+</div>
+<div class="w-1/2">
+<h3 class="text-2xl font-bold mb-6" data-translate="mode-humanoid">人形模式</h3>
+<ul class="space-y-4">
+<li class="flex items-center text-gray-300">
+<div class="w-6 h-6 mr-3 flex items-center justify-center text-primary">
+<i class="ri-user-line"></i>
+</div>
+<span data-translate="feature-interaction">自然人机交互与对话</span>
+</li>
+<li class="flex items-center text-gray-300">
+<div class="w-6 h-6 mr-3 flex items-center justify-center text-primary">
+<i class="ri-hand-heart-line"></i>
+</div>
+<span data-translate="feature-manipulation">精准物品抓取与递送</span>
+</li>
+<li class="flex items-center text-gray-300">
+<div class="w-6 h-6 mr-3 flex items-center justify-center text-primary">
+<i class="ri-home-heart-line"></i>
+</div>
+<span data-translate="feature-assistant">家庭助理与陪伴服务</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="flex items-center gap-8 content-transition">
+<div class="w-1/2">
+<img src="https://static.readdy.ai/image/53a4d54aa374b01413a309defbaefd8a/4d6bf923860d075ddca44527f8db6a81.png" alt="机器狗模式" class="w-full h-80 object-contain object-center rounded-lg">
+</div>
+<div class="w-1/2">
+<h3 class="text-2xl font-bold mb-6" data-translate="mode-quadruped">机器狗模式</h3>
+<ul class="space-y-4">
+<li class="flex items-center text-gray-300">
+<div class="w-6 h-6 mr-3 flex items-center justify-center text-secondary">
+<i class="ri-run-line"></i>
+</div>
+<span data-translate="feature-mobility">灵活穿行低矮空间</span>
+</li>
+<li class="flex items-center text-gray-300">
+<div class="w-6 h-6 mr-3 flex items-center justify-center text-secondary">
+<i class="ri-eye-line"></i>
+</div>
+<span data-translate="feature-patrol">远程巡视与监控</span>
+</li>
+<li class="flex items-center text-gray-300">
+<div class="w-6 h-6 mr-3 flex items-center justify-center text-secondary">
+<i class="ri-heart-3-line"></i>
+</div>
+<span data-translate="feature-companion">宠物陪伴与娱乐</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="text-center content-transition">
+<div class="bg-[#1A1A3F] rounded-lg p-8 max-w-2xl mx-auto">
+<h3 class="text-2xl font-bold mb-4" data-translate="transform-speed">3 秒快速变形</h3>
+<p class="text-gray-300 mb-6" data-translate="transform-description">
+采用模块化四肢设计和可收缩关节系统，配备先进的结构识别算法，实现快速、稳定的形态切换。
+</p>
+<div class="flex justify-center items-center space-x-8">
+<div class="text-center">
+<div class="text-3xl font-bold text-primary">< 3s</div>
+<div class="text-sm text-gray-400" data-translate="transform-time">变形时间</div>
+</div>
+<div class="w-12 h-12 flex items-center justify-center">
+<i class="ri-arrow-left-right-line text-2xl text-secondary"></i>
+</div>
+<div class="text-center">
+<div class="text-3xl font-bold text-secondary">100%</div>
+<div class="text-sm text-gray-400" data-translate="stability">稳定性</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="features" class="py-20 bg-[#0A0A1F]">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16 content-transition">
+<h2 class="text-3xl md:text-4xl font-bold mb-4" data-translate="section-features">核心功能</h2>
+<p class="text-xl text-gray-400 max-w-3xl mx-auto" data-translate="features-description">
+集成多项前沿技术，为用户提供全方位的智能服务体验
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+<div class="feature-card rounded-lg p-8 content-transition">
+<div class="tech-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-refresh-line ri-2x"></i>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-4" data-translate="feature-transform-system">形态切换系统</h3>
+<p class="text-gray-400 mb-4" data-translate="feature-transform-desc">
+模块化四肢设计配合可收缩关节，3 秒内完成人形与机器狗形态的无缝切换。
+</p>
+<ul class="space-y-2">
+<li class="flex items-center text-gray-300 text-sm">
+<div class="w-4 h-4 mr-2 flex items-center justify-center text-primary">
+<i class="ri-check-line"></i>
+</div>
+<span data-translate="feature-algorithm">自动结构识别算法</span>
+</li>
+<li class="flex items-center text-gray-300 text-sm">
+<div class="w-4 h-4 mr-2 flex items-center justify-center text-primary">
+<i class="ri-check-line"></i>
+</div>
+<span data-translate="feature-feedback">稳定传感反馈机制</span>
+</li>
+</ul>
+</div>
+<div class="feature-card rounded-lg p-8 content-transition">
+<div class="tech-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-chat-voice-line ri-2x"></i>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-4" data-translate="feature-multimodal">多模态交互系统</h3>
+<p class="text-gray-400 mb-4" data-translate="feature-multimodal-desc">
+支持语音、手势、触摸、APP 远程控制，搭载本地大语言模型，提供自然流畅的交互体验。
+</p>
+<ul class="space-y-2">
+<li class="flex items-center text-gray-300 text-sm">
+<div class="w-4 h-4 mr-2 flex items-center justify-center text-primary">
+<i class="ri-check-line"></i>
+</div>
+<span data-translate="feature-ai-engine">本地 AI 推理引擎</span>
+</li>
+<li class="flex items-center text-gray-300 text-sm">
+<div class="w-4 h-4 mr-2 flex items-center justify-center text-primary">
+<i class="ri-check-line"></i>
+</div>
+<span data-translate="feature-display">表情显示面板</span>
+</li>
+</ul>
+</div>
+<div class="feature-card rounded-lg p-8 content-transition">
+<div class="tech-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-radar-line ri-2x"></i>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-4" data-translate="feature-perception">感知与导航</h3>
+<p class="text-gray-400 mb-4" data-translate="feature-perception-desc">
+360° 深度摄像头配合激光雷达，实现精准的 SLAM 自主定位与智能避障。
+</p>
+<ul class="space-y-2">
+<li class="flex items-center text-gray-300 text-sm">
+<div class="w-4 h-4 mr-2 flex items-center justify-center text-primary">
+<i class="ri-check-line"></i>
+</div>
+<span data-translate="feature-night-vision">夜视巡视功能</span>
+</li>
+<li class="flex items-center text-gray-300 text-sm">
+<div class="w-4 h-4 mr-2 flex items-center justify-center text-primary">
+<i class="ri-check-line"></i>
+</div>
+<span data-translate="feature-mapping">环境地图构建</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="bg-[#1A1A3F] rounded-lg p-8 content-transition">
+<h3 class="text-2xl font-bold mb-8 text-center" data-translate="home-scenarios">家庭场景功能</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="text-center">
+<div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-hand-coin-line text-primary ri-lg"></i>
+</div>
+</div>
+<h4 class="font-bold mb-2" data-translate="scenario-delivery">智能送物</h4>
+<p class="text-gray-400 text-sm" data-translate="scenario-delivery-desc">托盘式双臂或背负式送物服务</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-shield-check-line text-secondary ri-lg"></i>
+</div>
+</div>
+<h4 class="font-bold mb-2" data-translate="scenario-security">安全巡视</h4>
+<p class="text-gray-400 text-sm" data-translate="scenario-security-desc">定时巡视与警报通知功能</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-user-heart-line text-primary ri-lg"></i>
+</div>
+</div>
+<h4 class="font-bold mb-2" data-translate="scenario-companion">陪伴服务</h4>
+<p class="text-gray-400 text-sm" data-translate="scenario-companion-desc">对话、讲故事、播放音乐</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-home-gear-line text-secondary ri-lg"></i>
+</div>
+</div>
+<h4 class="font-bold mb-2" data-translate="scenario-housework">家务助手</h4>
+<p class="text-gray-400 text-sm" data-translate="scenario-housework-desc">清扫、叠衣、简单料理</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-[#0F0F2F]">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16 content-transition">
+<h2 class="text-3xl md:text-4xl font-bold mb-4" data-translate="section-tech">技术架构</h2>
+<p class="text-xl text-gray-400 max-w-3xl mx-auto" data-translate="tech-description">
+采用业界领先的硬件平台与软件架构，确保系统稳定性与扩展性
+</p>
+</div>
+<div class="overflow-x-auto content-transition">
+<table class="spec-table w-full rounded-lg overflow-hidden">
+<thead>
+<tr class="bg-gradient-to-r from-primary/20 to-secondary/20">
+<th class="px-6 py-4 text-left font-bold" data-translate="table-module">模块</th>
+<th class="px-6 py-4 text-left font-bold" data-translate="table-tech">技术/平台</th>
+<th class="px-6 py-4 text-left font-bold" data-translate="table-features">特性</th>
+</tr>
+</thead>
+<tbody>
+<tr class="spec-row">
+<td class="px-6 py-4 font-semibold text-primary" data-translate="tech-hardware">硬件平台</td>
+<td class="px-6 py-4">ROS 2 + NVIDIA Jetson Orin + 自研机械关节系统</td>
+<td class="px-6 py-4 text-gray-300" data-translate="tech-hardware-desc">高性能计算，精密控制</td>
+</tr>
+<tr class="spec-row">
+<td class="px-6 py-4 font-semibold text-secondary" data-translate="tech-ai">AI 平台</td>
+<td class="px-6 py-4">ONNX Runtime + MLC LLM (支持 ggml 模型)</td>
+<td class="px-6 py-4 text-gray-300" data-translate="tech-ai-desc">本地推理，隐私保护</td>
+</tr>
+<tr class="spec-row">
+<td class="px-6 py-4 font-semibold text-primary" data-translate="tech-software">软件架构</td>
+<td class="px-6 py-4">Android + Flutter UI + MQTT 远程控制协议</td>
+<td class="px-6 py-4 text-gray-300" data-translate="tech-software-desc">跨平台，实时通信</td>
+</tr>
+<tr class="spec-row">
+<td class="px-6 py-4 font-semibold text-secondary" data-translate="tech-models">本地模型</td>
+<td class="px-6 py-4">Phi-3 Mini、Gemma 2B、ChatGLM3-6B</td>
+<td class="px-6 py-4 text-gray-300" data-translate="tech-models-desc">多模型支持，灵活部署</td>
+</tr>
+<tr class="spec-row">
+<td class="px-6 py-4 font-semibold text-primary" data-translate="tech-cloud">云端支持</td>
+<td class="px-6 py-4">OpenAI / DeepSeek Cloud API 模式切换</td>
+<td class="px-6 py-4 text-gray-300" data-translate="tech-cloud-desc">本地云端双模式</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section class="py-20 bg-[#0A0A1F]">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16 content-transition">
+<h2 class="text-3xl md:text-4xl font-bold mb-4" data-translate="section-advantages">竞争优势</h2>
+<p class="text-xl text-gray-400 max-w-3xl mx-auto" data-translate="advantages-description">
+行业领先的技术创新与产品设计理念
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="tech-card rounded-lg p-8 text-center content-transition">
+<div class="w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-trophy-line text-primary ri-2x"></i>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-4" data-translate="advantage-first">行业首创</h3>
+<p class="text-gray-400" data-translate="advantage-first-desc">
+首个实现形态自切换的消费级机器人，开创双形态机器人新品类。
+</p>
+</div>
+<div class="tech-card rounded-lg p-8 text-center content-transition">
+<div class="w-20 h-20 bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-shield-user-line text-secondary ri-2x"></i>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-4" data-translate="advantage-privacy">隐私安全</h3>
+<p class="text-gray-400" data-translate="advantage-privacy-desc">
+本地 AI 与云 AI 自由切换，保障用户隐私的同时提供低延迟响应。
+</p>
+</div>
+<div class="tech-card rounded-lg p-8 text-center content-transition">
+<div class="w-20 h-20 bg-gradient-to-br from-blue-500/20 to-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-puzzle-line text-blue-400 ri-2x"></i>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-4" data-translate="advantage-ecosystem">生态扩展</h3>
+<p class="text-gray-400" data-translate="advantage-ecosystem-desc">
+同时覆盖人形与狗形机器人应用场景，支持插件式模块扩展。
+</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-[#0F0F2F]">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16 content-transition">
+<h2 class="text-3xl md:text-4xl font-bold mb-4" data-translate="section-users">目标用户</h2>
+<p class="text-xl text-gray-400 max-w-3xl mx-auto" data-translate="users-description">
+为不同场景用户提供定制化的智能机器人解决方案
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="feature-card rounded-lg p-8 content-transition">
+<div class="mb-6">
+<img src="https://readdy.ai/api/search-image?query=modern%20luxury%20family%20home%20interior%20with%20advanced%20technology%2C%20smart%20home%20devices%2C%20elegant%20living%20room%20with%20contemporary%20furniture%2C%20clean%20minimalist%20design%2C%20warm%20lighting%2C%20family%20enjoying%20technology%2C%20high-end%20residential%20setting&width=400&height=250&seq=4&orientation=landscape" alt="高端家庭用户" class="w-full h-48 object-cover object-top rounded-lg">
+</div>
+<h3 class="text-xl font-bold mb-4" data-translate="user-family">高端家庭用户</h3>
+<p class="text-gray-400 mb-4" data-translate="user-family-desc">
+追求品质生活的家庭，需要智能化家庭助理服务。
+</p>
+<ul class="space-y-2">
+<li class="flex items-center text-gray-300 text-sm">
+<div class="w-4 h-4 mr-2 flex items-center justify-center text-primary">
+<i class="ri-check-line"></i>
+</div>
+<span data-translate="user-family-1">家庭陪伴与娱乐</span>
+</li>
+<li class="flex items-center text-gray-300 text-sm">
+<div class="w-4 h-4 mr-2 flex items-center justify-center text-primary">
+<i class="ri-check-line"></i>
+</div>
+<span data-translate="user-family-2">智能家务协助</span>
+</li>
+<li class="flex items-center text-gray-300 text-sm">
+<div class="w-4 h-4 mr-2 flex items-center justify-center text-primary">
+<i class="ri-check-line"></i>
+</div>
+<span data-translate="user-family-3">安全监控服务</span>
+</li>
+</ul>
+</div>
+<div class="feature-card rounded-lg p-8 content-transition">
+<div class="mb-6">
+<img src="https://readdy.ai/api/search-image?query=modern%20university%20research%20laboratory%20with%20advanced%20robotics%20equipment%2C%20students%20and%20researchers%20working%20with%20robots%2C%20high-tech%20educational%20environment%2C%20clean%20scientific%20setting%2C%20STEM%20education%20atmosphere&width=400&height=250&seq=5&orientation=landscape" alt="教育科研机构" class="w-full h-48 object-cover object-top rounded-lg">
+</div>
+<h3 class="text-xl font-bold mb-4" data-translate="user-education">教育/科研机构</h3>
+<p class="text-gray-400 mb-4" data-translate="user-education-desc">
+高等院校、研究所等需要先进机器人平台进行教学和研究。
+</p>
+<ul class="space-y-2">
+<li class="flex items-center text-gray-300 text-sm">
+<div class="w-4 h-4 mr-2 flex items-center justify-center text-secondary">
+<i class="ri-check-line"></i>
+</div>
+<span data-translate="user-education-1">机器人学教学</span>
+</li>
+<li class="flex items-center text-gray-300 text-sm">
+<div class="w-4 h-4 mr-2 flex items-center justify-center text-secondary">
+<i class="ri-check-line"></i>
+</div>
+<span data-translate="user-education-2">AI 算法研究</span>
+</li>
+<li class="flex items-center text-gray-300 text-sm">
+<div class="w-4 h-4 mr-2 flex items-center justify-center text-secondary">
+<i class="ri-check-line"></i>
+</div>
+<span data-translate="user-education-3">开放开发平台</span>
+</li>
+</ul>
+</div>
+<div class="feature-card rounded-lg p-8 content-transition">
+<div class="mb-6">
+<img src="https://readdy.ai/api/search-image?query=modern%20exhibition%20hall%20with%20advanced%20technology%20displays%2C%20professional%20trade%20show%20environment%2C%20futuristic%20product%20demonstrations%2C%20corporate%20exhibition%20space%2C%20clean%20professional%20setting%2C%20business%20presentation%20atmosphere&width=400&height=250&seq=6&orientation=landscape" alt="展示展会场所" class="w-full h-48 object-cover object-top rounded-lg">
+</div>
+<h3 class="text-xl font-bold mb-4" data-translate="user-exhibition">展示展会场所</h3>
+<p class="text-gray-400 mb-4" data-translate="user-exhibition-desc">
+科技展览、商业活动等需要吸引眼球的创新展示方案。
+</p>
+<ul class="space-y-2">
+<li class="flex items-center text-gray-300 text-sm">
+<div class="w-4 h-4 mr-2 flex items-center justify-center text-blue-400">
+<i class="ri-check-line"></i>
+</div>
+<span data-translate="user-exhibition-1">互动展示体验</span>
+</li>
+<li class="flex items-center text-gray-300 text-sm">
+<div class="w-4 h-4 mr-2 flex items-center justify-center text-blue-400">
+<i class="ri-check-line"></i>
+</div>
+<span data-translate="user-exhibition-2">品牌形象提升</span>
+</li>
+<li class="flex items-center text-gray-300 text-sm">
+<div class="w-4 h-4 mr-2 flex items-center justify-center text-blue-400">
+<i class="ri-check-line"></i>
+</div>
+<span data-translate="user-exhibition-3">技术实力展现</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-[#0A0A1F]">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16 content-transition">
+<h2 class="text-3xl md:text-4xl font-bold mb-4" data-translate="section-performance">性能指标</h2>
+<p class="text-xl text-gray-400 max-w-3xl mx-auto" data-translate="performance-description">
+精确的技术参数展示产品的卓越性能
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="content-transition">
+<div class="mb-8">
+<h3 class="text-2xl font-bold mb-4" data-translate="performance-title">性能表现</h3>
+<p class="text-gray-400" data-translate="performance-subtitle">
+羲梵机器人在各项关键性能指标上均达到行业领先水平，为用户提供卓越的使用体验。
+</p>
+</div>
+<div id="performance-chart" class="w-full h-80 rounded-lg overflow-hidden"></div>
+</div>
+<div class="space-y-6 content-transition">
+<div class="bg-[#1A1A3F] rounded-lg p-6">
+<div class="flex items-center justify-between mb-4">
+<h4 class="text-lg font-bold" data-translate="metric-transform">变形速度</h4>
+<span class="text-2xl font-bold text-primary">< 3s</span>
+</div>
+<div class="w-full bg-gray-700 rounded-full h-2">
+<div class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="width: 95%"></div>
+</div>
+</div>
+<div class="bg-[#1A1A3F] rounded-lg p-6">
+<div class="flex items-center justify-between mb-4">
+<h4 class="text-lg font-bold" data-translate="metric-battery">续航时间</h4>
+<span class="text-2xl font-bold text-secondary">8h</span>
+</div>
+<div class="w-full bg-gray-700 rounded-full h-2">
+<div class="bg-gradient-to-r from-secondary to-primary h-2 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div class="bg-[#1A1A3F] rounded-lg p-6">
+<div class="flex items-center justify-between mb-4">
+<h4 class="text-lg font-bold" data-translate="metric-response">AI 响应速度</h4>
+<span class="text-2xl font-bold text-primary">< 500ms</span>
+</div>
+<div class="w-full bg-gray-700 rounded-full h-2">
+<div class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="width: 90%"></div>
+</div>
+</div>
+<div class="bg-[#1A1A3F] rounded-lg p-6">
+<div class="flex items-center justify-between mb-4">
+<h4 class="text-lg font-bold" data-translate="metric-precision">定位精度</h4>
+<span class="text-2xl font-bold text-secondary">± 5cm</span>
+</div>
+<div class="w-full bg-gray-700 rounded-full h-2">
+<div class="bg-gradient-to-r from-secondary to-primary h-2 rounded-full" style="width: 92%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="contact" class="py-20 bg-[#0F0F2F]">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16 content-transition">
+<h2 class="text-3xl md:text-4xl font-bold mb-4" data-translate="section-contact">联系我们</h2>
+<p class="text-xl text-gray-400 max-w-3xl mx-auto" data-translate="contact-description">
+了解更多产品信息或预约体验，请联系我们的专业团队
+</p>
+</div>
+<div class="flex justify-center">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
+<div class="bg-[#1A1A3F] rounded-lg p-6 content-transition">
+<div class="flex items-start">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4 mt-1">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-mail-line text-primary"></i>
+</div>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-2" data-translate="contact-email">邮件咨询</h3>
+<p class="text-gray-300 mb-2" data-translate="contact-email-desc">产品咨询与技术支持：</p>
+<a href="mailto:contact@e2ec.biz" class="text-primary hover:text-white transition-colors duration-300">contact@e2ec.biz</a>
+</div>
+</div>
+</div>
+<div class="bg-[#1A1A3F] rounded-lg p-6 content-transition">
+<div class="flex items-start">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4 mt-1">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-map-pin-line text-primary"></i>
+</div>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-2" data-translate="contact-address">访问地址</h3>
+<p class="text-gray-300" data-translate="contact-address-desc">
+日本东京都中央区银座 7-13-20 银座 TH 大厦 9 层（邮编：104-0061）
+</p>
+</div>
+</div>
+</div>
+<div class="bg-[#1A1A3F] rounded-lg p-6 content-transition">
+<div class="flex items-start">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4 mt-1">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-time-line text-primary"></i>
+</div>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-2" data-translate="contact-hours">服务时间</h3>
+<p class="text-gray-300 mb-2">
+<span data-translate="contact-weekdays">周一至周五</span>：<span data-translate="contact-time">上午 9:00 - 下午 6:00</span>（<span data-translate="contact-timezone">日本标准时间</span>）
+</p>
+<p class="text-gray-400" data-translate="contact-holidays">
+周末和日本国定假日休息
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-[#0A0A1F] pt-16 pb-8">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
+<div class="md:col-span-3">
+<a href="#" id="footer-logo" class="inline-block mb-6">
+<div class="flex items-center">
+<img src="https://static.readdy.ai/image/53a4d54aa374b01413a309defbaefd8a/890389b5e509c8efbf5dd3ca6b3b0c06.png" alt="Logo" class="h-10 w-10 mr-2">
+<span class="text-2xl font-['-apple-system,BlinkMacSystemFont,SF_Pro_Display,Helvetica_Neue,Arial'] font-medium bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tracking-tight">E2E</span>
+</div>
+</a>
+<p class="text-gray-400 mb-6" data-translate="footer-tagline">
+从地球到木卫二 - 加速人类成为跨星际物种的进程。
+</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-twitter-x-line text-white"></i>
+</div>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-linkedin-line text-white"></i>
+</div>
+</a>
+<a href="https://github.com/admin-e2ec" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-github-line text-white"></i>
+</div>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-[#1A1A3F] flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-youtube-line text-white"></i>
+</div>
+</a>
+</div>
+</div>
+<div class="md:col-span-5 grid grid-cols-2 gap-8">
+<div>
+<h3 class="text-lg font-bold mb-6" data-translate="footer-services">服务</h3>
+<ul class="space-y-4">
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300" data-translate="footer-service-1">
+信息技术软件研发
+</a>
+</li>
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300" data-translate="footer-service-2">
+人工智能技术研发
+</a>
+</li>
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300" data-translate="footer-service-3">
+机器人研发
+</a>
+</li>
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300" data-translate="footer-service-4">
+咨询服务
+</a>
+</li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-6" data-translate="footer-products">产品</h3>
+<ul class="space-y-4">
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300" data-translate="footer-product-1">
+羲梵机器人
+</a>
+</li>
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300" data-translate="footer-product-2">
+神经感知人工智能
+</a>
+</li>
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300" data-translate="footer-product-3">
+人形机器人
+</a>
+</li>
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300" data-translate="footer-product-4">
+企业智能助手
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="md:col-span-2">
+<h3 class="text-lg font-bold mb-6" data-translate="footer-company">公司</h3>
+<ul class="space-y-4">
+<li>
+<a href="#about" class="text-gray-400 hover:text-primary transition-colors duration-300" data-translate="footer-company-1">
+关于我们
+</a>
+</li>
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300" data-translate="footer-company-2">
+招聘
+</a>
+</li>
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300" data-translate="footer-company-3">
+新闻
+</a>
+</li>
+<li>
+<a href="#contact" class="text-gray-400 hover:text-primary transition-colors duration-300" data-translate="footer-company-4">
+联系我们
+</a>
+</li>
+</ul>
+</div>
+<div class="md:col-span-2">
+<h3 class="text-lg font-bold mb-6" data-translate="footer-legal">法律</h3>
+<ul class="space-y-4">
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300" data-translate="footer-legal-1">
+服务条款
+</a>
+</li>
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300" data-translate="footer-legal-2">
+隐私政策
+</a>
+</li>
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300" data-translate="footer-legal-3">
+Cookie 政策
+</a>
+</li>
+<li>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300" data-translate="footer-legal-4">
+安全
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-500 text-sm mb-4 md:mb-0" data-translate="footer-copyright">
+&copy; 2025 E2E Consulting LLC. All rights reserved.
+</p>
+<div class="flex items-center space-x-4">
+<div class="flex items-center">
+<div class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-visa-line text-gray-400 ri-lg"></i>
+</div>
+<div class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-mastercard-line text-gray-400 ri-lg"></i>
+</div>
+<div class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-paypal-line text-gray-400 ri-lg"></i>
+</div>
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-alipay-line text-gray-400 ri-lg"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script id="scroll-to-top">
+document.addEventListener('DOMContentLoaded', function() {
+const footerLogo = document.getElementById('footer-logo');
+if (footerLogo) {
+footerLogo.addEventListener('click', function(e) {
+e.preventDefault();
+window.scrollTo({
+top: 0,
+behavior: 'smooth'
+});
+});
+}
+});
+</script>
+<script id="mobile-menu-toggle">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+if (mobileMenuButton && mobileMenu) {
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+});
+}
+});
+</script>
+<script id="multilingual-system">
+document.addEventListener('DOMContentLoaded', function() {
+const translations = {
+zh: {
+'nav-home': '首页',
+'nav-services': '服务',
+'nav-products': '产品',
+'nav-about': '关于我们',
+'nav-contact': '联系我们',
+'hero-title': '羲梵机器人',
+'hero-subtitle': '双形态变形机器人',
+'hero-description': '行业首个可在人形机器人与机器狗之间自动切换的消费级机器人，3 秒内完成形态变换，开启智能家居新时代。',
+'btn-learn-more': '了解更多',
+'btn-contact': '联系我们',
+'section-overview': '产品概述',
+'overview-description': '羲梵机器人是一款革命性的双形态变形机器人，能够在人形机器人和机器狗两种形态之间自由切换，为不同场景提供最优化的服务体验。',
+'mode-humanoid': '人形模式',
+'mode-quadruped': '机器狗模式',
+'feature-interaction': '自然人机交互与对话',
+'feature-manipulation': '精准物品抓取与递送',
+'feature-assistant': '家庭助理与陪伴服务',
+'feature-mobility': '灵活穿行低矮空间',
+'feature-patrol': '远程巡视与监控',
+'feature-companion': '宠物陪伴与娱乐',
+'transform-speed': '3 秒快速变形',
+'transform-description': '采用模块化四肢设计和可收缩关节系统，配备先进的结构识别算法，实现快速、稳定的形态切换。',
+'transform-time': '变形时间',
+'stability': '稳定性',
+'section-features': '核心功能',
+'features-description': '集成多项前沿技术，为用户提供全方位的智能服务体验',
+'feature-transform-system': '形态切换系统',
+'feature-transform-desc': '模块化四肢设计配合可收缩关节，3 秒内完成人形与机器狗形态的无缝切换。',
+'feature-multimodal': '多模态交互系统',
+'feature-multimodal-desc': '支持语音、手势、触摸、APP 远程控制，搭载本地大语言模型，提供自然流畅的交互体验。',
+'feature-perception': '感知与导航',
+'feature-perception-desc': '360° 深度摄像头配合激光雷达，实现精准的 SLAM 自主定位与智能避障。',
+'feature-algorithm': '自动结构识别算法',
+'feature-feedback': '稳定传感反馈机制',
+'feature-ai-engine': '本地 AI 推理引擎',
+'feature-display': '表情显示面板',
+'feature-night-vision': '夜视巡视功能',
+'feature-mapping': '环境地图构建',
+'home-scenarios': '家庭场景功能',
+'scenario-delivery': '智能送物',
+'scenario-delivery-desc': '托盘式双臂或背负式送物服务',
+'scenario-security': '安全巡视',
+'scenario-security-desc': '定时巡视与警报通知功能',
+'scenario-companion': '陪伴服务',
+'scenario-companion-desc': '对话、讲故事、播放音乐',
+'scenario-housework': '家务助手',
+'scenario-housework-desc': '清扫、叠衣、简单料理',
+'section-tech': '技术架构',
+'tech-description': '采用业界领先的硬件平台与软件架构，确保系统稳定性与扩展性',
+'table-module': '模块',
+'table-tech': '技术/平台',
+'table-features': '特性',
+'tech-hardware': '硬件平台',
+'tech-hardware-desc': '高性能计算，精密控制',
+'tech-ai': 'AI 平台',
+'tech-ai-desc': '本地推理，隐私保护',
+'tech-software': '软件架构',
+'tech-software-desc': '跨平台，实时通信',
+'tech-models': '本地模型',
+'tech-models-desc': '多模型支持，灵活部署',
+'tech-cloud': '云端支持',
+'tech-cloud-desc': '本地云端双模式',
+'section-advantages': '竞争优势',
+'advantages-description': '行业领先的技术创新与产品设计理念',
+'advantage-first': '行业首创',
+'advantage-first-desc': '首个实现形态自切换的消费级机器人，开创双形态机器人新品类。',
+'advantage-privacy': '隐私安全',
+'advantage-privacy-desc': '本地 AI 与云 AI 自由切换，保障用户隐私的同时提供低延迟响应。',
+'advantage-ecosystem': '生态扩展',
+'advantage-ecosystem-desc': '同时覆盖人形与狗形机器人应用场景，支持插件式模块扩展。',
+'section-users': '目标用户',
+'users-description': '为不同场景用户提供定制化的智能机器人解决方案',
+'user-family': '高端家庭用户',
+'user-family-desc': '追求品质生活的家庭，需要智能化家庭助理服务。',
+'user-family-1': '家庭陪伴与娱乐',
+'user-family-2': '智能家务协助',
+'user-family-3': '安全监控服务',
+'user-education': '教育/科研机构',
+'user-education-desc': '高等院校、研究所等需要先进机器人平台进行教学和研究。',
+'user-education-1': '机器人学教学',
+'user-education-2': 'AI 算法研究',
+'user-education-3': '开放开发平台',
+'user-exhibition': '展示展会场所',
+'user-exhibition-desc': '科技展览、商业活动等需要吸引眼球的创新展示方案。',
+'user-exhibition-1': '互动展示体验',
+'user-exhibition-2': '品牌形象提升',
+'user-exhibition-3': '技术实力展现',
+'section-performance': '性能指标',
+'performance-description': '精确的技术参数展示产品的卓越性能',
+'performance-title': '性能表现',
+'performance-subtitle': '羲梵机器人在各项关键性能指标上均达到行业领先水平，为用户提供卓越的使用体验。',
+'metric-transform': '变形速度',
+'metric-battery': '续航时间',
+'metric-response': 'AI 响应速度',
+'metric-precision': '定位精度',
+'section-contact': '联系我们',
+'contact-description': '了解更多产品信息或预约体验，请联系我们的专业团队',
+'contact-email': '邮件咨询',
+'contact-email-desc': '产品咨询与技术支持：',
+'contact-address': '访问地址',
+'contact-address-desc': '日本东京都中央区银座 7-13-20 银座 TH 大厦 9 层（邮编：104-0061）',
+'contact-hours': '服务时间',
+'contact-weekdays': '周一至周五',
+'contact-time': '上午 9:00 - 下午 6:00',
+'contact-timezone': '日本标准时间',
+'contact-holidays': '周末和日本国定假日休息',
+'footer-tagline': '从地球到木卫二 - 加速人类成为跨星际物种的进程。',
+'footer-services': '服务',
+'footer-service-1': '信息技术软件研发',
+'footer-service-2': '人工智能技术研发',
+'footer-service-3': '机器人研发',
+'footer-service-4': '咨询服务',
+'footer-products': '产品',
+'footer-product-1': '羲梵机器人',
+'footer-product-2': '神经感知人工智能',
+'footer-product-3': '人形机器人',
+'footer-product-4': '企业智能助手',
+'footer-company': '公司',
+'footer-company-1': '关于我们',
+'footer-company-2': '招聘',
+'footer-company-3': '新闻',
+'footer-company-4': '联系我们',
+'footer-legal': '法律',
+'footer-legal-1': '服务条款',
+'footer-legal-2': '隐私政策',
+'footer-legal-3': 'Cookie 政策',
+'footer-legal-4': '安全',
+'footer-copyright': '© 2025 E2E Consulting LLC. All rights reserved.'
+},
+en: {
+'nav-home': 'Home',
+'nav-services': 'Services',
+'nav-products': 'Products',
+'nav-about': 'About Us',
+'nav-contact': 'Contact',
+'hero-title': 'XiFan Robot',
+'hero-subtitle': 'Dual Form Transforming Robot',
+'hero-description': 'The industry\'s first consumer-grade robot capable of automatically switching between humanoid and robotic dog forms, completing transformation within 3 seconds, ushering in a new era of smart home living.',
+'btn-learn-more': 'Learn More',
+'btn-contact': 'Contact Us',
+'section-overview': 'Product Overview',
+'overview-description': 'XiFan Robot is a revolutionary dual-form transforming robot that can freely switch between humanoid robot and robotic dog forms, providing optimized service experiences for different scenarios.',
+'mode-humanoid': 'Humanoid Mode',
+'mode-quadruped': 'Robotic Dog Mode',
+'feature-interaction': 'Natural human-robot interaction and dialogue',
+'feature-manipulation': 'Precise object grasping and delivery',
+'feature-assistant': 'Home assistant and companion services',
+'feature-mobility': 'Flexible navigation in low spaces',
+'feature-patrol': 'Remote patrol and monitoring',
+'feature-companion': 'Pet companionship and entertainment',
+'transform-speed': '3-Second Quick Transform',
+'transform-description': 'Using modular limb design and retractable joint systems, equipped with advanced structural recognition algorithms, achieving fast and stable form switching.',
+'transform-time': 'Transform Time',
+'stability': 'Stability',
+'section-features': 'Core Features',
+'features-description': 'Integrating multiple cutting-edge technologies to provide comprehensive intelligent service experiences',
+'feature-transform-system': 'Form Switching System',
+'feature-transform-desc': 'Modular limb design with retractable joints, completing seamless switching between humanoid and robotic dog forms within 3 seconds.',
+'feature-multimodal': 'Multimodal Interaction System',
+'feature-multimodal-desc': 'Supporting voice, gesture, touch, and APP remote control, equipped with local large language models for natural and smooth interaction experiences.',
+'feature-perception': 'Perception and Navigation',
+'feature-perception-desc': '360° depth cameras combined with LiDAR for precise SLAM autonomous positioning and intelligent obstacle avoidance.',
+'feature-algorithm': 'Automatic structure recognition algorithm',
+'feature-feedback': 'Stable sensor feedback mechanism',
+'feature-ai-engine': 'Local AI inference engine',
+'feature-display': 'Expression display panel',
+'feature-night-vision': 'Night vision patrol function',
+'feature-mapping': 'Environmental map construction',
+'home-scenarios': 'Home Scenario Functions',
+'scenario-delivery': 'Smart Delivery',
+'scenario-delivery-desc': 'Tray-style dual-arm or backpack delivery services',
+'scenario-security': 'Security Patrol',
+'scenario-security-desc': 'Scheduled patrol and alert notification functions',
+'scenario-companion': 'Companion Services',
+'scenario-companion-desc': 'Conversation, storytelling, music playback',
+'scenario-housework': 'Household Assistant',
+'scenario-housework-desc': 'Cleaning, folding clothes, simple cooking',
+'section-tech': 'Technical Architecture',
+'tech-description': 'Using industry-leading hardware platforms and software architectures to ensure system stability and scalability',
+'table-module': 'Module',
+'table-tech': 'Technology/Platform',
+'table-features': 'Features',
+'tech-hardware': 'Hardware Platform',
+'tech-hardware-desc': 'High-performance computing, precise control',
+'tech-ai': 'AI Platform',
+'tech-ai-desc': 'Local inference, privacy protection',
+'tech-software': 'Software Architecture',
+'tech-software-desc': 'Cross-platform, real-time communication',
+'tech-models': 'Local Models',
+'tech-models-desc': 'Multi-model support, flexible deployment',
+'tech-cloud': 'Cloud Support',
+'tech-cloud-desc': 'Local-cloud dual mode',
+'section-advantages': 'Competitive Advantages',
+'advantages-description': 'Industry-leading technological innovation and product design philosophy',
+'advantage-first': 'Industry First',
+'advantage-first-desc': 'The first consumer-grade robot to achieve autonomous form switching, creating a new category of dual-form robots.',
+'advantage-privacy': 'Privacy Security',
+'advantage-privacy-desc': 'Free switching between local AI and cloud AI, ensuring user privacy while providing low-latency responses.',
+'advantage-ecosystem': 'Ecosystem Expansion',
+'advantage-ecosystem-desc': 'Covering both humanoid and quadruped robot application scenarios, supporting plug-in module expansion.',
+'section-users': 'Target Users',
+'users-description': 'Providing customized intelligent robot solutions for users in different scenarios',
+'user-family': 'High-end Family Users',
+'user-family-desc': 'Families pursuing quality life who need intelligent home assistant services.',
+'user-family-1': 'Family companionship and entertainment',
+'user-family-2': 'Smart household assistance',
+'user-family-3': 'Security monitoring services',
+'user-education': 'Educational/Research Institutions',
+'user-education-desc': 'Universities and research institutes that need advanced robot platforms for teaching and research.',
+'user-education-1': 'Robotics education',
+'user-education-2': 'AI algorithm research',
+'user-education-3': 'Open development platform',
+'user-exhibition': 'Exhibition and Trade Show Venues',
+'user-exhibition-desc': 'Technology exhibitions and business events that need eye-catching innovative display solutions.',
+'user-exhibition-1': 'Interactive display experiences',
+'user-exhibition-2': 'Brand image enhancement',
+'user-exhibition-3': 'Technical capability demonstration',
+'section-performance': 'Performance Metrics',
+'performance-description': 'Precise technical parameters showcasing the product\'s excellent performance',
+'performance-title': 'Performance Results',
+'performance-subtitle': 'XiFan Robot achieves industry-leading levels in all key performance indicators, providing users with an excellent experience.',
+'metric-transform': 'Transform Speed',
+'metric-battery': 'Battery Life',
+'metric-response': 'AI Response Speed',
+'metric-precision': 'Positioning Accuracy',
+'section-contact': 'Contact Us',
+'contact-description': 'For more product information or to schedule an experience, please contact our professional team',
+'contact-email': 'Email Inquiry',
+'contact-email-desc': 'Product consultation and technical support:',
+'contact-address': 'Visit Address',
+'contact-address-desc': '9F Ginza TH Building, 7-13-20 Ginza, Chuo-ku, Tokyo, Japan (Postal Code: 104-0061)',
+'contact-hours': 'Service Hours',
+'contact-weekdays': 'Monday to Friday',
+'contact-time': '9:00 AM - 6:00 PM',
+'contact-timezone': 'Japan Standard Time',
+'contact-holidays': 'Closed on weekends and Japanese national holidays',
+'footer-tagline': 'From Earth to Europa - Accelerating humanity\'s journey to become an interstellar species.',
+'footer-services': 'Services',
+'footer-service-1': 'Information Technology Software Development',
+'footer-service-2': 'Artificial Intelligence Technology Development',
+'footer-service-3': 'Robot Development',
+'footer-service-4': 'Consulting Services',
+'footer-products': 'Products',
+'footer-product-1': 'XiFan Robot',
+'footer-product-2': 'Neural Perception AI',
+'footer-product-3': 'Humanoid Robot',
+'footer-product-4': 'Enterprise AI Assistant',
+'footer-company': 'Company',
+'footer-company-1': 'About Us',
+'footer-company-2': 'Careers',
+'footer-company-3': 'News',
+'footer-company-4': 'Contact Us',
+'footer-legal': 'Legal',
+'footer-legal-1': 'Terms of Service',
+'footer-legal-2': 'Privacy Policy',
+'footer-legal-3': 'Cookie Policy',
+'footer-legal-4': 'Security',
+'footer-copyright': '© 2025 E2E Consulting LLC. All rights reserved.'
+},
+ja: {
+'nav-home': 'ホーム',
+'nav-services': 'サービス',
+'nav-products': '製品',
+'nav-about': '会社概要',
+'nav-contact': 'お問い合わせ',
+'hero-title': 'シーファン ロボット',
+'hero-subtitle': 'デュアルフォーム変形ロボット',
+'hero-description': '業界初、人型ロボットと犬型ロボットの間で自動変形が可能な家庭用ロボット。3秒以内で形態変換を完了し、スマートホームの新時代を切り開きます。',
+'btn-learn-more': '詳細を見る',
+'btn-contact': 'お問い合わせ',
+'section-overview': '製品概要',
+'overview-description': 'シーファンロボットは革命的なデュアルフォーム変形ロボットで、人型ロボットと犬型ロボットの2つの形態間で自由に切り替えができ、異なるシナリオに最適化されたサービス体験を提供します。',
+'mode-humanoid': '人型モード',
+'mode-quadruped': '犬型モード',
+'feature-interaction': '自然な人間-ロボット対話',
+'feature-manipulation': '精密な物体把持と配送',
+'feature-assistant': '家庭アシスタントと付き添いサービス',
+'feature-mobility': '低い空間での柔軟な移動',
+'feature-patrol': '遠隔巡回と監視',
+'feature-companion': 'ペットの付き添いと娯楽',
+'transform-speed': '3秒高速変形',
+'transform-description': 'モジュラー四肢設計と収縮可能な関節システムを採用し、先進的な構造認識アルゴリズムを搭載して、高速で安定した形態切り替えを実現します。',
+'transform-time': '変形時間',
+'stability': '安定性',
+'section-features': '主な機能',
+'features-description': '複数の最先端技術を統合し、包括的なインテリジェントサービス体験を提供',
+'feature-transform-system': '形態切り替えシステム',
+'feature-transform-desc': 'モジュラー四肢設計と収縮可能な関節により、3秒以内で人型と犬型形態のシームレスな切り替えを完了します。',
+'feature-multimodal': 'マルチモーダル対話システム',
+'feature-multimodal-desc': '音声、ジェスチャー、タッチ、アプリ遠隔制御をサポートし、ローカル大規模言語モデルを搭載して自然で滑らかな対話体験を提供します。',
+'feature-perception': '知覚とナビゲーション',
+'feature-perception-desc': '360°深度カメラとLiDARを組み合わせて、精密なSLAM自律測位とインテリジェント障害物回避を実現します。',
+'feature-algorithm': '自動構造認識アルゴリズム',
+'feature-feedback': '安定センサーフィードバック機構',
+'feature-ai-engine': 'ローカルAI推論エンジン',
+'feature-display': '表情表示パネル',
+'feature-night-vision': '夜間視覚巡回機能',
+'feature-mapping': '環境マップ構築',
+'home-scenarios': '家庭シナリオ機能',
+'scenario-delivery': 'スマート配送',
+'scenario-delivery-desc': 'トレイ式デュアルアームまたはバックパック配送サービス',
+'scenario-security': 'セキュリティ巡回',
+'scenario-security-desc': '定期巡回とアラート通知機能',
+'scenario-companion': '付き添いサービス',
+'scenario-companion-desc': '会話、物語、音楽再生',
+'scenario-housework': '家事アシスタント',
+'scenario-housework-desc': '掃除、洗濯物たたみ、簡単な料理',
+'section-tech': '技術アーキテクチャ',
+'tech-description': '業界をリードするハードウェアプラットフォームとソフトウェアアーキテクチャを採用し、システムの安定性と拡張性を確保',
+'table-module': 'モジュール',
+'table-tech': '技術/プラットフォーム',
+'table-features': '特徴',
+'tech-hardware': 'ハードウェアプラットフォーム',
+'tech-hardware-desc': '高性能コンピューティング、精密制御',
+'tech-ai': 'AIプラットフォーム',
+'tech-ai-desc': 'ローカル推論、プライバシー保護',
+'tech-software': 'ソフトウェアアーキテクチャ',
+'tech-software-desc': 'クロスプラットフォーム、リアルタイム通信',
+'tech-models': 'ローカルモデル',
+'tech-models-desc': 'マルチモデルサポート、柔軟な展開',
+'tech-cloud': 'クラウドサポート',
+'tech-cloud-desc': 'ローカル-クラウドデュアルモード',
+'section-advantages': '競争優位性',
+'advantages-description': '業界をリードする技術革新と製品設計理念',
+'advantage-first': '業界初',
+'advantage-first-desc': '自律形態切り替えを実現した初の家庭用ロボットで、デュアルフォームロボットの新カテゴリーを創造。',
+'advantage-privacy': 'プライバシーセキュリティ',
+'advantage-privacy-desc': 'ローカルAIとクラウドAIの自由な切り替えで、ユーザープライバシーを保護しながら低遅延応答を提供。',
+'advantage-ecosystem': 'エコシステム拡張',
+'advantage-ecosystem-desc': '人型と四足ロボットの両方のアプリケーションシナリオをカバーし、プラグインモジュール拡張をサポート。',
+'section-users': 'ターゲットユーザー',
+'users-description': '異なるシナリオのユーザーにカスタマイズされたインテリジェントロボットソリューションを提供',
+'user-family': 'ハイエンド家庭ユーザー',
+'user-family-desc': '品質の高い生活を追求し、インテリジェント家庭アシスタントサービスを必要とする家庭。',
+'user-family-1': '家族の付き添いと娯楽',
+'user-family-2': 'スマート家事支援',
+'user-family-3': 'セキュリティ監視サービス',
+'user-education': '教育/研究機関',
+'user-education-desc': '教育と研究のために先進的なロボットプラットフォームを必要とする大学や研究所。',
+'user-education-1': 'ロボット工学教育',
+'user-education-2': 'AIアルゴリズム研究',
+'user-education-3': 'オープン開発プラットフォーム',
+'user-exhibition': '展示・展示会会場',
+'user-exhibition-desc': '注目を集める革新的な展示ソリューションを必要とする技術展示会やビジネスイベント。',
+'user-exhibition-1': 'インタラクティブ展示体験',
+'user-exhibition-2': 'ブランドイメージ向上',
+'user-exhibition-3': '技術力の実証',
+'section-performance': '性能指標',
+'performance-description': '製品の優れた性能を示す精密な技術パラメータ',
+'performance-title': '性能結果',
+'performance-subtitle': 'シーファンロボットは、すべての主要性能指標で業界をリードするレベルを達成し、ユーザーに優れた体験を提供します。',
+'metric-transform': '変形速度',
+'metric-battery': 'バッテリー寿命',
+'metric-response': 'AI応答速度',
+'metric-precision': '測位精度',
+'section-contact': 'お問い合わせ',
+'contact-description': '製品の詳細情報や体験予約については、専門チームまでお問い合わせください',
+'contact-email': 'メールでのお問い合わせ',
+'contact-email-desc': '製品相談と技術サポート：',
+'contact-address': '訪問先住所',
+'contact-address-desc': '東京都中央区銀座7-13-20 銀座THビル9階（郵便番号：104-0061）',
+'contact-hours': '営業時間',
+'contact-weekdays': '月曜日～金曜日',
+'contact-time': '午前9時～午後6時',
+'contact-timezone': '日本標準時',
+'contact-holidays': '土日祝日休業',
+'footer-tagline': '地球からエウロパへ - 人類の星間種族への進歩を加速する。',
+'footer-services': 'サービス',
+'footer-service-1': '情報技術ソフトウェア開発',
+'footer-service-2': '人工知能技術開発',
+'footer-service-3': 'ロボット開発',
+'footer-service-4': 'コンサルティングサービス',
+'footer-products': '製品',
+'footer-product-1': 'シーファンロボット',
+'footer-product-2': '神経知覚AI',
+'footer-product-3': '人型ロボット',
+'footer-product-4': '企業AIアシスタント',
+'footer-company': '会社',
+'footer-company-1': '会社概要',
+'footer-company-2': '採用',
+'footer-company-3': 'ニュース',
+'footer-company-4': 'お問い合わせ',
+'footer-legal': '法的事項',
+'footer-legal-1': '利用規約',
+'footer-legal-2': 'プライバシーポリシー',
+'footer-legal-3': 'Cookieポリシー',
+'footer-legal-4': 'セキュリティ',
+'footer-copyright': '© 2025 E2E Consulting LLC. All rights reserved.'
+}
+};
+const languageNames = {
+zh: '简体中文',
+en: 'English',
+ja: '日本語'
+};
+let currentLang = localStorage.getItem('preferred-language') || 'ja';
+function translatePage(lang) {
+document.body.setAttribute('data-lang', lang);
+document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh' : lang === 'ja' ? 'ja' : 'en');
+const langTranslations = translations[lang];
+if (!langTranslations) return;
+document.querySelectorAll('[data-translate]').forEach(element => {
+const key = element.getAttribute('data-translate');
+if (langTranslations[key]) {
+element.textContent = langTranslations[key];
+}
+});
+document.title = langTranslations['hero-title'] + ' - ' + langTranslations['hero-subtitle'] + ' | E2E Consulting';
+document.getElementById('current-language').textContent = languageNames[lang];
+const contentElements = document.querySelectorAll('.content-transition');
+contentElements.forEach(element => {
+element.classList.add('fade-in');
+});
+setTimeout(() => {
+contentElements.forEach(element => {
+element.classList.remove('fade-in');
+});
+}, 500);
+localStorage.setItem('preferred-language', lang);
+currentLang = lang;
+if (window.performanceChart) {
+updateChartLanguage(lang);
+}
+}
+function updateChartLanguage(lang) {
+const chartLabels = {
+zh: ['变形速度', 'AI响应', '定位精度', '续航时间', '稳定性', '交互体验'],
+en: ['Transform Speed', 'AI Response', 'Positioning', 'Battery Life', 'Stability', 'Interaction'],
+ja: ['変形速度', 'AI応答', '測位精度', 'バッテリー', '安定性', 'インタラクション']
+};
+const option = window.performanceChart.getOption();
+option.xAxis.data = chartLabels[lang];
+window.performanceChart.setOption(option);
+}
+document.querySelectorAll('.language-option').forEach(option => {
+option.addEventListener('click', function() {
+const lang = this.getAttribute('data-lang');
+translatePage(lang);
+});
+});
+translatePage(currentLang);
+});
+</script>
+<script id="particles-animation">
+document.addEventListener('DOMContentLoaded', function() {
+const heroParticles = document.querySelector('.hero-particles');
+if (heroParticles) {
+for (let i = 0; i < 20; i++) {
+const particle = document.createElement('div');
+particle.classList.add('particle');
+const size = Math.random() * 10 + 5;
+particle.style.width = `${size}px`;
+particle.style.height = `${size}px`;
+particle.style.left = `${Math.random() * 100}%`;
+particle.style.top = `${Math.random() * 100}%`;
+particle.style.animationDelay = `${Math.random() * 5}s`;
+particle.style.opacity = Math.random() * 0.5 + 0.1;
+const colors = ['rgba(0, 240, 255, 0.3)', 'rgba(176, 38, 255, 0.3)'];
+particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+heroParticles.appendChild(particle);
+}
+}
+});
+</script>
+<script id="performance-chart">
+document.addEventListener('DOMContentLoaded', function() {
+const chartElement = document.getElementById('performance-chart');
+if (chartElement) {
+window.performanceChart = echarts.init(chartElement);
+const performanceOption = {
+animation: false,
+grid: {
+top: 10,
+right: 10,
+bottom: 30,
+left: 60
+},
+xAxis: {
+type: 'category',
+data: ['变形速度', 'AI响应', '定位精度', '续航时间', '稳定性', '交互体验'],
+axisLine: {
+lineStyle: {
+color: '#444'
+}
+},
+axisLabel: {
+color: '#999',
+fontSize: 12
+}
+},
+yAxis: {
+type: 'value',
+max: 100,
+axisLine: {
+lineStyle: {
+color: '#444'
+}
+},
+splitLine: {
+lineStyle: {
+color: '#333'
+}
+},
+axisLabel: {
+color: '#999'
+}
+},
+tooltip: {
+trigger: 'axis',
+backgroundColor: 'rgba(255, 255, 255, 0.8)',
+textStyle: {
+color: '#1f2937'
+},
+formatter: function(params) {
+return params[0].name + ': ' + params[0].value + '%';
+}
+},
+series: [
+{
+name: '性能指标',
+type: 'bar',
+data: [95, 90, 92, 85, 98, 88],
+itemStyle: {
+color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+{ offset: 0, color: 'rgba(87, 181, 231, 1)' },
+{ offset: 1, color: 'rgba(176, 38, 255, 1)' }
+]),
+borderRadius: [4, 4, 0, 0]
+},
+barWidth: '60%'
+}
+]
+};
+window.performanceChart.setOption(performanceOption);
+window.addEventListener('resize', function() {
+window.performanceChart.resize();
+});
+}
+});
+</script>
+<script id="smooth-scroll">
+document.addEventListener('DOMContentLoaded', function() {
+const links = document.querySelectorAll('a[href^="#"]');
+links.forEach(link => {
+link.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href').substring(1);
+const targetElement = document.getElementById(targetId);
+if (targetElement) {
+targetElement.scrollIntoView({
+behavior: 'smooth'
+});
+}
+});
+});
+});
+</script>
+</body>
+</html>
