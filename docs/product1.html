@@ -1,0 +1,451 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>羲梵生活アシスタント - プロダクト紹介</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #dbeafe 0%, #e5d3ff 100%);
+            min-height: 100vh;
+            color: #1f2937;
+        }
+        
+        .container {
+            max-width: 375px;
+            margin: 0 auto;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #dbeafe 0%, #e5d3ff 100%);
+            position: relative;
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            max-width: 375px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(16px);
+            z-index: 50;
+            padding: 12px 16px;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .navbar-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .navbar-back {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #6b7280;
+        }
+        
+        .navbar-title {
+            font-size: 18px;
+            font-weight: bold;
+            background: linear-gradient(to right, #2563eb, #9333ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .content {
+            padding: 80px 16px 24px;
+        }
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .hero-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #3b82f6, #9333ea);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 32px;
+            color: white;
+        }
+        
+        .hero-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+        
+        .hero-description {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .section {
+            margin-bottom: 32px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 16px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #f3f4f6;
+        }
+        
+        .feature-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3b82f6, #9333ea);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .feature-text {
+            flex: 1;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 4px;
+        }
+        
+        .feature-description {
+            font-size: 14px;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+        
+        .screenshot-card {
+            background: white;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            border: 1px solid #f3f4f6;
+        }
+        
+        .screenshot-content {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .screenshot-image {
+            width: 96px;
+            height: 192px;
+            background: #f3f4f6;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .screenshot-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+        
+        .screenshot-text {
+            flex: 1;
+        }
+        
+        .screenshot-title {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 4px;
+        }
+        
+        .screenshot-description {
+            font-size: 14px;
+            color: #6b7280;
+        }
+        
+        .version-card {
+            background: white;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #f3f4f6;
+            text-align: center;
+        }
+        
+        .version-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #1f2937;
+        }
+        
+        .version-subtitle {
+            font-size: 12px;
+            color: #6b7280;
+        }
+        
+        .download-button {
+            background: linear-gradient(135deg, #3b82f6, #9333ea);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 28px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .download-section {
+            text-align: center;
+            margin-top: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Bar -->
+        <div class="navbar">
+            <div class="navbar-content">
+                <a href="#" class="navbar-back" onclick="window.history.back()">
+                    <i class="ri-arrow-left-line" style="font-size: 20px;"></i>
+                </a>
+                <h1 class="navbar-title">プロダクト紹介</h1>
+                <div style="width: 32px; height: 32px;"></div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Hero Section -->
+            <div class="hero">
+                <div class="hero-icon">
+                    <i class="ri-robot-line"></i>
+                </div>
+                <h2 class="hero-title">羲梵生活アシスタント</h2>
+                <p class="hero-description">
+                    最先端のマルチモーダル大規模言語モデル技術を採用し、ユーザーにインテリジェントな家庭生活サポートを提供します。将来的には西凡実体ロボットと連携し、仮想と現実が連動するスマートライフ体験を実現します。
+                </p>
+            </div>
+
+            <!-- Key Features -->
+            <div class="section">
+                <h3 class="section-title">主要機能</h3>
+                
+                <div class="feature-card">
+                    <div class="feature-content">
+                        <div class="feature-icon">
+                            <i class="ri-message-3-line"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4 class="feature-title">インテリジェントマルチモーダル対話</h4>
+                            <p class="feature-description">テキスト、音声、画像、動画など多様なインタラクション方式をサポートし、より自然なコミュニケーション体験を実現</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-content">
+                        <div class="feature-icon">
+                            <i class="ri-mic-line"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4 class="feature-title">音声日記機能</h4>
+                            <p class="feature-description">音声をテキストに変換して生活の瞬間を記録し、インテリジェントタグで分類管理</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-content">
+                        <div class="feature-icon">
+                            <i class="ri-calculator-line"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4 class="feature-title">OCR家庭財務管理</h4>
+                            <p class="feature-description">自動的にレシート情報を認識し、家計支出をデジタル管理、財務分析レポートを提供</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-content">
+                        <div class="feature-icon">
+                            <i class="ri-book-open-line"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4 class="feature-title">学習アシスタント</h4>
+                            <p class="feature-description">個人学習プランを作成し、知識問答とスキル向上をサポート</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-content">
+                        <div class="feature-icon">
+                            <i class="ri-global-line"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4 class="feature-title">多言語対応</h4>
+                            <p class="feature-description">複数言語の切り替えに対応し、国際化使用ニーズを満たす</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-content">
+                        <div class="feature-icon">
+                            <i class="ri-shield-check-line"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4 class="feature-title">プライバシーセキュリティ保護</h4>
+                            <p class="feature-description">完全なプライバシー設定とセキュリティ保護により、ユーザー情報の安全を確保</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screenshots -->
+            <div class="section">
+                <h3 class="section-title">インターフェース展示</h3>
+                
+                <div class="screenshot-card">
+                    <div class="screenshot-content">
+                        <div class="screenshot-image">
+                            <img src="https://readdy.ai/api/search-image?query=modern%20mobile%20app%20chat%20interface%20with%20gradient%20blue%20purple%20design%2C%20clean%20UI%2C%20message%20bubbles%2C%20elegant%20smartphone%20screen%20mockup%2C%20minimalist%20design%2C%20professional%20product%20photography%20style%2C%20soft%20lighting%2C%20white%20background&width=200&height=400&seq=401&orientation=portrait" alt="メイン画面">
+                        </div>
+                        <div class="screenshot-text">
+                            <h4 class="screenshot-title">メイン画面</h4>
+                            <p class="screenshot-description">アプリのメイン画面です</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="screenshot-content">
+                        <div class="screenshot-image">
+                            <img src="https://readdy.ai/api/search-image?query=mobile%20app%20voice%20recording%20interface%2C%20microphone%20button%2C%20audio%20waves%20visualization%2C%20modern%20UI%20design%2C%20smartphone%20screen%20mockup%2C%20blue%20purple%20gradient%20theme%2C%20clean%20interface%2C%20professional%20product%20photography&width=200&height=400&seq=402&orientation=portrait" alt="音声日記">
+                        </div>
+                        <div class="screenshot-text">
+                            <h4 class="screenshot-title">音声日記</h4>
+                            <p class="screenshot-description">音声日記機能です</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="screenshot-content">
+                        <div class="screenshot-image">
+                            <img src="https://readdy.ai/api/search-image?query=mobile%20app%20user%20profile%20settings%20interface%2C%20personal%20information%20management%2C%20modern%20UI%20design%2C%20smartphone%20screen%20mockup%2C%20clean%20layout%2C%20blue%20purple%20gradient%20theme%2C%20professional%20product%20photography&width=200&height=400&seq=403&orientation=portrait" alt="ユーザーセンター">
+                        </div>
+                        <div class="screenshot-text">
+                            <h4 class="screenshot-title">ユーザーセンター</h4>
+                            <p class="screenshot-description">ユーザーセンター機能です</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="screenshot-content">
+                        <div class="screenshot-image">
+                            <img src="https://readdy.ai/api/search-image?query=mobile%20app%20OCR%20receipt%20scanner%20interface%2C%20financial%20management%20dashboard%2C%20expense%20tracking%2C%20budget%20analysis%20charts%2C%20modern%20UI%20design%2C%20smartphone%20screen%20mockup%2C%20blue%20purple%20gradient%20theme%2C%20clean%20interface%2C%20professional%20product%20photography&width=200&height=400&seq=404&orientation=portrait" alt="OCR家庭財務管理">
+                        </div>
+                        <div class="screenshot-text">
+                            <h4 class="screenshot-title">OCR家庭財務管理</h4>
+                            <p class="screenshot-description">レシートを自動認識し、家計支出を管理します</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="screenshot-content">
+                        <div class="screenshot-image">
+                            <img src="https://readdy.ai/api/search-image?query=mobile%20app%20learning%20assistant%20interface%2C%20study%20planner%20dashboard%20with%20calendar%2C%20knowledge%20Q%26A%20chat%20system%2C%20educational%20progress%20tracking%20charts%2C%20modern%20UI%20design%2C%20smartphone%20screen%20mockup%2C%20blue%20purple%20gradient%20theme%2C%20clean%20minimalist%20interface%2C%20professional%20product%20photography%2C%20learning%20management%20system%20with%20books%20and%20study%20materials&width=200&height=400&seq=501&orientation=portrait" alt="学習アシスタント">
+                        </div>
+                        <div class="screenshot-text">
+                            <h4 class="screenshot-title">学習アシスタント</h4>
+                            <p class="screenshot-description">個人学習プランを作成し、学習をサポートします</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Version Info -->
+            <div class="version-card">
+                <p class="version-title">鋭意開発中</p>
+                <p class="version-subtitle">ご期待ください</p>
+            </div>
+            
+            <!-- Download Button -->
+            <div class="download-section">
+                <button class="download-button" onclick="downloadPage()">
+                    <i class="ri-download-line"></i>
+                    HTML文件をダウンロード
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function downloadPage() {
+            const content = document.documentElement.outerHTML;
+            const blob = new Blob([content], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'product-introduction.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
