@@ -121,3 +121,21 @@
         </div>
     </div>
 </header>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // 获取浏览器首选语言
+    const lang = navigator.language || navigator.userLanguage;
+    let selected = 'en';
+    if (lang.startsWith('zh')) selected = 'zh';
+    else if (lang.startsWith('ja')) selected = 'ja';
+
+    // 切换所有菜单语言
+    document.querySelectorAll('.lang-en').forEach(el => el.classList.toggle('hidden', selected !== 'en'));
+    document.querySelectorAll('.lang-zh').forEach(el => el.classList.toggle('hidden', selected !== 'zh'));
+    document.querySelectorAll('.lang-ja').forEach(el => el.classList.toggle('hidden', selected !== 'ja'));
+
+    // 设置语言选择器当前语言
+    const langMap = { en: 'English', zh: '简体中文', ja: '日本語' };
+    document.querySelectorAll('.current-language').forEach(el => el.textContent = langMap[selected]);
+});
+</script>
